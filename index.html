@@ -62,7 +62,7 @@ nav.links a:hover { color: var(--ink); }
 
 /* 手机外框：截图已去掉状态栏，顶部画一条黑边和灵动岛 */
 .device { position: relative; width: 300px; max-width: 100%; border-radius: 46px; padding: 7px; background: linear-gradient(145deg, #2A3445, #0B111B); box-shadow: var(--shadow-lg), inset 0 0 0 1.5px rgba(255,255,255,.08); }
-.device .screen { position: relative; width: 100%; border-radius: 39px; overflow: hidden; background: #000; }
+.device .screen { position: relative; width: 100%; border-radius: 12.5% / 5.75%; overflow: hidden; background: #000; }
 .device .island { display: none; }
 .device .screen img { width: 100%; height: auto; transition: opacity .35s ease; }
 
@@ -160,7 +160,7 @@ nav.links a:hover { color: var(--ink); }
 .everyday { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; margin-top: 44px; }
 .pair { display: flex; justify-content: center; gap: 22px; }
 .pair .device { width: 230px; border-radius: 40px; padding: 8px; }
-.pair .device .screen { border-radius: 33px; }
+.pair .device .screen { border-radius: 12.5% / 5.75%; }
 .pair .device:nth-child(2) { margin-top: 48px; }
 .list { list-style: none; padding: 0; margin: 0; display: grid; gap: 18px; }
 .list li { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 12px; color: var(--ink-2); }
@@ -238,7 +238,7 @@ footer .legal { display: grid; gap: 4px; }
         <p class="note"><span lang="en">Free · iPhone and Apple Watch · English and 简体中文 · Coming soon to the App Store</span><span lang="zh">免费 · iPhone 和 Apple Watch · English / 简体中文 · 即将上架 App Store</span></p>
       </div>
       <div class="hero-visual reveal">
-        <div class="device"><div class="screen"><span class="island"></span><picture><source srcset="/assets/acked.webp" type="image/webp"><img src="/assets/acked.jpg" alt="AlpMate showing that ski patroller Sam is 250 metres away" width="900" height="1759"></picture></div></div>
+        <div class="device"><div class="screen"><picture><source srcset="/assets/acked.webp" type="image/webp"><img src="/assets/acked.jpg" alt="AlpMate showing that ski patroller Sam is 250 metres away" width="900" height="1955"></picture></div></div>
         <div class="toast t1" aria-hidden="true">
           <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           <span><b><span lang="en">Cardrona ski patrol alerted</span><span lang="zh">已通知卡德罗纳救援队</span></b><small>−44.87350, 168.94700 · ±5 m</small></span>
@@ -290,7 +290,7 @@ footer .legal { display: grid; gap: 4px; }
           </button>
         </div>
         <div class="flow-visual">
-          <div class="device"><div class="screen"><span class="island"></span><img id="flow-img" src="/assets/sos.webp" alt="The AlpMate SOS screen" width="900" height="1759"></div></div>
+          <div class="device"><div class="screen"><img id="flow-img" src="/assets/sos.webp" alt="The AlpMate SOS screen" width="900" height="1955"></div></div>
           <div class="which" id="flow-who"><span class="dot"></span><span lang="en" data-skier="Skier's phone · AlpMate" data-patrol="Ski patrol's phone · AlpMate Patrol">Skier's phone · AlpMate</span><span lang="zh" data-skier="滑雪者的手机 · 雪伴" data-patrol="救援队员的手机 · 雪伴救援">滑雪者的手机 · 雪伴</span></div>
         </div>
       </div>
@@ -375,8 +375,8 @@ footer .legal { display: grid; gap: 4px; }
     <div class="wrap">
       <div class="everyday">
         <div class="pair reveal">
-          <div class="device"><div class="screen"><span class="island"></span><picture><source srcset="/assets/home.webp" type="image/webp"><img src="/assets/home.jpg" alt="AlpMate home screen" width="900" height="1759" loading="lazy"></picture></div></div>
-          <div class="device"><div class="screen"><span class="island"></span><picture><source srcset="/assets/map.webp" type="image/webp"><img src="/assets/map.jpg" alt="Recording a ski day on the Cardrona piste map" width="900" height="1759" loading="lazy"></picture></div></div>
+          <div class="device"><div class="screen"><picture><source srcset="/assets/home.webp" type="image/webp"><img src="/assets/home.jpg" alt="AlpMate home screen" width="900" height="1955" loading="lazy"></picture></div></div>
+          <div class="device"><div class="screen"><picture><source srcset="/assets/map.webp" type="image/webp"><img src="/assets/map.jpg" alt="Recording a ski day on the Cardrona piste map" width="900" height="1955" loading="lazy"></picture></div></div>
         </div>
         <div class="reveal">
           <div class="kicker"><span lang="en">Every day on the mountain</span><span lang="zh">日常滑雪也好用</span></div>
@@ -405,7 +405,7 @@ footer .legal { display: grid; gap: 4px; }
         </ul>
         <div class="cta"><a class="btn dark" href="#contact"><span lang="en">Talk to us about a pilot</span><span lang="zh">联系我们试用</span></a></div>
       </div>
-      <div class="device reveal"><div class="screen"><span class="island"></span><picture><source srcset="/assets/patrol-home.webp" type="image/webp"><img src="/assets/patrol-home.jpg" alt="AlpMate Patrol duty map with active alerts at Cardrona" width="900" height="1759" loading="lazy"></picture></div></div>
+      <div class="device reveal"><div class="screen"><picture><source srcset="/assets/patrol-home.webp" type="image/webp"><img src="/assets/patrol-home.jpg" alt="AlpMate Patrol duty map with active alerts at Cardrona" width="900" height="1955" loading="lazy"></picture></div></div>
     </div>
   </section>
 
