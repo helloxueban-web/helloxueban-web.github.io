@@ -61,9 +61,9 @@ nav.links a:hover { color: var(--ink); }
 @media (max-width: 760px) { nav.links a.opt { display: none; } }
 
 /* 手机外框：截图已去掉状态栏，顶部画一条黑边和灵动岛 */
-.device { position: relative; width: 300px; max-width: 100%; border-radius: 48px; padding: 10px; background: linear-gradient(145deg, #2A3445, #0B111B); box-shadow: var(--shadow-lg), inset 0 0 0 1.5px rgba(255,255,255,.08); }
-.device .screen { position: relative; width: 100%; border-radius: 39px; overflow: hidden; background: #000; padding-top: 34px; }
-.device .island { position: absolute; z-index: 3; top: 9px; left: 50%; transform: translateX(-50%); width: 34%; height: 22px; border-radius: 20px; background: #000; box-shadow: 0 0 0 2px #000; }
+.device { position: relative; width: 300px; max-width: 100%; border-radius: 46px; padding: 7px; background: linear-gradient(145deg, #2A3445, #0B111B); box-shadow: var(--shadow-lg), inset 0 0 0 1.5px rgba(255,255,255,.08); }
+.device .screen { position: relative; width: 100%; border-radius: 39px; overflow: hidden; background: #000; }
+.device .island { display: none; }
 .device .screen img { width: 100%; height: auto; transition: opacity .35s ease; }
 
 .hero { position: relative; overflow: hidden; color: #fff; background:
@@ -160,8 +160,7 @@ nav.links a:hover { color: var(--ink); }
 .everyday { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; margin-top: 44px; }
 .pair { display: flex; justify-content: center; gap: 22px; }
 .pair .device { width: 230px; border-radius: 40px; padding: 8px; }
-.pair .device .screen { border-radius: 33px; padding-top: 28px; }
-.pair .device .island { top: 7px; height: 18px; }
+.pair .device .screen { border-radius: 33px; }
 .pair .device:nth-child(2) { margin-top: 48px; }
 .list { list-style: none; padding: 0; margin: 0; display: grid; gap: 18px; }
 .list li { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 12px; color: var(--ink-2); }
