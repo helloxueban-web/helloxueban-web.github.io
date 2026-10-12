@@ -368,36 +368,42 @@ footer .legal { display: grid; gap: 4px; }
       <p class="intro"><span lang="en">Rescue starts from your phone's raw GPS and its accuracy circle. Runs on the map are only a reference, so patrol always knows how sure the location is.</span><span lang="zh">救援以手机的原始 GPS 和误差范围为准，地图上的雪道只作参考。救援队始终清楚这个位置有多准。</span></p>
       <div class="live-grid">
         <div class="mapcard reveal">
-          <svg id="livemap" viewBox="0 0 640 420" role="img" aria-label="Illustration: a patroller moving towards a skier's location">
+          <svg id="livemap" viewBox="0 0 640 420" role="img" aria-label="Illustration: a patroller skiing down a run to an injured skier">
             <defs>
-              <radialGradient id="g-acc" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#4E92E4" stop-opacity=".38"/><stop offset="1" stop-color="#4E92E4" stop-opacity=".08"/></radialGradient>
+              <radialGradient id="g-acc" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#4E92E4" stop-opacity=".4"/><stop offset="1" stop-color="#4E92E4" stop-opacity=".08"/></radialGradient>
               <linearGradient id="g-ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1C3352"/><stop offset="1" stop-color="#0E1E33"/></linearGradient>
               <pattern id="g-grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="rgba(255,255,255,.04)"/></pattern>
             </defs>
             <rect width="640" height="420" fill="url(#g-ground)"/>
             <rect width="640" height="420" fill="url(#g-grid)"/>
             <g fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1.2">
-              <path d="M-20 300 C 120 240, 220 330, 360 250 S 560 180, 680 230"/>
-              <path d="M-20 340 C 140 280, 240 370, 380 290 S 580 220, 680 270"/>
-              <path d="M-20 260 C 100 200, 200 290, 340 210 S 540 140, 680 190"/>
-              <path d="M-20 220 C 90 160, 190 250, 320 170 S 520 100, 680 150"/>
-              <path d="M-20 180 C 80 120, 180 210, 300 130 S 500 60, 680 110"/>
+              <path d="M-20 330 C 120 270, 240 360, 380 290 S 560 220, 680 260"/>
+              <path d="M-20 280 C 110 220, 230 310, 360 240 S 550 170, 680 210"/>
+              <path d="M-20 230 C 100 170, 210 260, 340 190 S 540 120, 680 160"/>
+              <path d="M-20 180 C 90 120, 200 210, 320 140 S 520 70, 680 110"/>
             </g>
-            <g fill="none" stroke-linecap="round" stroke-width="5" opacity=".9">
-              <path d="M90 40 C 140 140, 150 220, 210 300 S 300 400, 330 430" stroke="#2E7CE0"/>
-              <path d="M250 20 C 280 110, 330 160, 360 230 S 420 330, 470 430" stroke="#16A34A"/>
-              <path d="M520 30 C 500 120, 470 180, 440 250 S 410 360, 420 430" stroke="#E5484D"/>
+            <!-- 雪道：蓝道、绿道（救援路线）、红道 -->
+            <g fill="none" stroke-linecap="round" stroke-width="6" opacity=".9">
+              <path d="M70 70 C 110 150, 120 230, 170 300 S 250 400, 270 440" stroke="#2E7CE0"/>
+              <path id="run" d="M318 78 C 330 140, 300 190, 330 240 S 420 300, 410 360 S 380 420, 390 450" stroke="#16A34A"/>
+              <path d="M560 40 C 520 120, 520 180, 480 250 S 450 360, 470 450" stroke="#E5484D"/>
             </g>
-            <g stroke="#fff" stroke-width="2" opacity=".5"><path d="M60 400 L 300 60"/><circle cx="60" cy="400" r="4" fill="#fff"/><circle cx="300" cy="60" r="4" fill="#fff"/></g>
-            <path id="route" d="M120 360 C 190 340, 230 310, 270 280 S 330 230, 362 206" fill="none" stroke="#7CF0A6" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round" opacity=".85"/>
-            <g transform="translate(372 198)">
-              <circle r="46" fill="url(#g-acc)" stroke="#4E92E4" stroke-opacity=".7" stroke-dasharray="3 4"/>
+            <!-- 缆车：底站到顶站 -->
+            <g stroke="#fff" stroke-width="2" opacity=".55"><path d="M120 400 L 318 78"/></g>
+            <circle cx="120" cy="400" r="5" fill="#fff" opacity=".8"/>
+            <!-- 顶站救援点 -->
+            <g transform="translate(318 66)"><rect x="-13" y="-13" width="26" height="26" rx="7" fill="#E5484D" stroke="#fff" stroke-width="2.5"/><path d="M-6 0h12M0 -6v12" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></g>
+            <text x="338" y="58" fill="rgba(255,255,255,.65)" font-size="11.5" font-family="Inter, sans-serif" font-weight="600">Patrol base</text>
+            <!-- 救援队员滑过的轨迹 -->
+            <path id="trail" fill="none" stroke="#7CF0A6" stroke-width="3" stroke-linecap="round" opacity=".95"/>
+            <g id="skier">
+              <circle r="44" fill="url(#g-acc)" stroke="#4E92E4" stroke-opacity=".7" stroke-dasharray="3 4"/>
               <circle r="9" fill="none" stroke="#4E92E4" stroke-width="2"><animate attributeName="r" values="9;26" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".8;0" dur="2s" repeatCount="indefinite"/></circle>
               <circle r="9" fill="#2F6FBF" stroke="#fff" stroke-width="3"/>
+              <g font-family="Inter, sans-serif" font-size="12" font-weight="600"><path d="M46 0 h26" stroke="#CFE3FF" stroke-width="1.2"/><text x="78" y="4" fill="#CFE3FF">±5 m</text></g>
             </g>
-            <g font-family="Inter, sans-serif" font-size="12" font-weight="600"><path d="M418 198 h32" stroke="#CFE3FF" stroke-width="1.2"/><text x="456" y="202" fill="#CFE3FF">±5 m</text></g>
-            <g id="patroller" transform="translate(120 360)">
-              <circle r="15" fill="#16A34A" stroke="#fff" stroke-width="3"/>
+            <g id="patroller" transform="translate(318 78)">
+              <circle r="14" fill="#16A34A" stroke="#fff" stroke-width="3"/>
               <path d="M-6 0h12M0 -6v12" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
             </g>
             <g transform="translate(596 368)" font-family="Inter, sans-serif" font-size="11" fill="rgba(255,255,255,.7)"><path d="M0 -28 L6 -12 L0 -16 L-6 -12 Z"/><text x="-4" y="0">N</text></g>
@@ -407,7 +413,7 @@ footer .legal { display: grid; gap: 4px; }
             <span class="chip dist"><span class="dot" style="background:#16A34A"></span><span lang="en">Sam is <span class="d">480</span> m away</span><span lang="zh">Sam 距你 <span class="d">480</span> 米</span></span>
           </div>
           <div class="mapfoot">
-            <span class="illus"><span lang="en">Illustration · location updates every 15 s</span><span lang="zh">示意图 · 位置每 15 秒更新</span></span>
+            <span class="illus"><span lang="en">Illustration · the patroller skis to your location</span><span lang="zh">示意图 · 救援队员沿雪道滑到你的位置</span></span>
             <button class="replay" id="replay" type="button"><span lang="en">↻ Replay</span><span lang="zh">↻ 重播</span></button>
           </div>
         </div>
@@ -609,27 +615,36 @@ footer .legal { display: grid; gap: 4px; }
   flow.addEventListener('mouseenter', function () { paused = true; flow.classList.add('paused'); clearTimeout(timer); });
   flow.addEventListener('mouseleave', function () { paused = false; flow.classList.remove('paused'); schedule(); });
 
-  // 实时地图：队员沿路线靠近，距离读数递减
-  var route = document.getElementById('route'), pat = document.getElementById('patroller');
+  // 实时地图：救援队员从顶站出发，沿绿道滑到伤者位置；距离按剩余路程递减
+  var run = document.getElementById('run'), pat = document.getElementById('patroller'), trail = document.getElementById('trail');
+  var skier = document.getElementById('skier');
   var ds = document.querySelectorAll('.chip.dist .d');
-  var len = route.getTotalLength(), raf = null, start = null, RUN = 9000, FROM = 480, TO = 20;
+  var len = run.getTotalLength(), AT = len * 0.58, STOP = AT - 26, raf = null, start = null, RUN = 9000, FROM = 480, TO = 20;
+  var a = run.getPointAtLength(AT);
+  skier.setAttribute('transform', 'translate(' + a.x.toFixed(1) + ' ' + a.y.toFixed(1) + ')');
+  trail.setAttribute('d', run.getAttribute('d'));
+  trail.style.strokeDasharray = len + ' ' + len;
   function setDist(v) { ds.forEach(function (d) { d.textContent = v; }); }
+  function place(e) {
+    var at = e * STOP, p = run.getPointAtLength(at);
+    pat.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ' ' + p.y.toFixed(1) + ')');
+    trail.style.strokeDashoffset = len - at;
+    setDist(Math.max(TO, Math.round((FROM - (FROM - TO) * e) / 10) * 10));
+  }
   var tick = null;
   function draw() {
     var k = Math.min(1, (Date.now() - start) / RUN), e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
-    var p = route.getPointAtLength(e * len);
-    pat.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ' ' + p.y.toFixed(1) + ')');
-    setDist(Math.round((FROM - (FROM - TO) * e) / 10) * 10);
+    place(e);
     return k < 1;
   }
   function frame() { if (draw()) raf = requestAnimationFrame(frame); }
   function play() {
     cancelAnimationFrame(raf); clearInterval(tick); start = Date.now();
-    if (reduce) { var p = route.getPointAtLength(len * .55); pat.setAttribute('transform', 'translate(' + p.x + ' ' + p.y + ')'); setDist(250); return; }
+    if (reduce) { place(.55); return; }
     raf = requestAnimationFrame(frame);
-    // 有的环境不跑 requestAnimationFrame：用定时器兜底
     tick = setInterval(function () { if (!draw()) clearInterval(tick); }, 60);
   }
+  place(0);
   document.getElementById('replay').addEventListener('click', play);
 
   // 进入视口时淡入；地图第一次出现时开始播放
