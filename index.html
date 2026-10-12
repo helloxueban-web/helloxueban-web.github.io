@@ -9,6 +9,10 @@
 <meta property="og:description" content="Alert ski patrol with your location and accuracy, see who is coming, keep your crew on one map. Built in New Zealand.">
 <meta property="og:image" content="https://alpmate.nz/assets/og.jpg">
 <meta property="og:url" content="https://alpmate.nz/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://alpmate.nz/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AlpMate Technologies Limited","alternateName":["AlpMate","雪伴"],"url":"https://alpmate.nz/","logo":"https://alpmate.nz/assets/icon.png","email":"hello@alpmate.nz","address":{"@type":"PostalAddress","addressLocality":"Auckland","addressCountry":"NZ"},"identifier":{"@type":"PropertyValue","propertyID":"NZ company number","value":"9465264"}}</script>
 <meta name="theme-color" content="#2F6FBF">
 <link rel="icon" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -102,6 +106,30 @@ nav.links a:hover { color: var(--ink); }
 .facts { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 30px; padding-block: 28px 0; color: var(--ink-2); font-size: 15px; font-weight: 500; }
 .facts > span { display: inline-flex; align-items: center; gap: 8px; }
 .facts svg { color: var(--brand); flex: none; }
+
+/* 测试状态条 */
+.status { display: flex; gap: 12px; align-items: flex-start; margin-top: 22px; padding: 12px 14px; border-radius: 14px; background: rgba(8,22,45,.28); border: 1px solid rgba(255,255,255,.28); font-size: 14px; line-height: 1.45; color: rgba(255,255,255,.95); max-width: 34em; }
+.status .pill { flex: none; font-size: 11.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; background: #FFD166; color: #3A2A00; margin-top: 1px; }
+.demo-tag { position: absolute; z-index: 5; left: 50%; bottom: -14px; transform: translateX(-50%); white-space: nowrap; font-size: 11.5px; font-weight: 600; letter-spacing: .04em; padding: 5px 10px; border-radius: 999px; background: rgba(15,30,54,.82); color: #fff; }
+.link-down { display: inline-block; margin-top: 14px; color: #fff; font-weight: 600; font-size: 14.5px; text-decoration: none; opacity: .9; }
+.link-down:hover { opacity: 1; text-decoration: underline; }
+
+/* 日常三件事（首屏之后） */
+.daily { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 36px; }
+.daily .card { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 14px; align-items: start; padding: 20px; }
+.daily .card .ic { margin: 0; }
+.daily .card h3 { font-size: 17.5px; margin-bottom: 4px; }
+.daily .card p { font-size: 14.5px; }
+@media (max-width: 860px) { .daily { grid-template-columns: 1fr; } }
+
+/* 常见问题 */
+.faq { display: grid; gap: 10px; margin-top: 36px; max-width: 820px; }
+.faq details { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 0 20px; }
+.faq summary { cursor: pointer; list-style: none; padding: 18px 0; font-weight: 600; font-size: 16.5px; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-size: 22px; line-height: 1; color: var(--brand); transition: transform .2s; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { color: var(--ink-2); padding-bottom: 18px; font-size: 15.5px; }
 
 /* 求助流程 */
 .flow { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 64px; align-items: center; margin-top: 48px; }
@@ -214,7 +242,7 @@ footer .legal { display: grid; gap: 4px; }
     <nav class="links">
       <a class="opt" href="#how"><span lang="en">How it works</span><span lang="zh">怎么用</span></a>
       <a class="opt" href="#resorts"><span lang="en">For resorts</span><span lang="zh">给雪场</span></a>
-      <a class="opt" href="#privacy"><span lang="en">Privacy</span><span lang="zh">隐私</span></a>
+      <a class="opt" href="#faq"><span lang="en">FAQ</span><span lang="zh">常见问题</span></a>
       <button class="lang" id="lang" type="button" aria-label="Switch language"><span lang="en">中文</span><span lang="zh">English</span></button>
     </nav>
   </div>
@@ -225,23 +253,24 @@ footer .legal { display: grid; gap: 4px; }
     <svg class="ridge" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true"><path d="M0 120 L120 88 L210 110 L320 54 L430 96 L520 70 L640 112 L760 40 L880 98 L990 76 L1090 118 L1200 62 L1320 100 L1440 80 L1440 180 L0 180 Z" fill="var(--bg)" opacity=".55"/><path d="M0 150 L140 124 L260 140 L380 108 L520 138 L660 116 L800 146 L940 112 L1080 140 L1220 120 L1340 142 L1440 128 L1440 180 L0 180 Z" fill="var(--bg)"/></svg>
     <div class="wrap">
       <div>
-        <span class="eyebrow"><span class="dot"></span><span lang="en">Ski safety app · New Zealand</span><span lang="zh">滑雪安全 App · 新西兰</span></span>
+        <span class="eyebrow"><span class="dot"></span><span lang="en">Ski safety app · Built in New Zealand</span><span lang="zh">滑雪安全 App · 新西兰出品</span></span>
         <h1><span lang="en">Ski together.<br>Ski safer.</span><span lang="zh">滑雪，<br>有伴更安心</span></h1>
         <p class="lead">
-          <span lang="en">If something goes wrong on the mountain, AlpMate sends ski patrol your location and how accurate it is — then shows you who is coming and how far away they are.</span>
-          <span lang="zh">在山上出了状况，雪伴把你的位置和误差范围发给雪场救援队，并让你看到谁在赶来、离你还有多远。</span>
+          <span lang="en">Track your ski day and keep your crew on one map. If something goes wrong at a resort connected to AlpMate Patrol, send ski patrol your location and its accuracy — and see who is coming and how far away they are.</span>
+          <span lang="zh">记录滑雪、小队在同一张地图上互相看到。在接入雪伴救援的雪场出了状况，可以把你的位置和误差范围发给救援队，并看到谁在赶来、离你还有多远。</span>
         </p>
         <div class="cta">
-          <a class="btn light" href="#how"><span lang="en">See how an alert works</span><span lang="zh">看看求助怎么运作</span></a>
+          <a class="btn light" href="mailto:hello@alpmate.nz?subject=Notify%20me%20when%20AlpMate%20launches&amp;body=Hi%20AlpMate%2C%20please%20let%20me%20know%20when%20the%20app%20is%20available.%20I%20usually%20ski%20at%3A%20"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span lang="en">Get notified at launch</span><span lang="zh">上线时通知我</span></a>
           <a class="btn ghost" href="#resorts"><span lang="en">For ski resorts →</span><span lang="zh">雪场合作 →</span></a>
         </div>
-        <p class="note"><span lang="en">Free · iPhone and Apple Watch · English and 简体中文 · Coming soon to the App Store</span><span lang="zh">免费 · iPhone 和 Apple Watch · English / 简体中文 · 即将上架 App Store</span></p>
+        <div class="status"><span class="pill"><span lang="en">Beta</span><span lang="zh">测试中</span></span><span><span lang="en">AlpMate is in testing and coming soon to the App Store. Ski-patrol alerts only work at resorts connected to AlpMate Patrol — no resort is connected yet, and we're recruiting pilot resorts.</span><span lang="zh">雪伴正在测试，即将上架 App Store。通知救援队只在接入雪伴救援的雪场有效；目前还没有雪场正式接入，我们正在招募试点雪场。</span></span></div>
+        <a class="link-down" href="#how"><span lang="en">See how an alert works ↓</span><span lang="zh">看看求助怎么运作 ↓</span></a>
       </div>
       <div class="hero-visual reveal">
-        <div class="device"><div class="screen"><picture><source srcset="/assets/acked.webp" type="image/webp"><img src="/assets/acked.jpg" alt="AlpMate showing that ski patroller Sam is 250 metres away" width="900" height="1955"></picture></div></div>
+        <div class="device"><span class="demo-tag"><span lang="en">Demo · sample data</span><span lang="zh">功能演示 · 示例数据</span></span><div class="screen"><picture><source srcset="/assets/acked.webp" type="image/webp"><img src="/assets/acked.jpg" alt="AlpMate showing that ski patroller Sam is 250 metres away" width="900" height="1955"></picture></div></div>
         <div class="toast t1" aria-hidden="true">
           <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
-          <span><b><span lang="en">Cardrona ski patrol alerted</span><span lang="zh">已通知卡德罗纳救援队</span></b><small>−44.87350, 168.94700 · ±5 m</small></span>
+          <span><b><span lang="en">Ski patrol alerted</span><span lang="zh">已通知雪场救援队</span></b><small>−44.87350, 168.94700 · ±5 m</small></span>
         </div>
         <div class="toast t2" aria-hidden="true">
           <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span>
@@ -253,15 +282,23 @@ footer .legal { display: grid; gap: 4px; }
 
   <div class="wrap facts">
     <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/></svg><span lang="en">Raw GPS with accuracy</span><span lang="zh">原始 GPS 和误差范围</span></span>
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span lang="en">Rings until a patroller accepts</span><span lang="zh">响到有队员接收为止</span></span>
+    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span lang="en">Alarm repeats until a patroller accepts</span><span lang="zh">警报重复，直到有队员接收</span></span>
     <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg><span lang="en">No ads, no tracking</span><span lang="zh">没有广告，不做追踪</span></span>
   </div>
+
+  <section class="wrap" aria-label="Everyday features" style="padding-top: 8px">
+    <div class="daily">
+      <article class="card reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 8-8"/><path d="M14 8h6v6"/></svg></div><div><h3><span lang="en">Ski tracks</span><span lang="zh">雪迹记录</span></h3><p><span lang="en">Runs, vertical, distance and top speed for every day, with heart rate from Apple Watch.</span><span lang="zh">每天的趟数、落差、里程和最高时速，戴 Apple Watch 还能记心率。</span></p></div></article>
+      <article class="card reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M15 14.5c2.8 0 5 2.2 5 5"/></svg></div><div><h3><span lang="en">Your crew on one map</span><span lang="zh">小队互相看到</span></h3><p><span lang="en">Find each other on the mountain and chat with text, voice and photos. Deleted after 24 hours.</span><span lang="zh">在山上找到彼此，发文字、语音和照片，24 小时后自动删除。</span></p></div></article>
+      <article class="card reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4z"/><path d="M8 2v16M16 6v16"/></svg></div><div><h3><span lang="en">Piste maps</span><span lang="zh">雪道地图</span></h3><p><span lang="en">Runs and lifts for New Zealand ski areas on satellite imagery, checked for the main resorts.</span><span lang="zh">卫星图上的新西兰各雪场雪道和缆车，主要雪场核对过。</span></p></div></article>
+    </div>
+  </section>
 
   <section class="block" id="how">
     <div class="wrap">
       <div class="kicker"><span lang="en">How an alert works</span><span lang="zh">求助怎么运作</span></div>
       <h2><span lang="en">From one tap to a patroller at your side</span><span lang="zh">从点一下，到救援队员赶到身边</span></h2>
-      <p class="intro"><span lang="en">Tap a step to see the screen. The skier and the ski patrol see the same alert, updated in real time.</span><span lang="zh">点击每一步看对应的画面。求助的人和救援队看到的是同一条实时更新的求助。</span></p>
+      <p class="intro"><span lang="en">Tap a step to see the screen. The skier and the ski patrol see the same alert, updated in real time. Screens show sample data.</span><span lang="zh">点击每一步看对应的画面。求助的人和救援队看到的是同一条实时更新的求助。画面为示例数据。</span></p>
       <div class="flow" id="flow">
         <div class="steps" role="tablist" aria-label="Alert steps">
           <button class="step sos" role="tab" aria-selected="true" data-img="sos" data-side="skier">
@@ -273,13 +310,13 @@ footer .legal { display: grid; gap: 4px; }
           <button class="step" role="tab" aria-selected="false" data-img="patrol-home" data-side="patrol">
             <span class="num">2</span>
             <span><h3><span lang="en">Patrol phones ring</span><span lang="zh">救援队的手机响起</span></h3>
-            <p><span lang="en">On-duty patrollers are alerted on the lock screen, even in silent mode, until someone accepts. Critical reports go to the top.</span><span lang="zh">在岗队员会收到警报，锁屏、静音也会响，直到有人接收；情况危急的排在最前面。</span></p></span>
+            <p><span lang="en">On-duty patrollers get an alarm on the lock screen that repeats until someone accepts — and rings even on silent while the app is running on duty. Critical reports go to the top.</span><span lang="zh">在岗队员的锁屏上会响起警报，没人接收就一直重复；在岗、App 在运行时，静音也会响。情况危急的排在最前面。</span></p></span>
             <span class="bar-p"></span>
           </button>
           <button class="step" role="tab" aria-selected="false" data-img="patrol-detail" data-side="patrol">
             <span class="num">3</span>
             <span><h3><span lang="en">The closest patroller responds</span><span lang="zh">最近的队员接单</span></h3>
-            <p><span lang="en">Live location every 15 seconds with accuracy, altitude and direction. The skier's language is flagged so nothing gets lost.</span><span lang="zh">实时位置每 15 秒更新，附带误差、海拔和方位；还会标出求助人的语言，避免沟通出错。</span></p></span>
+            <p><span lang="en">Live location every 15 seconds when there's signal, with accuracy, altitude and direction. The skier's language is shown so nothing gets lost.</span><span lang="zh">有信号时实时位置每 15 秒更新，附带误差、海拔和方位；还会标出求助人的语言，避免沟通出错。</span></p></span>
             <span class="bar-p"></span>
           </button>
           <button class="step" role="tab" aria-selected="false" data-img="acked" data-side="skier">
@@ -291,7 +328,7 @@ footer .legal { display: grid; gap: 4px; }
         </div>
         <div class="flow-visual">
           <div class="device"><div class="screen"><img id="flow-img" src="/assets/sos.webp" alt="The AlpMate SOS screen" width="900" height="1955"></div></div>
-          <div class="which" id="flow-who"><span class="dot"></span><span lang="en" data-skier="Skier's phone · AlpMate" data-patrol="Ski patrol's phone · AlpMate Patrol">Skier's phone · AlpMate</span><span lang="zh" data-skier="滑雪者的手机 · 雪伴" data-patrol="救援队员的手机 · 雪伴救援">滑雪者的手机 · 雪伴</span></div>
+          <div class="which" id="flow-who" title="Demo · sample data"><span class="dot"></span><span lang="en" data-skier="Skier's phone · AlpMate" data-patrol="Ski patrol's phone · AlpMate Patrol">Skier's phone · AlpMate</span><span lang="zh" data-skier="滑雪者的手机 · 雪伴" data-patrol="救援队员的手机 · 雪伴救援">滑雪者的手机 · 雪伴</span></div>
         </div>
       </div>
     </div>
@@ -349,7 +386,7 @@ footer .legal { display: grid; gap: 4px; }
         </div>
         <ul class="reveal">
           <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></span><span><b><span lang="en">Accuracy, always shown</span><span lang="zh">一直显示误差范围</span></b><span lang="en">Coordinates come with ± metres and how fresh the fix is, on both phones.</span><span lang="zh">两边的手机上，坐标都附带误差米数和定位时间。</span></span></li>
-          <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></span><span><b><span lang="en">Updates every 15 seconds</span><span lang="zh">每 15 秒更新一次</span></b><span lang="en">If you move or are moved, patrol follows the latest position until the alert is closed.</span><span lang="zh">如果你移动了或被人带走，救援队会一直看到最新位置，直到求助结束。</span></span></li>
+          <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></span><span><b><span lang="en">Updates every 15 seconds</span><span lang="zh">每 15 秒更新一次</span></b><span lang="en">While your phone has signal and location access, patrol follows your latest position until the alert is closed.</span><span lang="zh">手机有信号、并允许定位时，救援队会一直看到你的最新位置，直到求助结束。</span></span></li>
           <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M12 3v18"/><circle cx="12" cy="12" r="9"/></svg></span><span><b><span lang="en">Distance both ways</span><span lang="zh">双方都知道距离</span></b><span lang="en">You see how far away your patroller is; they see your direction and distance.</span><span lang="zh">你能看到队员离你多远，队员能看到你在哪个方向、多远。</span></span></li>
         </ul>
       </div>
@@ -361,7 +398,7 @@ footer .legal { display: grid; gap: 4px; }
       <div class="kicker"><span lang="en">Built for the bad moments</span><span lang="zh">为最糟的时刻而设计</span></div>
       <h2><span lang="en">Safety nets at every step</span><span lang="zh">每一步都有兜底</span></h2>
       <div class="safety-grid">
-        <article class="card reveal"><div class="ic amber"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg></div><h3><span lang="en">2-minute escalation</span><span lang="zh">2 分钟没人接就升级</span></h3><p><span lang="en">If no patroller accepts within two minutes, AlpMate tells you, even on the lock screen, to call the patrol line or 111, with one-tap buttons.</span><span lang="zh">两分钟内没有队员接收，雪伴会提醒你（锁屏也能看到）直接拨打雪场救援电话或 111，一键拨号。</span></p></article>
+        <article class="card reveal"><div class="ic amber"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg></div><h3><span lang="en">2-minute escalation</span><span lang="zh">2 分钟没人接就升级</span></h3><p><span lang="en">If no patroller accepts within two minutes, AlpMate tells you to call the patrol line or 111, with one-tap buttons — on the lock screen too, if notifications are on.</span><span lang="zh">两分钟内没有队员接收，雪伴会提醒你直接拨打雪场救援电话或 111，一键拨号；打开了通知的话，锁屏上也能看到。</span></p></article>
         <article class="card reveal"><div class="ic red"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></div><h3><span lang="en">111 is always one tap away</span><span lang="zh">111 永远一键可拨</span></h3><p><span lang="en">AlpMate works alongside emergency services, never instead of them. The resort's patrol line is right there too.</span><span lang="zh">雪伴和紧急服务一起用，而不是取代它；雪场的救援电话也在旁边。</span></p></article>
         <article class="card reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div><h3><span lang="en">Help someone else</span><span lang="zh">帮别人求助</span></h3><p><span lang="en">Found someone hurt? Report whether they are awake and breathing, how many people, and add a photo. Critical reports jump the queue.</span><span lang="zh">遇到有人受伤？报告对方是否清醒、有没有呼吸、几个人，还可以附照片；危急的报告会排在最前。</span></p></article>
         <article class="card reveal"><div class="ic red"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="15" rx="3"/><path d="M12 9v6M9 12h6"/></svg></div><h3><span lang="en">Medical card, your choice</span><span lang="zh">医疗信息卡，你说了算</span></h3><p><span lang="en">Blood type, allergies and medications stay on your phone, and go to patrol only with your alert, and only if you turned sharing on.</span><span lang="zh">血型、过敏、用药只存在你的手机上；只有你发出求助、并且打开了分享，才会发给救援队。</span></p></article>
@@ -396,14 +433,14 @@ footer .legal { display: grid; gap: 4px; }
       <div class="reveal">
         <div class="patrol-head"><img src="/assets/patrol-icon.png" alt="" width="52" height="52"><div class="kicker" style="color: var(--sos)"><span lang="en">For ski resorts</span><span lang="zh">给雪场</span></div></div>
         <h2 style="margin-top: 14px"><span lang="en">AlpMate Patrol</span><span lang="zh">雪伴救援</span></h2>
-        <p class="intro"><span lang="en">A companion app for your ski patrol. It works alongside your radios and patrol line, and turns a skier's tap into a located, actionable alert.</span><span lang="zh">给雪场救援队用的配套 App，和你们现有的对讲机、救援电话一起用，把滑雪者的求助变成带位置、能马上行动的警报。</span></p>
+        <p class="intro"><span lang="en">Now recruiting pilot resorts for next season. A companion app for your ski patrol. It works alongside your radios and patrol line, and turns a skier's tap into a located, actionable alert.</span><span lang="zh">正在招募下个雪季的试点雪场。给雪场救援队用的配套 App，和你们现有的对讲机、救援电话一起用，把滑雪者的求助变成带位置、能马上行动的警报。</span></p>
         <ul class="list" style="margin-top: 24px">
-          <li><span class="tick">✓</span><span><span lang="en"><b>Alerts that ring</b> on the lock screen until a patroller accepts.</span><span lang="zh"><b>锁屏也会响</b>，直到有队员点「我去处理」。</span></span></li>
+          <li><span class="tick">✓</span><span><span lang="en"><b>A lock-screen alarm</b> that repeats until a patroller accepts.</span><span lang="zh"><b>锁屏警报</b>，没人接收就一直重复，直到有队员点「我去处理」。</span></span></li>
           <li><span class="tick">✓</span><span><span lang="en"><b>Nearest on-duty patroller first</b>, with the team's live positions.</span><span lang="zh"><b>最近的在岗队员优先</b>，队员位置实时可见。</span></span></li>
           <li><span class="tick">✓</span><span><span lang="en"><b>Critical and bystander reports</b> highlighted, with duplicate reports merged.</span><span lang="zh"><b>危急报告和旁观者报告</b>突出显示，同一起事故的重复报告自动合并。</span></span></li>
           <li><span class="tick">✓</span><span><span lang="en"><b>Incident reports</b> for your safety records and WorkSafe reporting.</span><span lang="zh"><b>事故记录单</b>，方便安全统计和向 WorkSafe 报告。</span></span></li>
         </ul>
-        <div class="cta"><a class="btn dark" href="#contact"><span lang="en">Talk to us about a pilot</span><span lang="zh">联系我们试用</span></a></div>
+        <div class="cta"><a class="btn dark" href="#contact"><span lang="en">Become a pilot resort</span><span lang="zh">成为试点雪场</span></a></div>
       </div>
       <div class="device reveal"><div class="screen"><picture><source srcset="/assets/patrol-home.webp" type="image/webp"><img src="/assets/patrol-home.jpg" alt="AlpMate Patrol duty map with active alerts at Cardrona" width="900" height="1955" loading="lazy"></picture></div></div>
     </div>
@@ -414,6 +451,21 @@ footer .legal { display: grid; gap: 4px; }
       <div class="safety-note reveal">
         <h3><span lang="en">AlpMate is a safety support tool, not an emergency service.</span><span lang="zh">雪伴是安全辅助工具，不是紧急服务。</span></h3>
         <p><span lang="en">In a life-threatening emergency, call 111 first. Alerting ski patrol only works at resorts using AlpMate Patrol, inside the resort area and while patrol is on duty, and delivery depends on signal, battery and your phone's settings. Rescue is carried out by the resort's own patrol.</span><span lang="zh">遇到危及生命的情况，请先拨打 111。通知救援队只在接入雪伴救援的雪场、雪场范围内、救援队值守时间有效，能否送到取决于信号、电量和手机设置。救援由雪场自己的救援队负责。</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="faq" style="padding-top: 0">
+    <div class="wrap">
+      <div class="kicker"><span lang="en">FAQ</span><span lang="zh">常见问题</span></div>
+      <h2><span lang="en">Good questions</span><span lang="zh">你可能想知道</span></h2>
+      <div class="faq">
+        <details><summary><span lang="en">When can I download AlpMate?</span><span lang="zh">什么时候能下载？</span></summary><p><span lang="en">AlpMate is in beta testing and coming soon to the App Store for iPhone and Apple Watch. Tap "Get notified at launch" and we'll email you when it's available.</span><span lang="zh">雪伴正在测试，即将在 App Store 上架（iPhone 和 Apple Watch）。点「上线时通知我」，上线时我们会发邮件告诉你。</span></p></details>
+        <details><summary><span lang="en">Which resorts can I alert ski patrol at?</span><span lang="zh">哪些雪场可以通知救援队？</span></summary><p><span lang="en">Only resorts connected to AlpMate Patrol. None is connected yet — we're working with resorts on pilots. Everywhere else, the SOS screen still shows your location and accuracy, the resort's patrol number and one-tap 111.</span><span lang="zh">只有接入雪伴救援的雪场。目前还没有雪场正式接入，我们正在和雪场洽谈试点。在其他雪场，求助页面仍然会显示你的位置和误差、雪场救援电话，并能一键拨打 111。</span></p></details>
+        <details><summary><span lang="en">Does AlpMate replace calling 111?</span><span lang="zh">雪伴能代替拨打 111 吗？</span></summary><p><span lang="en">No. AlpMate is a safety support tool, not an emergency service. In a life-threatening emergency, call 111 first — it's one tap away in the app.</span><span lang="zh">不能。雪伴是安全辅助工具，不是紧急服务。危及生命时请先拨打 111，App 里一键就能拨。</span></p></details>
+        <details><summary><span lang="en">What if there's no mobile signal?</span><span lang="zh">没有信号怎么办？</span></summary><p><span lang="en">An alert needs a data connection to reach patrol. Without signal, your coordinates are still shown on screen to read out, and you can use the rescue light. Tell lift staff if you can — they can radio patrol.</span><span lang="zh">求助要有网络才能发到救援队。没有信号时，坐标仍然会显示在屏幕上，可以念给别人听，也可以打开求救灯光；能的话告诉缆车工作人员，他们可以用对讲机呼叫巡逻队。</span></p></details>
+        <details><summary><span lang="en">Is my location shared all the time?</span><span lang="zh">我的位置会一直被共享吗？</span></summary><p><span lang="en">No. Your location goes to your team only when you join one, and to ski patrol only when you send an alert. Team locations delete after 24 hours.</span><span lang="zh">不会。只有你加入小队时，位置才会给队友看；只有你发出求助时，才会发给救援队。小队位置 24 小时后自动删除。</span></p></details>
+        <details><summary><span lang="en">Is it free?</span><span lang="zh">要钱吗？</span></summary><p><span lang="en">Yes, AlpMate is free for skiers and snowboarders. There are no ads and we don't sell data.</span><span lang="zh">免费。没有广告，也不卖数据。</span></p></details>
       </div>
     </div>
   </section>
@@ -438,6 +490,7 @@ footer .legal { display: grid; gap: 4px; }
       <h2 style="margin-bottom: 18px"><span lang="en">Questions, feedback or a resort pilot?</span><span lang="zh">有问题、建议，或者想在雪场试用？</span></h2>
       <a class="mail" href="mailto:hello@alpmate.nz">hello@alpmate.nz</a>
       <p style="margin-top: 14px; color: var(--ink-2)"><span lang="en">AlpMate is in beta and coming soon to the App Store.</span><span lang="zh">雪伴正在测试，即将上架 App Store。</span></p>
+      <div class="cta" style="justify-content: center"><a class="btn dark" href="mailto:hello@alpmate.nz?subject=Notify%20me%20when%20AlpMate%20launches"><span lang="en">Get notified at launch</span><span lang="zh">上线时通知我</span></a><a class="btn" style="border: 1px solid var(--line); background: var(--surface); color: var(--ink)" href="mailto:partners@alpmate.nz?subject=AlpMate%20Patrol%20pilot"><span lang="en">Resort pilot enquiry</span><span lang="zh">雪场试点咨询</span></a></div>
     </div>
   </section>
 </main>
@@ -496,7 +549,13 @@ footer .legal { display: grid; gap: 4px; }
     schedule();
   }
   function schedule() { clearTimeout(timer); if (!paused && !reduce) timer = setTimeout(function () { show(cur + 1); }, DUR); }
-  steps.forEach(function (s, k) { s.addEventListener('click', function () { show(k); }); });
+  steps.forEach(function (s, k) {
+    s.addEventListener('click', function () { show(k); });
+    s.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); show(k + 1); steps[cur].focus(); }
+      if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); show(k - 1); steps[cur].focus(); }
+    });
+  });
   flow.addEventListener('mouseenter', function () { paused = true; flow.classList.add('paused'); clearTimeout(timer); });
   flow.addEventListener('mouseleave', function () { paused = false; flow.classList.remove('paused'); schedule(); });
 
