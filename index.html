@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>AlpMate — Ski together. Ski safer.</title>
-<meta name="description" content="AlpMate is a ski tracking and safety app from New Zealand: record your ski day, see your crew on one map, and alert ski patrol at resorts using AlpMate Patrol.">
+<meta name="description" content="AlpMate is a ski safety and tracking app from New Zealand. Alert ski patrol with your exact location and accuracy, see who is coming and how far away, and keep your crew on one map.">
 <meta property="og:title" content="AlpMate — Ski together. Ski safer.">
-<meta property="og:description" content="Ski tracking, your crew on one map, and a faster way to reach ski patrol. Built in New Zealand.">
+<meta property="og:description" content="Alert ski patrol with your location and accuracy, see who is coming, keep your crew on one map. Built in New Zealand.">
 <meta property="og:image" content="https://alpmate.nz/assets/og.jpg">
 <meta property="og:url" content="https://alpmate.nz/">
 <meta name="theme-color" content="#2F6FBF">
@@ -14,129 +14,179 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,500;112,700;125,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600;112,700;125,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #F4F7FB; --surface: #FFFFFF; --ink: #10203A; --ink-2: #4A5A70; --ink-3: #7C8899;
-  --brand: #2F6FBF; --brand-2: #3F8FE6; --sky: #EAF3FD; --line: #DCE4EE; --red: #D92D20; --green: #16A34A;
-  --night: #0E1B2E; --night-2: #16294A; --on-night: #E8EEF7; --on-night-2: #9FB0C8;
-  --shadow: 0 18px 40px -18px rgba(16, 32, 58, .35);
+  --bg: #F3F6FA; --surface: #FFFFFF; --ink: #0F1E36; --ink-2: #47566C; --ink-3: #7B889A;
+  --brand: #2F6FBF; --brand-2: #4E92E4; --sky: #E7F0FB; --line: #DCE4EE;
+  --sos: #D92D20; --amber: #F59E0B; --green: #16A34A;
+  --night: #0B1628; --night-2: #13243F; --on-night: #E6EDF7; --on-night-2: #9DAEC6; --night-line: #22385A;
+  --shadow-lg: 0 30px 60px -28px rgba(15, 30, 54, .45), 0 10px 24px -14px rgba(15, 30, 54, .25);
+  --shadow-sm: 0 8px 22px -14px rgba(15, 30, 54, .35);
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0B1626; --surface: #13233A; --ink: #E8EEF7; --ink-2: #B4C2D6; --ink-3: #8394AB;
-    --brand: #5A9BE8; --brand-2: #7FB4F0; --sky: #12263F; --line: #22385A;
-    --shadow: 0 18px 40px -18px rgba(0, 0, 0, .6); color-scheme: dark;
+    --bg: #0A1424; --surface: #12223A; --ink: #E8EEF7; --ink-2: #B3C1D5; --ink-3: #8293AA; --brand: #5C9CE9; --brand-2: #82B6F1; --sky: #11253E; --line: #213656;
+    --shadow-lg: 0 30px 60px -28px rgba(0,0,0,.7); --shadow-sm: 0 8px 22px -14px rgba(0,0,0,.6); color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0B1626; --surface: #13233A; --ink: #E8EEF7; --ink-2: #B4C2D6; --ink-3: #8394AB;
-  --brand: #5A9BE8; --brand-2: #7FB4F0; --sky: #12263F; --line: #22385A;
-  --shadow: 0 18px 40px -18px rgba(0, 0, 0, .6); color-scheme: dark;
+  --bg: #0A1424; --surface: #12223A; --ink: #E8EEF7; --ink-2: #B3C1D5; --ink-3: #8293AA; --brand: #5C9CE9; --brand-2: #82B6F1; --sky: #11253E; --line: #213656;
+  --shadow-lg: 0 30px 60px -28px rgba(0,0,0,.7); --shadow-sm: 0 8px 22px -14px rgba(0,0,0,.6); color-scheme: dark;
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-body {
-  margin: 0; background: var(--bg); color: var(--ink);
-  font: 16px/1.6 Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-}
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; height: auto; display: block; }
 a { color: var(--brand); }
-h1, h2, h3 { font-family: Archivo, Inter, "PingFang SC", sans-serif; font-stretch: 112%; font-weight: 700; line-height: 1.12; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+h1, h2, h3 { font-family: Archivo, Inter, "PingFang SC", sans-serif; font-stretch: 112%; font-weight: 700; line-height: 1.1; margin: 0; text-wrap: balance; letter-spacing: -.012em; }
 p { margin: 0; }
-.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; }
-/* 中英切换：只显示当前语言 */
+.wrap { max-width: 1160px; margin: 0 auto; padding-inline: 20px; }
 html[data-lang="en"] [lang="zh"], html[data-lang="zh"] [lang="en"] { display: none !important; }
+.kicker { color: var(--brand); font-weight: 600; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; }
+section.block { padding-block: 96px; }
+.block h2 { font-size: clamp(30px, 4.2vw, 48px); margin-top: 12px; }
+.intro { color: var(--ink-2); font-size: 18px; max-width: 38em; margin-top: 16px; }
 
-/* 顶栏 */
-header.top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); padding-top: env(safe-area-inset-top, 0px); }
+header.top { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 84%, transparent); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent); padding-top: env(safe-area-inset-top, 0px); }
 .bar { display: flex; align-items: center; gap: 16px; height: 64px; }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--brand); text-decoration: none; }
 .brand img { width: 32px; height: 32px; border-radius: 8px; }
-.brand svg { height: 17px; width: auto; }
+.brand svg { height: 16px; width: auto; }
 nav.links { margin-left: auto; display: flex; gap: 22px; align-items: center; }
 nav.links a { color: var(--ink-2); text-decoration: none; font-weight: 500; font-size: 15px; }
 nav.links a:hover { color: var(--ink); }
-.lang { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 6px 12px; font: 600 13px Inter, "PingFang SC", sans-serif; cursor: pointer; }
+.lang { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 6px 13px; font: 600 13px Inter, "PingFang SC", sans-serif; cursor: pointer; }
 @media (max-width: 760px) { nav.links a.opt { display: none; } }
 
-/* 首屏 */
-.hero { position: relative; overflow: hidden; color: #fff; background: linear-gradient(180deg, #2A64AF 0%, #3A82D2 55%, #7DB3EC 82%, var(--bg) 100%); }
-.hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; padding-block: 64px 56px; }
-.eyebrow { display: inline-flex; gap: 8px; align-items: center; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.3); padding: 6px 12px; border-radius: 999px; }
-.hero h1 { font-size: clamp(40px, 6vw, 68px); margin: 18px 0 18px; font-stretch: 125%; letter-spacing: -.005em; }
-.hero p.lead { font-size: clamp(17px, 2vw, 20px); color: rgba(255,255,255,.92); max-width: 34em; }
-.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 20px; border-radius: 14px; font-weight: 600; text-decoration: none; font-size: 16px; }
-.btn.light { background: #fff; color: #10203A; }
-.btn.ghost { background: rgba(16,32,58,.28); color: #fff; border: 1px solid rgba(255,255,255,.55); }
-.note { margin-top: 18px; font-size: 13px; color: rgba(255,255,255,.85); }
-.phones { position: relative; height: 650px; }
-.phone { position: absolute; width: 270px; border-radius: 40px; border: 8px solid #0E1B2E; background: #0E1B2E; box-shadow: var(--shadow); overflow: hidden; }
-.phone img { border-radius: 32px; }
-.phones .p1 { left: 4%; top: 10px; transform: rotate(-4deg); }
-.phones .p2 { right: 2%; top: 44px; transform: rotate(4deg); }
-@media (max-width: 900px) {
+/* 手机外框：截图已去掉状态栏，顶部画一条黑边和灵动岛 */
+.device { position: relative; width: 300px; max-width: 100%; border-radius: 48px; padding: 10px; background: linear-gradient(145deg, #2A3445, #0B111B); box-shadow: var(--shadow-lg), inset 0 0 0 1.5px rgba(255,255,255,.08); }
+.device .screen { position: relative; width: 100%; border-radius: 39px; overflow: hidden; background: #000; padding-top: 34px; }
+.device .island { position: absolute; z-index: 3; top: 9px; left: 50%; transform: translateX(-50%); width: 34%; height: 22px; border-radius: 20px; background: #000; box-shadow: 0 0 0 2px #000; }
+.device .screen img { width: 100%; height: auto; transition: opacity .35s ease; }
+
+.hero { position: relative; overflow: hidden; color: #fff; background:
+  radial-gradient(1200px 500px at 85% -10%, rgba(255,255,255,.18), transparent 60%),
+  linear-gradient(180deg, #2459A6 0%, #3278CC 45%, #6FA9E8 78%, var(--bg) 100%); }
+.hero .ridge { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 180px; pointer-events: none; }
+.hero .wrap { position: relative; display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; padding-block: 72px 110px; }
+.eyebrow { display: inline-flex; gap: 8px; align-items: center; font-size: 12.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.3); padding: 6px 12px; border-radius: 999px; }
+.eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: #7CF0A6; animation: ping 2s infinite; }
+.hero h1 { font-size: clamp(42px, 6.4vw, 76px); margin: 20px 0; font-stretch: 125%; letter-spacing: -.01em; }
+.hero p.lead { font-size: clamp(17px, 2vw, 20px); color: rgba(255,255,255,.93); max-width: 32em; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 20px; border-radius: 14px; font-weight: 600; text-decoration: none; font-size: 16px; transition: transform .15s ease, box-shadow .15s ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn.light { background: #fff; color: #0F1E36; box-shadow: 0 10px 24px -14px rgba(0,0,0,.5); }
+.btn.ghost { background: rgba(10,25,50,.22); color: #fff; border: 1px solid rgba(255,255,255,.5); }
+.btn.dark { background: var(--ink); color: var(--bg); }
+.note { margin-top: 18px; font-size: 13px; color: rgba(255,255,255,.86); }
+.hero-visual { position: relative; display: flex; justify-content: center; padding-inline: 20px; }
+.hero-visual .device { width: 310px; transform: rotate(2deg); }
+.toast { position: absolute; z-index: 4; display: flex; gap: 12px; align-items: center; padding: 12px 14px; border-radius: 18px; background: rgba(255,255,255,.96); color: #0F1E36; box-shadow: var(--shadow-lg); font-size: 14px; line-height: 1.35; max-width: 270px; animation: float 6s ease-in-out infinite; }
+.toast b { display: block; font-size: 14.5px; }
+.toast small { color: #5A687C; font-size: 12.5px; }
+.toast .ico { flex: none; width: 36px; height: 36px; border-radius: 11px; display: grid; place-items: center; color: #fff; }
+.toast.t1 { left: -10px; top: 70px; }
+.toast.t1 .ico { background: var(--sos); }
+.toast.t2 { right: -10px; bottom: 110px; animation-delay: -3s; }
+.toast.t2 .ico { background: var(--green); }
+@media (max-width: 960px) {
   .hero .wrap { grid-template-columns: 1fr; padding-top: 48px; }
-  .phones { height: 500px; max-width: 460px; margin: 0 auto; width: 100%; }
-  .phone { width: 210px; border-width: 6px; border-radius: 32px; }
-  .phone img { border-radius: 26px; }
+  .hero-visual .device { width: 260px; }
+  .toast { font-size: 13px; padding: 10px 12px; max-width: 230px; }
+  .toast.t1 { left: 0; top: 24px; } .toast.t2 { right: 0; bottom: 60px; }
 }
 
-/* 小标签条 */
-.facts { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; padding-block: 26px; color: var(--ink-2); font-size: 15px; font-weight: 500; }
-.facts > span::before { content: "•"; color: var(--brand); margin-right: 8px; }
+.facts { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 30px; padding-block: 28px 0; color: var(--ink-2); font-size: 15px; font-weight: 500; }
+.facts > span { display: inline-flex; align-items: center; gap: 8px; }
+.facts svg { color: var(--brand); flex: none; }
 
-section.block { padding-block: 80px; }
-.kicker { color: var(--brand); font-weight: 600; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
-.block h2 { font-size: clamp(30px, 4vw, 44px); margin-top: 10px; }
-.block .intro { color: var(--ink-2); font-size: 18px; max-width: 40em; margin-top: 14px; }
+/* 求助流程 */
+.flow { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 64px; align-items: center; margin-top: 48px; }
+.steps { display: grid; gap: 12px; }
+.step { position: relative; text-align: left; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; align-items: start; padding: 18px 20px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface); color: inherit; font: inherit; cursor: pointer; overflow: hidden; transition: border-color .2s, box-shadow .2s, transform .2s; }
+.step:hover { transform: translateY(-1px); }
+.step .num { width: 44px; height: 44px; border-radius: 13px; display: grid; place-items: center; font-family: Archivo, Inter, sans-serif; font-weight: 700; font-size: 18px; background: var(--sky); color: var(--brand); transition: background .2s, color .2s; }
+.step h3 { font-size: 19px; margin-bottom: 4px; }
+.step p { color: var(--ink-2); font-size: 15px; }
+.step .bar-p { position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: var(--brand); }
+.step[aria-selected="true"] { border-color: color-mix(in srgb, var(--brand) 55%, var(--line)); box-shadow: var(--shadow-sm); }
+.step[aria-selected="true"] .num { background: var(--brand); color: #fff; }
+.step.sos .num { background: color-mix(in srgb, var(--sos) 12%, transparent); color: var(--sos); }
+.step.sos[aria-selected="true"] .num { background: var(--sos); color: #fff; }
+.step[aria-selected="true"] .bar-p { animation: progress var(--dur, 6s) linear forwards; }
+.flow.paused .step[aria-selected="true"] .bar-p { animation-play-state: paused; }
+.flow-visual { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.flow-visual .device { width: 320px; }
+.which { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink-2); padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); }
+.which .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brand); }
+.which.patrol .dot { background: var(--sos); }
+@media (max-width: 900px) { .flow { grid-template-columns: 1fr; gap: 32px; } .flow-visual { order: -1; } .flow-visual .device { width: 260px; } }
 
-/* 功能 */
-.features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 44px; }
-.card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 24px; }
-.card .ic { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: var(--sky); color: var(--brand); margin-bottom: 14px; }
-.card .ic.red { background: color-mix(in srgb, var(--red) 12%, transparent); color: var(--red); }
-.card h3 { font-size: 20px; margin-bottom: 8px; }
-.card p { color: var(--ink-2); font-size: 15.5px; }
-@media (max-width: 900px) { .features { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 600px) { .features { grid-template-columns: 1fr; } }
+/* 实时地图 */
+.live { background: linear-gradient(180deg, var(--night) 0%, var(--night-2) 100%); color: var(--on-night); }
+.live .kicker { color: #8CC3FF; }
+.live .intro { color: var(--on-night-2); }
+.live-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 48px; align-items: center; margin-top: 44px; }
+.mapcard { position: relative; border-radius: 26px; overflow: hidden; border: 1px solid var(--night-line); background: #0E1E33; box-shadow: 0 40px 80px -40px rgba(0,0,0,.8); }
+.mapcard svg { display: block; width: 100%; height: auto; }
+.maphud { position: absolute; left: 14px; right: 14px; top: 14px; display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; pointer-events: none; }
+.chip { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 999px; background: rgba(8,18,32,.8); border: 1px solid rgba(255,255,255,.12); font-size: 13px; font-weight: 600; color: #fff; }
+.chip .dot { width: 8px; height: 8px; border-radius: 50%; }
+.chip.dist { font-variant-numeric: tabular-nums; }
+.mapfoot { position: absolute; left: 14px; right: 14px; bottom: 12px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.replay { border: 1px solid rgba(255,255,255,.25); background: rgba(8,18,32,.8); color: #fff; border-radius: 999px; padding: 7px 14px; font: 600 13px Inter, "PingFang SC", sans-serif; cursor: pointer; }
+.illus { font-size: 11.5px; color: rgba(255,255,255,.6); }
+.live ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 22px; }
+.live li { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 14px; }
+.live li .ic { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: rgba(140,195,255,.12); color: #8CC3FF; }
+.live li b { display: block; color: #fff; font-size: 16.5px; margin-bottom: 2px; }
+.live li span { color: var(--on-night-2); font-size: 15px; }
+@media (max-width: 900px) { .live-grid { grid-template-columns: 1fr; } }
 
-/* 图文 */
-.split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; margin-top: 48px; }
-.split .shot { justify-self: center; width: 290px; border-radius: 42px; border: 8px solid #0E1B2E; background: #0E1B2E; box-shadow: var(--shadow); overflow: hidden; }
-.split .shot img { border-radius: 34px; }
-.split ul { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 14px; }
-.split li { display: grid; grid-template-columns: 26px 1fr; gap: 10px; color: var(--ink-2); }
-.split li b { color: var(--ink); font-weight: 600; }
-.tick { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: var(--brand); color: #fff; font-size: 13px; margin-top: 2px; }
-@media (max-width: 860px) { .split { grid-template-columns: 1fr; } .split .shot { order: -1; width: 250px; } }
+.safety-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 44px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 24px; transition: transform .2s, box-shadow .2s; }
+.card:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+.card .ic { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: var(--sky); color: var(--brand); margin-bottom: 16px; }
+.card .ic.red { background: color-mix(in srgb, var(--sos) 12%, transparent); color: var(--sos); }
+.card .ic.amber { background: color-mix(in srgb, var(--amber) 16%, transparent); color: #B76E00; }
+.card h3 { font-size: 19px; margin-bottom: 8px; }
+.card p { color: var(--ink-2); font-size: 15px; }
+@media (max-width: 900px) { .safety-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .safety-grid { grid-template-columns: 1fr; } }
 
-/* 救援端（深色） */
-.patrol { background: linear-gradient(180deg, var(--night) 0%, var(--night-2) 100%); color: var(--on-night); }
-.patrol .kicker { color: #FF8A80; }
-.patrol .intro, .patrol li { color: var(--on-night-2); }
-.patrol li b { color: #fff; }
-.patrol .tick { background: #E8483B; }
-.patrol .btn.light { background: #fff; color: #10203A; }
-.patrol-head { display: flex; align-items: center; gap: 14px; }
-.patrol-head img { width: 54px; height: 54px; border-radius: 14px; }
+.everyday { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; margin-top: 44px; }
+.pair { display: flex; justify-content: center; gap: 22px; }
+.pair .device { width: 230px; border-radius: 40px; padding: 8px; }
+.pair .device .screen { border-radius: 33px; padding-top: 28px; }
+.pair .device .island { top: 7px; height: 18px; }
+.pair .device:nth-child(2) { margin-top: 48px; }
+.list { list-style: none; padding: 0; margin: 0; display: grid; gap: 18px; }
+.list li { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 12px; color: var(--ink-2); }
+.list li b { color: var(--ink); font-weight: 600; }
+.tick { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: var(--brand); color: #fff; font-size: 12px; margin-top: 2px; }
+@media (max-width: 900px) { .everyday { grid-template-columns: 1fr; } .pair .device { width: 46%; max-width: 220px; } }
 
-/* 安全说明 */
-.safety { background: var(--surface); border: 1px solid var(--line); border-left: 5px solid var(--red); border-radius: 18px; padding: 26px 28px; display: grid; gap: 10px; }
-.safety h3 { font-size: 22px; }
-.safety p { color: var(--ink-2); }
+.resorts { background: var(--surface); border-block: 1px solid var(--line); }
+.resorts-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 64px; align-items: center; }
+.resorts .patrol-head { display: flex; align-items: center; gap: 14px; }
+.resorts .patrol-head img { width: 52px; height: 52px; border-radius: 14px; }
+.resorts .tick { background: var(--sos); }
+@media (max-width: 900px) { .resorts-grid { grid-template-columns: 1fr; } .resorts .device { margin: 0 auto; width: 260px; } }
 
-/* 隐私 */
+.safety-note { background: var(--surface); border: 1px solid var(--line); border-left: 5px solid var(--sos); border-radius: 18px; padding: 26px 28px; display: grid; gap: 10px; }
+.safety-note h3 { font-size: 21px; }
+.safety-note p { color: var(--ink-2); }
+
 .privacy { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 36px; }
 .privacy .card { padding: 20px; }
 .privacy .card h3 { font-size: 17px; }
-@media (max-width: 860px) { .privacy { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 900px) { .privacy { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .privacy { grid-template-columns: 1fr; } }
 
-/* 联系 */
-.contact { text-align: center; }
+.contact { text-align: center; background: var(--sky); }
 .contact .mail { font-family: Archivo, Inter, sans-serif; font-stretch: 112%; font-size: clamp(22px, 3vw, 30px); font-weight: 700; color: var(--brand); text-decoration: none; overflow-wrap: anywhere; }
 
 footer { border-top: 1px solid var(--line); padding-block: 36px calc(36px + env(safe-area-inset-bottom, 0px)); color: var(--ink-3); font-size: 14px; }
@@ -144,17 +194,26 @@ footer .row { display: flex; flex-wrap: wrap; gap: 14px 28px; justify-content: s
 footer .brand svg { height: 14px; }
 footer a { color: var(--ink-2); }
 footer .legal { display: grid; gap: 4px; }
+
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.in { opacity: 1; transform: none; }
+.no-js .reveal { opacity: 1; transform: none; }
+@keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(124,240,166,.7); } 80%, 100% { box-shadow: 0 0 0 10px rgba(124,240,166,0); } }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes progress { from { width: 0; } to { width: 100%; } }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .toast, .eyebrow .dot { animation: none; }
+  .step[aria-selected="true"] .bar-p { animation: none; width: 100%; }
+}
 </style>
 </head>
-<body>
+<body class="no-js">
 <header class="top">
   <div class="wrap bar">
-    <a class="brand" href="#top" aria-label="AlpMate">
-      <img src="/assets/icon.png" alt="" width="32" height="32">
-      <svg viewBox="2.99 -0.18 913.27 100.18" role="img" aria-label="AlpMate" xmlns="http://www.w3.org/2000/svg"><g transform='translate(0.0 100) scale(0.14577)' fill='currentColor'><path d='M20.521484375 0.0 362.1300048828125 -687.2174072265625H555.8707275390625L897.479248046875 0.0H709.17333984375L649.39111328125 -123.868896484375H257.609619140625L198.0447998046875 0.0ZM320.8707275390625 -257.304443359375H586.1300048828125L513.0870361328125 -413.999267578125Q508.5218505859375 -424.3470458984375 500.00018310546875 -444.1077880859375Q491.478515625 -463.8685302734375 482.73944091796875 -485.17279052734375Q474.0003662109375 -506.47705078125 466.9351806640625 -523.0857543945312Q459.8699951171875 -539.6944580078125 458.0003662109375 -543.520751953125H450.2177734375Q441.8699951171875 -524.1729736328125 431.13092041015625 -499.0426025390625Q420.391845703125 -473.9122314453125 410.5440673828125 -450.564453125Q400.6962890625 -427.2166748046875 393.9136962890625 -413.2166748046875Z'/><path d='M1049.9996337890625 0.0V-687.2174072265625H1222.6533203125V-145.9573974609375H1660.827392578125V0.0Z'/><path d='M1819.9996337890625 0.0V-687.2174072265625H2334.652587890625Q2401.8699951171875 -687.2174072265625 2451.9135131835938 -657.8912963867188Q2501.95703125 -628.565185546875 2529.7831420898438 -577.195556640625Q2557.6092529296875 -525.825927734375 2557.6092529296875 -458.7537064163773Q2557.6092529296875 -391.9996337890625 2529.2831420898438 -339.73870849609375Q2500.95703125 -287.477783203125 2450.1309204101562 -258.2603759765625Q2399.3048095703125 -229.04296875 2331.522216796875 -229.04296875H1992.6533203125V0.0ZM1992.6533203125 -365.60888671875H2283.6522216796875Q2333.7244466145835 -365.60888671875 2360.6663004557295 -389.93469739940065Q2387.608154296875 -414.26050808005135 2387.608154296875 -457.8142340673159Q2387.608154296875 -487.217041015625 2375.557915387835 -507.8579480970228Q2363.5076764787946 -528.4988551784206 2340.3842093331473 -539.5751722181166Q2317.2607421875 -550.6514892578125 2283.6522216796875 -550.6514892578125H1992.6533203125Z'/><path d='M2717.9996337890625 0.0V-687.2174072265625H2987.0455322265625L3128.3922119140625 -356.175537109375Q3135.609619140625 -339.0885009765625 3146.3486938476562 -310.805908203125Q3157.0877685546875 -282.5233154296875 3168.500732421875 -251.8929443359375Q3179.9136962890625 -221.2625732421875 3188.82666015625 -196.5670166015625H3195.82666015625Q3203.95703125 -218.6973876953125 3214.9786987304688 -247.8277587890625Q3226.0003662109375 -276.9581298828125 3237.2394409179688 -305.84942626953125Q3248.478515625 -334.74072265625 3256.478515625 -354.6103515625L3397.8251953125 -687.2174072265625H3660.3492431640625V0.0H3487.695556640625V-393.9111328125Q3487.695556640625 -412.650390625 3488.195556640625 -435.6070556640625Q3488.695556640625 -458.563720703125 3489.695556640625 -480.91168212890625Q3490.695556640625 -503.2596435546875 3491.4781494140625 -519.5640869140625H3483.4781494140625Q3478.0433349609375 -502.8248291015625 3469.7172241210938 -479.75946044921875Q3461.39111328125 -456.694091796875 3453.0650024414062 -433.84613037109375Q3444.7388916015625 -410.9981689453125 3437.521484375 -393.9111328125L3267.6966552734375 0.0H3104.2607421875L2933.6533203125 -393.9111328125Q2924.218505859375 -416.52001953125 2915.28369140625 -440.194091796875Q2906.348876953125 -463.8681640625 2899.5227661132812 -484.8900146484375Q2892.6966552734375 -505.911865234375 2887.6966552734375 -519.5640869140625H2879.6966552734375Q2880.6966552734375 -506.6944580078125 2881.1966552734375 -485.672607421875Q2881.6966552734375 -464.6507568359375 2882.1966552734375 -440.9766845703125Q2882.6966552734375 -417.3026123046875 2882.6966552734375 -393.9111328125V0.0Z'/><path d='M3812.521484375 0.0 4154.1300048828125 -687.2174072265625H4347.8707275390625L4689.479248046875 0.0H4501.17333984375L4441.39111328125 -123.868896484375H4049.609619140625L3990.0447998046875 0.0ZM4112.8707275390625 -257.304443359375H4378.1300048828125L4305.0870361328125 -413.999267578125Q4300.5218505859375 -424.3470458984375 4292.000183105469 -444.1077880859375Q4283.478515625 -463.8685302734375 4274.739440917969 -485.17279052734375Q4266.0003662109375 -506.47705078125 4258.9351806640625 -523.0857543945312Q4251.8699951171875 -539.6944580078125 4250.0003662109375 -543.520751953125H4242.2177734375Q4233.8699951171875 -524.1729736328125 4223.130920410156 -499.0426025390625Q4212.391845703125 -473.9122314453125 4202.5440673828125 -450.564453125Q4192.6962890625 -427.2166748046875 4185.9136962890625 -413.2166748046875Z'/><path d='M4941.521484375 0.0V-541.260009765625H4639.3477783203125V-687.2174072265625H5416.348876953125V-541.260009765625H5114.1751708984375V0.0Z'/><path d='M5573.9996337890625 0.0V-687.2174072265625H6277.6959228515625V-550.6514892578125H5746.8707275390625V-416.2611083984375H6216.174072265625V-281.65185546875H5746.8707275390625V-136.56591796875H6285.6959228515625V0.0Z'/></g></svg>
-    </a>
+    <a class="brand" href="#top" aria-label="AlpMate"><img src="/assets/icon.png" alt="" width="32" height="32"><svg viewBox="2.99 -0.18 913.27 100.18" role="img" aria-label="AlpMate" xmlns="http://www.w3.org/2000/svg"><g transform='translate(0.0 100) scale(0.14577)' fill='currentColor'><path d='M20.521484375 0.0 362.1300048828125 -687.2174072265625H555.8707275390625L897.479248046875 0.0H709.17333984375L649.39111328125 -123.868896484375H257.609619140625L198.0447998046875 0.0ZM320.8707275390625 -257.304443359375H586.1300048828125L513.0870361328125 -413.999267578125Q508.5218505859375 -424.3470458984375 500.00018310546875 -444.1077880859375Q491.478515625 -463.8685302734375 482.73944091796875 -485.17279052734375Q474.0003662109375 -506.47705078125 466.9351806640625 -523.0857543945312Q459.8699951171875 -539.6944580078125 458.0003662109375 -543.520751953125H450.2177734375Q441.8699951171875 -524.1729736328125 431.13092041015625 -499.0426025390625Q420.391845703125 -473.9122314453125 410.5440673828125 -450.564453125Q400.6962890625 -427.2166748046875 393.9136962890625 -413.2166748046875Z'/><path d='M1049.9996337890625 0.0V-687.2174072265625H1222.6533203125V-145.9573974609375H1660.827392578125V0.0Z'/><path d='M1819.9996337890625 0.0V-687.2174072265625H2334.652587890625Q2401.8699951171875 -687.2174072265625 2451.9135131835938 -657.8912963867188Q2501.95703125 -628.565185546875 2529.7831420898438 -577.195556640625Q2557.6092529296875 -525.825927734375 2557.6092529296875 -458.7537064163773Q2557.6092529296875 -391.9996337890625 2529.2831420898438 -339.73870849609375Q2500.95703125 -287.477783203125 2450.1309204101562 -258.2603759765625Q2399.3048095703125 -229.04296875 2331.522216796875 -229.04296875H1992.6533203125V0.0ZM1992.6533203125 -365.60888671875H2283.6522216796875Q2333.7244466145835 -365.60888671875 2360.6663004557295 -389.93469739940065Q2387.608154296875 -414.26050808005135 2387.608154296875 -457.8142340673159Q2387.608154296875 -487.217041015625 2375.557915387835 -507.8579480970228Q2363.5076764787946 -528.4988551784206 2340.3842093331473 -539.5751722181166Q2317.2607421875 -550.6514892578125 2283.6522216796875 -550.6514892578125H1992.6533203125Z'/><path d='M2717.9996337890625 0.0V-687.2174072265625H2987.0455322265625L3128.3922119140625 -356.175537109375Q3135.609619140625 -339.0885009765625 3146.3486938476562 -310.805908203125Q3157.0877685546875 -282.5233154296875 3168.500732421875 -251.8929443359375Q3179.9136962890625 -221.2625732421875 3188.82666015625 -196.5670166015625H3195.82666015625Q3203.95703125 -218.6973876953125 3214.9786987304688 -247.8277587890625Q3226.0003662109375 -276.9581298828125 3237.2394409179688 -305.84942626953125Q3248.478515625 -334.74072265625 3256.478515625 -354.6103515625L3397.8251953125 -687.2174072265625H3660.3492431640625V0.0H3487.695556640625V-393.9111328125Q3487.695556640625 -412.650390625 3488.195556640625 -435.6070556640625Q3488.695556640625 -458.563720703125 3489.695556640625 -480.91168212890625Q3490.695556640625 -503.2596435546875 3491.4781494140625 -519.5640869140625H3483.4781494140625Q3478.0433349609375 -502.8248291015625 3469.7172241210938 -479.75946044921875Q3461.39111328125 -456.694091796875 3453.0650024414062 -433.84613037109375Q3444.7388916015625 -410.9981689453125 3437.521484375 -393.9111328125L3267.6966552734375 0.0H3104.2607421875L2933.6533203125 -393.9111328125Q2924.218505859375 -416.52001953125 2915.28369140625 -440.194091796875Q2906.348876953125 -463.8681640625 2899.5227661132812 -484.8900146484375Q2892.6966552734375 -505.911865234375 2887.6966552734375 -519.5640869140625H2879.6966552734375Q2880.6966552734375 -506.6944580078125 2881.1966552734375 -485.672607421875Q2881.6966552734375 -464.6507568359375 2882.1966552734375 -440.9766845703125Q2882.6966552734375 -417.3026123046875 2882.6966552734375 -393.9111328125V0.0Z'/><path d='M3812.521484375 0.0 4154.1300048828125 -687.2174072265625H4347.8707275390625L4689.479248046875 0.0H4501.17333984375L4441.39111328125 -123.868896484375H4049.609619140625L3990.0447998046875 0.0ZM4112.8707275390625 -257.304443359375H4378.1300048828125L4305.0870361328125 -413.999267578125Q4300.5218505859375 -424.3470458984375 4292.000183105469 -444.1077880859375Q4283.478515625 -463.8685302734375 4274.739440917969 -485.17279052734375Q4266.0003662109375 -506.47705078125 4258.9351806640625 -523.0857543945312Q4251.8699951171875 -539.6944580078125 4250.0003662109375 -543.520751953125H4242.2177734375Q4233.8699951171875 -524.1729736328125 4223.130920410156 -499.0426025390625Q4212.391845703125 -473.9122314453125 4202.5440673828125 -450.564453125Q4192.6962890625 -427.2166748046875 4185.9136962890625 -413.2166748046875Z'/><path d='M4941.521484375 0.0V-541.260009765625H4639.3477783203125V-687.2174072265625H5416.348876953125V-541.260009765625H5114.1751708984375V0.0Z'/><path d='M5573.9996337890625 0.0V-687.2174072265625H6277.6959228515625V-550.6514892578125H5746.8707275390625V-416.2611083984375H6216.174072265625V-281.65185546875H5746.8707275390625V-136.56591796875H6285.6959228515625V0.0Z'/></g></svg></a>
     <nav class="links">
-      <a class="opt" href="#features"><span lang="en">Features</span><span lang="zh">功能</span></a>
+      <a class="opt" href="#how"><span lang="en">How it works</span><span lang="zh">怎么用</span></a>
       <a class="opt" href="#resorts"><span lang="en">For resorts</span><span lang="zh">给雪场</span></a>
       <a class="opt" href="#privacy"><span lang="en">Privacy</span><span lang="zh">隐私</span></a>
       <button class="lang" id="lang" type="button" aria-label="Switch language"><span lang="en">中文</span><span lang="zh">English</span></button>
@@ -164,111 +223,196 @@ footer .legal { display: grid; gap: 4px; }
 
 <main id="top">
   <section class="hero">
+    <svg class="ridge" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true"><path d="M0 120 L120 88 L210 110 L320 54 L430 96 L520 70 L640 112 L760 40 L880 98 L990 76 L1090 118 L1200 62 L1320 100 L1440 80 L1440 180 L0 180 Z" fill="var(--bg)" opacity=".55"/><path d="M0 150 L140 124 L260 140 L380 108 L520 138 L660 116 L800 146 L940 112 L1080 140 L1220 120 L1340 142 L1440 128 L1440 180 L0 180 Z" fill="var(--bg)"/></svg>
     <div class="wrap">
       <div>
-        <span class="eyebrow"><span lang="en">Built in New Zealand</span><span lang="zh">新西兰出品</span></span>
+        <span class="eyebrow"><span class="dot"></span><span lang="en">Ski safety app · New Zealand</span><span lang="zh">滑雪安全 App · 新西兰</span></span>
         <h1><span lang="en">Ski together.<br>Ski safer.</span><span lang="zh">滑雪，<br>有伴更安心</span></h1>
         <p class="lead">
-          <span lang="en">AlpMate records your ski day, keeps your crew on one map, and — at resorts using AlpMate Patrol — lets you alert ski patrol with your location and its accuracy.</span>
-          <span lang="zh">雪伴（AlpMate）记录你的每一趟滑行，让小队在同一张地图上互相看到；在接入雪伴救援的雪场，还能把你的位置和误差范围直接发给雪场救援队。</span>
+          <span lang="en">If something goes wrong on the mountain, AlpMate sends ski patrol your location and how accurate it is — then shows you who is coming and how far away they are.</span>
+          <span lang="zh">在山上出了状况，雪伴把你的位置和误差范围发给雪场救援队，并让你看到谁在赶来、离你还有多远。</span>
         </p>
         <div class="cta">
-          <a class="btn light" href="#contact"><span lang="en">Coming soon to the App Store</span><span lang="zh">即将上架 App Store</span></a>
+          <a class="btn light" href="#how"><span lang="en">See how an alert works</span><span lang="zh">看看求助怎么运作</span></a>
           <a class="btn ghost" href="#resorts"><span lang="en">For ski resorts →</span><span lang="zh">雪场合作 →</span></a>
         </div>
-        <p class="note"><span lang="en">Free · iPhone and Apple Watch · English and 简体中文</span><span lang="zh">免费 · iPhone 和 Apple Watch · English / 简体中文</span></p>
+        <p class="note"><span lang="en">Free · iPhone and Apple Watch · English and 简体中文 · Coming soon to the App Store</span><span lang="zh">免费 · iPhone 和 Apple Watch · English / 简体中文 · 即将上架 App Store</span></p>
       </div>
-      <div class="phones" aria-hidden="true">
-        <div class="phone p1"><picture><source srcset="/assets/home.webp" type="image/webp"><img src="/assets/home.jpg" alt="" width="900" height="1759"></picture></div>
-        <div class="phone p2"><picture><source srcset="/assets/sos.webp" type="image/webp"><img src="/assets/sos.jpg" alt="" width="900" height="1759"></picture></div>
+      <div class="hero-visual reveal">
+        <div class="device"><div class="screen"><span class="island"></span><picture><source srcset="/assets/acked.webp" type="image/webp"><img src="/assets/acked.jpg" alt="AlpMate showing that ski patroller Sam is 250 metres away" width="900" height="1759"></picture></div></div>
+        <div class="toast t1" aria-hidden="true">
+          <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          <span><b><span lang="en">Cardrona ski patrol alerted</span><span lang="zh">已通知卡德罗纳救援队</span></b><small>−44.87350, 168.94700 · ±5 m</small></span>
+        </div>
+        <div class="toast t2" aria-hidden="true">
+          <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span>
+          <span><b><span lang="en">Sam is on the way</span><span lang="zh">Sam 正在赶来</span></b><small><span lang="en">250 m away · updated 8 s ago</span><span lang="zh">距你 250 米 · 8 秒前更新</span></small></span>
+        </div>
       </div>
     </div>
   </section>
 
   <div class="wrap facts">
-    <span><span lang="en">Piste maps for New Zealand ski areas</span><span lang="zh">新西兰各雪场雪道地图</span></span>
-    <span><span lang="en">No ads, no tracking</span><span lang="zh">没有广告，不做追踪</span></span>
-    <span><span lang="en">Data stored in Sydney, Australia</span><span lang="zh">数据存放在澳洲悉尼</span></span>
+    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/></svg><span lang="en">Raw GPS with accuracy</span><span lang="zh">原始 GPS 和误差范围</span></span>
+    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span lang="en">Rings until a patroller accepts</span><span lang="zh">响到有队员接收为止</span></span>
+    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg><span lang="en">No ads, no tracking</span><span lang="zh">没有广告，不做追踪</span></span>
   </div>
 
-  <section class="block" id="features">
+  <section class="block" id="how">
     <div class="wrap">
-      <div class="kicker"><span lang="en">For skiers and snowboarders</span><span lang="zh">给滑雪的人</span></div>
-      <h2><span lang="en">Everything for a day on the mountain</span><span lang="zh">一天滑雪需要的，都在这里</span></h2>
-      <p class="intro"><span lang="en">Made for the way New Zealand skis: big mountains, patchy signal and friends who never ski at the same speed.</span><span lang="zh">为新西兰的滑雪场景设计：山大、信号时有时无，朋友的速度永远不一样。</span></p>
-
-      <div class="features">
-        <article class="card">
-          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 8-8"/><path d="M14 8h6v6"/></svg></div>
-          <h3><span lang="en">Ski tracks</span><span lang="zh">雪迹记录</span></h3>
-          <p><span lang="en">Runs, vertical, distance and top speed for every day, with the barometer for better altitude. Heart rate from Apple Watch.</span><span lang="zh">每天的趟数、落差、里程和最高时速；用气压计让高度更准，戴 Apple Watch 还能记录心率。</span></p>
-        </article>
-        <article class="card">
-          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M15 14.5c2.8 0 5 2.2 5 5"/></svg></div>
-          <h3><span lang="en">Your crew on one map</span><span lang="zh">小队互相看到</span></h3>
-          <p><span lang="en">Create a team with a code, see each other on the piste map and chat with text, voice and photos. Locations and messages delete after 24 hours.</span><span lang="zh">用队码建小队，在雪道地图上看到彼此，发文字、语音和照片。位置和消息 24 小时后自动删除。</span></p>
-        </article>
-        <article class="card">
-          <div class="ic red"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M12 8v5M12 16h.01"/></svg></div>
-          <h3><span lang="en">One-tap SOS</span><span lang="zh">一键求助</span></h3>
-          <p><span lang="en">Big, readable coordinates with accuracy, the nearest patrol or medical point, one tap to call 111 or the resort's patrol line, and a text to your emergency contacts.</span><span lang="zh">大字显示坐标和误差范围、最近的救援点；一键拨打 111 或雪场救援电话，给紧急联系人发短信。</span></p>
-        </article>
-        <article class="card">
-          <div class="ic red"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z"/></svg></div>
-          <h3><span lang="en">Alert ski patrol</span><span lang="zh">通知雪场救援队</span></h3>
-          <p><span lang="en">At resorts using AlpMate Patrol, send your location straight to patrollers, see when someone accepts and how far away they are, and message them.</span><span lang="zh">在接入雪伴救援的雪场，把位置直接发给救援队员；能看到有没有人接收、队员离你多远，还能互发消息。</span></p>
-        </article>
-        <article class="card">
-          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="15" rx="3"/><path d="M12 9v6M9 12h6"/></svg></div>
-          <h3><span lang="en">Medical card</span><span lang="zh">医疗信息卡</span></h3>
-          <p><span lang="en">Blood type, allergies and medications stay on your phone, and are shared with patrol only when you alert them and choose to.</span><span lang="zh">血型、过敏、用药只存在你的手机上；只有你通知救援队、并且选择分享时才会发出。</span></p>
-        </article>
-        <article class="card">
-          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 6.5-7 11-7 11z"/></svg></div>
-          <h3><span lang="en">Help someone else</span><span lang="zh">帮别人求助</span></h3>
-          <p><span lang="en">Found someone hurt? Report what you see — awake, breathing, how many people — with an optional photo, so patrol arrives prepared.</span><span lang="zh">遇到有人受伤？报告你看到的情况（清醒吗、有没有呼吸、几个人），可以附一张照片，让救援队有准备地赶来。</span></p>
-        </article>
-      </div>
-
-      <div class="split">
-        <div>
-          <div class="kicker"><span lang="en">Piste maps</span><span lang="zh">雪道地图</span></div>
-          <h2 style="font-size: clamp(26px,3.4vw,36px); margin-top: 8px"><span lang="en">Runs and lifts on satellite imagery</span><span lang="zh">卫星图上的雪道和缆车</span></h2>
-          <ul>
-            <li><span class="tick">✓</span><span><span lang="en"><b>Graded runs and lifts</b> for New Zealand ski areas, with walk-up sections shown as dashed lines.</span><span lang="zh"><b>标好难度的雪道和缆车</b>，覆盖新西兰各雪场，需要走上去的路段用虚线表示。</span></span></li>
-            <li><span class="tick">✓</span><span><span lang="en"><b>Checked against aerial imagery</b> and official trail maps for the main resorts, with a data-quality label on every map.</span><span lang="zh">主要雪场的雪道<b>对照航拍图和官方雪道图核对过</b>，每张地图都标明数据质量。</span></span></li>
-            <li><span class="tick">✓</span><span><span lang="en"><b>Reference only</b> — your phone's GPS position is what counts in an emergency.</span><span lang="zh"><b>仅供参考</b>：紧急情况以手机的 GPS 定位为准。</span></span></li>
-          </ul>
+      <div class="kicker"><span lang="en">How an alert works</span><span lang="zh">求助怎么运作</span></div>
+      <h2><span lang="en">From one tap to a patroller at your side</span><span lang="zh">从点一下，到救援队员赶到身边</span></h2>
+      <p class="intro"><span lang="en">Tap a step to see the screen. The skier and the ski patrol see the same alert, updated in real time.</span><span lang="zh">点击每一步看对应的画面。求助的人和救援队看到的是同一条实时更新的求助。</span></p>
+      <div class="flow" id="flow">
+        <div class="steps" role="tablist" aria-label="Alert steps">
+          <button class="step sos" role="tab" aria-selected="true" data-img="sos" data-side="skier">
+            <span class="num">1</span>
+            <span><h3><span lang="en">Tap SOS</span><span lang="zh">点「一键求助」</span></h3>
+            <p><span lang="en">Your coordinates in large type with their accuracy, the nearest medical point, how many patrollers are on duty, and one tap to call 111.</span><span lang="zh">大字显示坐标和误差范围、最近的医疗点、现在有几名队员在岗，一键拨打 111。</span></p></span>
+            <span class="bar-p"></span>
+          </button>
+          <button class="step" role="tab" aria-selected="false" data-img="patrol-home" data-side="patrol">
+            <span class="num">2</span>
+            <span><h3><span lang="en">Patrol phones ring</span><span lang="zh">救援队的手机响起</span></h3>
+            <p><span lang="en">On-duty patrollers are alerted on the lock screen, even in silent mode, until someone accepts. Critical reports go to the top.</span><span lang="zh">在岗队员会收到警报，锁屏、静音也会响，直到有人接收；情况危急的排在最前面。</span></p></span>
+            <span class="bar-p"></span>
+          </button>
+          <button class="step" role="tab" aria-selected="false" data-img="patrol-detail" data-side="patrol">
+            <span class="num">3</span>
+            <span><h3><span lang="en">The closest patroller responds</span><span lang="zh">最近的队员接单</span></h3>
+            <p><span lang="en">Live location every 15 seconds with accuracy, altitude and direction. The skier's language is flagged so nothing gets lost.</span><span lang="zh">实时位置每 15 秒更新，附带误差、海拔和方位；还会标出求助人的语言，避免沟通出错。</span></p></span>
+            <span class="bar-p"></span>
+          </button>
+          <button class="step" role="tab" aria-selected="false" data-img="acked" data-side="skier">
+            <span class="num">4</span>
+            <span><h3><span lang="en">Help is on the way</span><span lang="zh">救援正在赶来</span></h3>
+            <p><span lang="en">You see who is coming and how far away they are, and can chat with them. Your medical card is attached if you chose to share it.</span><span lang="zh">你能看到谁在赶来、还有多远，可以和队员聊天；如果你选择了分享，医疗信息卡也会一起发出。</span></p></span>
+            <span class="bar-p"></span>
+          </button>
         </div>
-        <div class="shot"><picture><source srcset="/assets/map.webp" type="image/webp"><img src="/assets/map.jpg" alt="AlpMate ski tracking on the Cardrona piste map" width="900" height="1759" loading="lazy"></picture></div>
+        <div class="flow-visual">
+          <div class="device"><div class="screen"><span class="island"></span><img id="flow-img" src="/assets/sos.webp" alt="The AlpMate SOS screen" width="900" height="1759"></div></div>
+          <div class="which" id="flow-who"><span class="dot"></span><span lang="en" data-skier="Skier's phone · AlpMate" data-patrol="Ski patrol's phone · AlpMate Patrol">Skier's phone · AlpMate</span><span lang="zh" data-skier="滑雪者的手机 · 雪伴" data-patrol="救援队员的手机 · 雪伴救援">滑雪者的手机 · 雪伴</span></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="block patrol" id="resorts">
+  <section class="block live">
     <div class="wrap">
-      <div class="split" style="margin-top:0">
-        <div>
-          <div class="patrol-head"><img src="/assets/patrol-icon.png" alt="" width="54" height="54"><div class="kicker"><span lang="en">For ski resorts</span><span lang="zh">给雪场</span></div></div>
-          <h2 style="margin-top: 14px"><span lang="en">AlpMate Patrol</span><span lang="zh">雪伴救援</span></h2>
-          <p class="intro"><span lang="en">A companion app for your ski patrol. It works alongside your radios and patrol line, and turns a skier's tap into a located, actionable alert.</span><span lang="zh">给雪场救援队用的配套 App，和你们现有的对讲机、救援电话一起用，把滑雪者的求助变成带位置、能马上行动的警报。</span></p>
-          <ul>
-            <li><span class="tick">✓</span><span><span lang="en"><b>Alerts that ring</b> on the lock screen until a patroller accepts.</span><span lang="zh"><b>锁屏也会响</b>，直到有队员点「我去处理」。</span></span></li>
-            <li><span class="tick">✓</span><span><span lang="en"><b>Raw GPS with its accuracy</b>, updated every 15 seconds, with the nearest run as a reference.</span><span lang="zh"><b>伤者原始 GPS 和误差范围</b>，每 15 秒更新，附近雪道只作参考。</span></span></li>
-            <li><span class="tick">✓</span><span><span lang="en"><b>Nearest on-duty patroller</b> first, with live positions of the team.</span><span lang="zh"><b>最近的在岗队员优先</b>，队员位置实时可见。</span></span></li>
-            <li><span class="tick">✓</span><span><span lang="en"><b>Medical card, triage and photos</b> when the skier or a bystander shares them, plus chat with quick replies.</span><span lang="zh">求助人或旁观者分享的<b>医疗卡、伤情和照片</b>，还能和对方聊天、快捷回复。</span></span></li>
-            <li><span class="tick">✓</span><span><span lang="en"><b>Incident reports</b> and duplicate-report merging for your safety records.</span><span lang="zh"><b>事故记录单</b>，同一起事故的重复报告自动合并，方便安全统计。</span></span></li>
-          </ul>
-          <div class="cta"><a class="btn light" href="#contact"><span lang="en">Talk to us about a pilot</span><span lang="zh">联系我们试用</span></a></div>
+      <div class="kicker"><span lang="en">Location you can trust</span><span lang="zh">靠得住的定位</span></div>
+      <h2><span lang="en">Your real position, not a guess</span><span lang="zh">用真实的位置，而不是猜测</span></h2>
+      <p class="intro"><span lang="en">Rescue starts from your phone's raw GPS and its accuracy circle. Runs on the map are only a reference, so patrol always knows how sure the location is.</span><span lang="zh">救援以手机的原始 GPS 和误差范围为准，地图上的雪道只作参考。救援队始终清楚这个位置有多准。</span></p>
+      <div class="live-grid">
+        <div class="mapcard reveal">
+          <svg id="livemap" viewBox="0 0 640 420" role="img" aria-label="Illustration: a patroller moving towards a skier's location">
+            <defs>
+              <radialGradient id="g-acc" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#4E92E4" stop-opacity=".38"/><stop offset="1" stop-color="#4E92E4" stop-opacity=".08"/></radialGradient>
+              <linearGradient id="g-ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1C3352"/><stop offset="1" stop-color="#0E1E33"/></linearGradient>
+              <pattern id="g-grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="rgba(255,255,255,.04)"/></pattern>
+            </defs>
+            <rect width="640" height="420" fill="url(#g-ground)"/>
+            <rect width="640" height="420" fill="url(#g-grid)"/>
+            <g fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1.2">
+              <path d="M-20 300 C 120 240, 220 330, 360 250 S 560 180, 680 230"/>
+              <path d="M-20 340 C 140 280, 240 370, 380 290 S 580 220, 680 270"/>
+              <path d="M-20 260 C 100 200, 200 290, 340 210 S 540 140, 680 190"/>
+              <path d="M-20 220 C 90 160, 190 250, 320 170 S 520 100, 680 150"/>
+              <path d="M-20 180 C 80 120, 180 210, 300 130 S 500 60, 680 110"/>
+            </g>
+            <g fill="none" stroke-linecap="round" stroke-width="5" opacity=".9">
+              <path d="M90 40 C 140 140, 150 220, 210 300 S 300 400, 330 430" stroke="#2E7CE0"/>
+              <path d="M250 20 C 280 110, 330 160, 360 230 S 420 330, 470 430" stroke="#16A34A"/>
+              <path d="M520 30 C 500 120, 470 180, 440 250 S 410 360, 420 430" stroke="#E5484D"/>
+            </g>
+            <g stroke="#fff" stroke-width="2" opacity=".5"><path d="M60 400 L 300 60"/><circle cx="60" cy="400" r="4" fill="#fff"/><circle cx="300" cy="60" r="4" fill="#fff"/></g>
+            <path id="route" d="M120 360 C 190 340, 230 310, 270 280 S 330 230, 362 206" fill="none" stroke="#7CF0A6" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round" opacity=".85"/>
+            <g transform="translate(372 198)">
+              <circle r="46" fill="url(#g-acc)" stroke="#4E92E4" stroke-opacity=".7" stroke-dasharray="3 4"/>
+              <circle r="9" fill="none" stroke="#4E92E4" stroke-width="2"><animate attributeName="r" values="9;26" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".8;0" dur="2s" repeatCount="indefinite"/></circle>
+              <circle r="9" fill="#2F6FBF" stroke="#fff" stroke-width="3"/>
+            </g>
+            <g font-family="Inter, sans-serif" font-size="12" font-weight="600"><path d="M418 198 h32" stroke="#CFE3FF" stroke-width="1.2"/><text x="456" y="202" fill="#CFE3FF">±5 m</text></g>
+            <g id="patroller" transform="translate(120 360)">
+              <circle r="15" fill="#16A34A" stroke="#fff" stroke-width="3"/>
+              <path d="M-6 0h12M0 -6v12" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+            </g>
+            <g transform="translate(596 368)" font-family="Inter, sans-serif" font-size="11" fill="rgba(255,255,255,.7)"><path d="M0 -28 L6 -12 L0 -16 L-6 -12 Z"/><text x="-4" y="0">N</text></g>
+          </svg>
+          <div class="maphud">
+            <span class="chip"><span class="dot" style="background:#4E92E4"></span><span lang="en">Alex · ±5 m</span><span lang="zh">Alex · ±5 米</span></span>
+            <span class="chip dist"><span class="dot" style="background:#16A34A"></span><span lang="en">Sam is <span class="d">480</span> m away</span><span lang="zh">Sam 距你 <span class="d">480</span> 米</span></span>
+          </div>
+          <div class="mapfoot">
+            <span class="illus"><span lang="en">Illustration · location updates every 15 s</span><span lang="zh">示意图 · 位置每 15 秒更新</span></span>
+            <button class="replay" id="replay" type="button"><span lang="en">↻ Replay</span><span lang="zh">↻ 重播</span></button>
+          </div>
         </div>
-        <div class="shot"><picture><source srcset="/assets/patrol.webp" type="image/webp"><img src="/assets/patrol.jpg" alt="AlpMate Patrol duty map at Cardrona" width="900" height="1759" loading="lazy"></picture></div>
+        <ul class="reveal">
+          <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></span><span><b><span lang="en">Accuracy, always shown</span><span lang="zh">一直显示误差范围</span></b><span lang="en">Coordinates come with ± metres and how fresh the fix is, on both phones.</span><span lang="zh">两边的手机上，坐标都附带误差米数和定位时间。</span></span></li>
+          <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></span><span><b><span lang="en">Updates every 15 seconds</span><span lang="zh">每 15 秒更新一次</span></b><span lang="en">If you move or are moved, patrol follows the latest position until the alert is closed.</span><span lang="zh">如果你移动了或被人带走，救援队会一直看到最新位置，直到求助结束。</span></span></li>
+          <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M12 3v18"/><circle cx="12" cy="12" r="9"/></svg></span><span><b><span lang="en">Distance both ways</span><span lang="zh">双方都知道距离</span></b><span lang="en">You see how far away your patroller is; they see your direction and distance.</span><span lang="zh">你能看到队员离你多远，队员能看到你在哪个方向、多远。</span></span></li>
+        </ul>
       </div>
     </div>
   </section>
 
   <section class="block">
     <div class="wrap">
-      <div class="safety">
+      <div class="kicker"><span lang="en">Built for the bad moments</span><span lang="zh">为最糟的时刻而设计</span></div>
+      <h2><span lang="en">Safety nets at every step</span><span lang="zh">每一步都有兜底</span></h2>
+      <div class="safety-grid">
+        <article class="card reveal"><div class="ic amber"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg></div><h3><span lang="en">2-minute escalation</span><span lang="zh">2 分钟没人接就升级</span></h3><p><span lang="en">If no patroller accepts within two minutes, AlpMate tells you, even on the lock screen, to call the patrol line or 111, with one-tap buttons.</span><span lang="zh">两分钟内没有队员接收，雪伴会提醒你（锁屏也能看到）直接拨打雪场救援电话或 111，一键拨号。</span></p></article>
+        <article class="card reveal"><div class="ic red"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></div><h3><span lang="en">111 is always one tap away</span><span lang="zh">111 永远一键可拨</span></h3><p><span lang="en">AlpMate works alongside emergency services, never instead of them. The resort's patrol line is right there too.</span><span lang="zh">雪伴和紧急服务一起用，而不是取代它；雪场的救援电话也在旁边。</span></p></article>
+        <article class="card reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div><h3><span lang="en">Help someone else</span><span lang="zh">帮别人求助</span></h3><p><span lang="en">Found someone hurt? Report whether they are awake and breathing, how many people, and add a photo. Critical reports jump the queue.</span><span lang="zh">遇到有人受伤？报告对方是否清醒、有没有呼吸、几个人，还可以附照片；危急的报告会排在最前。</span></p></article>
+        <article class="card reveal"><div class="ic red"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="15" rx="3"/><path d="M12 9v6M9 12h6"/></svg></div><h3><span lang="en">Medical card, your choice</span><span lang="zh">医疗信息卡，你说了算</span></h3><p><span lang="en">Blood type, allergies and medications stay on your phone, and go to patrol only with your alert, and only if you turned sharing on.</span><span lang="zh">血型、过敏、用药只存在你的手机上；只有你发出求助、并且打开了分享，才会发给救援队。</span></p></article>
+        <article class="card reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3><span lang="en">Talk without a call</span><span lang="zh">不打电话也能沟通</span></h3><p><span lang="en">Text, voice and one-tap replies like "I can't move", in English and Chinese, for when talking is hard or the wind is loud.</span><span lang="zh">文字、语音，和「我动不了」这类一键快捷回复（中英文都有），说话不便或风太大时也能沟通。</span></p></article>
+        <article class="card reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></div><h3><span lang="en">Be seen</span><span lang="zh">让救援看到你</span></h3><p><span lang="en">A rescue light turns your screen and flashlight into a beacon when it's getting dark or visibility is poor.</span><span lang="zh">天色暗或能见度低时，求救灯光会让屏幕和闪光灯一起闪烁，方便救援队找到你。</span></p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top: 0">
+    <div class="wrap">
+      <div class="everyday">
+        <div class="pair reveal">
+          <div class="device"><div class="screen"><span class="island"></span><picture><source srcset="/assets/home.webp" type="image/webp"><img src="/assets/home.jpg" alt="AlpMate home screen" width="900" height="1759" loading="lazy"></picture></div></div>
+          <div class="device"><div class="screen"><span class="island"></span><picture><source srcset="/assets/map.webp" type="image/webp"><img src="/assets/map.jpg" alt="Recording a ski day on the Cardrona piste map" width="900" height="1759" loading="lazy"></picture></div></div>
+        </div>
+        <div class="reveal">
+          <div class="kicker"><span lang="en">Every day on the mountain</span><span lang="zh">日常滑雪也好用</span></div>
+          <h2 style="font-size: clamp(28px,3.6vw,40px); margin: 12px 0 22px"><span lang="en">Track your day, keep your crew together</span><span lang="zh">记录每一天，小队不走散</span></h2>
+          <ul class="list">
+            <li><span class="tick">✓</span><span><span lang="en"><b>Ski tracks</b>: runs, vertical, distance and top speed, with heart rate from Apple Watch.</span><span lang="zh"><b>雪迹记录</b>：趟数、落差、里程和最高时速，戴 Apple Watch 还能记心率。</span></span></li>
+            <li><span class="tick">✓</span><span><span lang="en"><b>Your crew on one map</b>: share locations and chat with text, voice and photos. Everything deletes after 24 hours.</span><span lang="zh"><b>小队互相看到</b>：共享位置，发文字、语音和照片，24 小时后全部自动删除。</span></span></li>
+            <li><span class="tick">✓</span><span><span lang="en"><b>Piste maps</b> for New Zealand ski areas on satellite imagery, checked against aerial photos and official trail maps for the main resorts.</span><span lang="zh"><b>雪道地图</b>：卫星图上的新西兰各雪场雪道，主要雪场对照航拍和官方雪道图核对过。</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block resorts" id="resorts">
+    <div class="wrap resorts-grid">
+      <div class="reveal">
+        <div class="patrol-head"><img src="/assets/patrol-icon.png" alt="" width="52" height="52"><div class="kicker" style="color: var(--sos)"><span lang="en">For ski resorts</span><span lang="zh">给雪场</span></div></div>
+        <h2 style="margin-top: 14px"><span lang="en">AlpMate Patrol</span><span lang="zh">雪伴救援</span></h2>
+        <p class="intro"><span lang="en">A companion app for your ski patrol. It works alongside your radios and patrol line, and turns a skier's tap into a located, actionable alert.</span><span lang="zh">给雪场救援队用的配套 App，和你们现有的对讲机、救援电话一起用，把滑雪者的求助变成带位置、能马上行动的警报。</span></p>
+        <ul class="list" style="margin-top: 24px">
+          <li><span class="tick">✓</span><span><span lang="en"><b>Alerts that ring</b> on the lock screen until a patroller accepts.</span><span lang="zh"><b>锁屏也会响</b>，直到有队员点「我去处理」。</span></span></li>
+          <li><span class="tick">✓</span><span><span lang="en"><b>Nearest on-duty patroller first</b>, with the team's live positions.</span><span lang="zh"><b>最近的在岗队员优先</b>，队员位置实时可见。</span></span></li>
+          <li><span class="tick">✓</span><span><span lang="en"><b>Critical and bystander reports</b> highlighted, with duplicate reports merged.</span><span lang="zh"><b>危急报告和旁观者报告</b>突出显示，同一起事故的重复报告自动合并。</span></span></li>
+          <li><span class="tick">✓</span><span><span lang="en"><b>Incident reports</b> for your safety records and WorkSafe reporting.</span><span lang="zh"><b>事故记录单</b>，方便安全统计和向 WorkSafe 报告。</span></span></li>
+        </ul>
+        <div class="cta"><a class="btn dark" href="#contact"><span lang="en">Talk to us about a pilot</span><span lang="zh">联系我们试用</span></a></div>
+      </div>
+      <div class="device reveal"><div class="screen"><span class="island"></span><picture><source srcset="/assets/patrol-home.webp" type="image/webp"><img src="/assets/patrol-home.jpg" alt="AlpMate Patrol duty map with active alerts at Cardrona" width="900" height="1759" loading="lazy"></picture></div></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="safety-note reveal">
         <h3><span lang="en">AlpMate is a safety support tool, not an emergency service.</span><span lang="zh">雪伴是安全辅助工具，不是紧急服务。</span></h3>
         <p><span lang="en">In a life-threatening emergency, call 111 first. Alerting ski patrol only works at resorts using AlpMate Patrol, inside the resort area and while patrol is on duty, and delivery depends on signal, battery and your phone's settings. Rescue is carried out by the resort's own patrol.</span><span lang="zh">遇到危及生命的情况，请先拨打 111。通知救援队只在接入雪伴救援的雪场、雪场范围内、救援队值守时间有效，能否送到取决于信号、电量和手机设置。救援由雪场自己的救援队负责。</span></p>
       </div>
@@ -289,7 +433,7 @@ footer .legal { display: grid; gap: 4px; }
     </div>
   </section>
 
-  <section class="block contact" id="contact" style="background: var(--sky)">
+  <section class="block contact" id="contact">
     <div class="wrap">
       <div class="kicker"><span lang="en">Contact</span><span lang="zh">联系我们</span></div>
       <h2 style="margin-bottom: 18px"><span lang="en">Questions, feedback or a resort pilot?</span><span lang="zh">有问题、建议，或者想在雪场试用？</span></h2>
@@ -317,15 +461,86 @@ footer .legal { display: grid; gap: 4px; }
 <script>
 (function () {
   var root = document.documentElement;
-  function set(l) { root.setAttribute('data-lang', l); root.setAttribute('lang', l === 'zh' ? 'zh-Hans' : 'en'); }
+  document.body.classList.remove('no-js');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 语言
+  function setLang(l) { root.setAttribute('data-lang', l); root.setAttribute('lang', l === 'zh' ? 'zh-Hans' : 'en'); }
   var saved = null;
   try { saved = localStorage.getItem('alpmate.lang'); } catch (e) {}
-  set(saved || ((navigator.language || '').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en'));
+  setLang(saved || ((navigator.language || '').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en'));
   document.getElementById('lang').addEventListener('click', function () {
     var next = root.getAttribute('data-lang') === 'zh' ? 'en' : 'zh';
-    set(next);
+    setLang(next);
     try { localStorage.setItem('alpmate.lang', next); } catch (e) {}
   });
+
+  // 求助流程：点步骤换截图；自动轮播，鼠标放上去暂停
+  var flow = document.getElementById('flow');
+  var steps = Array.prototype.slice.call(flow.querySelectorAll('.step'));
+  var img = document.getElementById('flow-img');
+  var who = document.getElementById('flow-who');
+  var cur = 0, DUR = 6000, timer = null, paused = false;
+  flow.style.setProperty('--dur', DUR / 1000 + 's');
+  steps.forEach(function (s) { new Image().src = '/assets/' + s.dataset.img + '.webp'; });
+  function show(i) {
+    cur = (i + steps.length) % steps.length;
+    var side = steps[cur].dataset.side;
+    steps.forEach(function (s, k) {
+      s.setAttribute('aria-selected', k === cur ? 'true' : 'false');
+      var bar = s.querySelector('.bar-p'); bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = '';
+    });
+    who.classList.toggle('patrol', side === 'patrol');
+    who.querySelectorAll('[data-skier]').forEach(function (el) { el.textContent = el.getAttribute('data-' + side); });
+    img.style.opacity = 0;
+    setTimeout(function () { img.src = '/assets/' + steps[cur].dataset.img + '.webp'; img.style.opacity = 1; }, reduce ? 0 : 160);
+    schedule();
+  }
+  function schedule() { clearTimeout(timer); if (!paused && !reduce) timer = setTimeout(function () { show(cur + 1); }, DUR); }
+  steps.forEach(function (s, k) { s.addEventListener('click', function () { show(k); }); });
+  flow.addEventListener('mouseenter', function () { paused = true; flow.classList.add('paused'); clearTimeout(timer); });
+  flow.addEventListener('mouseleave', function () { paused = false; flow.classList.remove('paused'); schedule(); });
+
+  // 实时地图：队员沿路线靠近，距离读数递减
+  var route = document.getElementById('route'), pat = document.getElementById('patroller');
+  var ds = document.querySelectorAll('.chip.dist .d');
+  var len = route.getTotalLength(), raf = null, start = null, RUN = 9000, FROM = 480, TO = 20;
+  function setDist(v) { ds.forEach(function (d) { d.textContent = v; }); }
+  var tick = null;
+  function draw() {
+    var k = Math.min(1, (Date.now() - start) / RUN), e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+    var p = route.getPointAtLength(e * len);
+    pat.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ' ' + p.y.toFixed(1) + ')');
+    setDist(Math.round((FROM - (FROM - TO) * e) / 10) * 10);
+    return k < 1;
+  }
+  function frame() { if (draw()) raf = requestAnimationFrame(frame); }
+  function play() {
+    cancelAnimationFrame(raf); clearInterval(tick); start = Date.now();
+    if (reduce) { var p = route.getPointAtLength(len * .55); pat.setAttribute('transform', 'translate(' + p.x + ' ' + p.y + ')'); setDist(250); return; }
+    raf = requestAnimationFrame(frame);
+    // 有的环境不跑 requestAnimationFrame：用定时器兜底
+    tick = setInterval(function () { if (!draw()) clearInterval(tick); }, 60);
+  }
+  document.getElementById('replay').addEventListener('click', play);
+
+  // 进入视口时淡入；地图第一次出现时开始播放
+  var played = false;
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        en.target.classList.add('in');
+        if (en.target.classList.contains('mapcard') && !played) { played = true; play(); }
+        io.unobserve(en.target);
+      });
+    }, { threshold: .15 });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+    play();
+  }
+  show(0);
 })();
 </script>
 </body>
