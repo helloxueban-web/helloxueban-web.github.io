@@ -68,6 +68,7 @@ nav.links a:hover { color: var(--ink); }
 .device { position: relative; width: 300px; max-width: 100%; border-radius: 46px; padding: 7px; background: linear-gradient(145deg, #2A3445, #0B111B); box-shadow: var(--shadow-lg), inset 0 0 0 1.5px rgba(255,255,255,.08); }
 .device .screen { position: relative; width: 100%; border-radius: 12.5% / 5.75%; overflow: hidden; background: #000; }
 .device .island { display: none; }
+.device .screen picture { display: block; }
 .device .screen img { width: 100%; height: auto; transition: opacity .35s ease; }
 
 .hero { position: relative; overflow: hidden; color: #fff; background:
@@ -121,6 +122,30 @@ nav.links a:hover { color: var(--ink); }
 .daily .card h3 { font-size: 17.5px; margin-bottom: 4px; }
 .daily .card p { font-size: 14.5px; }
 @media (max-width: 860px) { .daily { grid-template-columns: 1fr; } }
+
+/* 登记表单 */
+.notify { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 32px; max-width: 520px; }
+.notify input { flex: 1 1 220px; min-width: 0; height: 52px; padding: 0 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,.55); background: rgba(255,255,255,.96); color: #0F1E36; font: 16px Inter, "PingFang SC", sans-serif; }
+.notify input:focus { outline: 3px solid rgba(255,255,255,.55); outline-offset: 1px; }
+.notify button { height: 52px; border: 0; cursor: pointer; font: 600 16px Inter, "PingFang SC", sans-serif; }
+.form-msg { font-size: 14px; margin-top: 10px; min-height: 1.4em; }
+.hero .form-msg { color: #fff; }
+.form-msg.ok::before { content: "✓ "; }
+.forms { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 20px; align-items: start; margin-top: 34px; text-align: left; }
+.form-card { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 26px; display: grid; gap: 12px; align-content: start; }
+.form-card h3 { font-size: 20px; }
+.form-card p.sub { color: var(--ink-2); font-size: 15px; margin-top: -4px; }
+.form-card label { display: grid; gap: 6px; font-size: 13.5px; font-weight: 600; color: var(--ink-2); }
+.form-card input, .form-card textarea { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font: 15.5px Inter, "PingFang SC", sans-serif; }
+.form-card textarea { min-height: 96px; resize: vertical; }
+.form-card input:focus, .form-card textarea:focus { outline: 2px solid var(--brand); outline-offset: 1px; }
+.form-card .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-card button { justify-self: start; border: 0; cursor: pointer; font: 600 16px Inter, "PingFang SC", sans-serif; }
+.form-card .form-msg { color: var(--ink-2); }
+.form-msg.err { color: var(--sos) !important; }
+.fine { font-size: 12.5px; color: var(--ink-3); }
+.hero .fine { color: rgba(255,255,255,.8); margin-top: 6px; }
+@media (max-width: 860px) { .forms { grid-template-columns: 1fr; } .form-card .row2 { grid-template-columns: 1fr; } }
 
 /* 常见问题 */
 .faq { display: grid; gap: 10px; margin-top: 36px; max-width: 820px; }
@@ -259,10 +284,12 @@ footer .legal { display: grid; gap: 4px; }
           <span lang="en">Track your ski day and keep your crew on one map. If something goes wrong at a resort connected to AlpMate Patrol, send ski patrol your location and its accuracy — and see who is coming and how far away they are.</span>
           <span lang="zh">记录滑雪、小队在同一张地图上互相看到。在接入雪伴救援的雪场出了状况，可以把你的位置和误差范围发给救援队，并看到谁在赶来、离你还有多远。</span>
         </p>
-        <div class="cta">
-          <a class="btn light" href="mailto:hello@alpmate.nz?subject=Notify%20me%20when%20AlpMate%20launches&amp;body=Hi%20AlpMate%2C%20please%20let%20me%20know%20when%20the%20app%20is%20available.%20I%20usually%20ski%20at%3A%20"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span lang="en">Get notified at launch</span><span lang="zh">上线时通知我</span></a>
-          <a class="btn ghost" href="#resorts"><span lang="en">For ski resorts →</span><span lang="zh">雪场合作 →</span></a>
-        </div>
+        <form class="notify" data-kind="launch" novalidate>
+          <input type="email" name="email" required autocomplete="email" placeholder="you@example.com" aria-label="Email">
+          <button class="btn light" type="submit"><span lang="en">Notify me at launch</span><span lang="zh">上线时通知我</span></button>
+        </form>
+        <div class="form-msg" role="status" aria-live="polite"></div>
+        <p class="fine"><span lang="en">One email when AlpMate launches. No spam. </span><span lang="zh">只在上线时发一封邮件，不发广告。</span><a href="/privacy/" style="color: inherit"><span lang="en">Privacy</span><span lang="zh">隐私政策</span></a> · <a href="#resorts" style="color: inherit"><span lang="en">For ski resorts →</span><span lang="zh">雪场合作 →</span></a></p>
         <div class="status"><span class="pill"><span lang="en">Beta</span><span lang="zh">测试中</span></span><span><span lang="en">AlpMate is in testing and coming soon to the App Store. Ski-patrol alerts only work at resorts connected to AlpMate Patrol — no resort is connected yet, and we're recruiting pilot resorts.</span><span lang="zh">雪伴正在测试，即将上架 App Store。通知救援队只在接入雪伴救援的雪场有效；目前还没有雪场正式接入，我们正在招募试点雪场。</span></span></div>
         <a class="link-down" href="#how"><span lang="en">See how an alert works ↓</span><span lang="zh">看看求助怎么运作 ↓</span></a>
       </div>
@@ -487,10 +514,33 @@ footer .legal { display: grid; gap: 4px; }
   <section class="block contact" id="contact">
     <div class="wrap">
       <div class="kicker"><span lang="en">Contact</span><span lang="zh">联系我们</span></div>
-      <h2 style="margin-bottom: 18px"><span lang="en">Questions, feedback or a resort pilot?</span><span lang="zh">有问题、建议，或者想在雪场试用？</span></h2>
-      <a class="mail" href="mailto:hello@alpmate.nz">hello@alpmate.nz</a>
-      <p style="margin-top: 14px; color: var(--ink-2)"><span lang="en">AlpMate is in beta and coming soon to the App Store.</span><span lang="zh">雪伴正在测试，即将上架 App Store。</span></p>
-      <div class="cta" style="justify-content: center"><a class="btn dark" href="mailto:hello@alpmate.nz?subject=Notify%20me%20when%20AlpMate%20launches"><span lang="en">Get notified at launch</span><span lang="zh">上线时通知我</span></a><a class="btn" style="border: 1px solid var(--line); background: var(--surface); color: var(--ink)" href="mailto:partners@alpmate.nz?subject=AlpMate%20Patrol%20pilot"><span lang="en">Resort pilot enquiry</span><span lang="zh">雪场试点咨询</span></a></div>
+      <h2 style="margin-bottom: 14px"><span lang="en">Stay in the loop</span><span lang="zh">保持联系</span></h2>
+      <p style="color: var(--ink-2)"><span lang="en">Questions or feedback? </span><span lang="zh">有问题或建议？</span><a href="mailto:hello@alpmate.nz">hello@alpmate.nz</a></p>
+      <div class="forms">
+        <form class="form-card" data-kind="launch" novalidate>
+          <h3><span lang="en">Get notified at launch</span><span lang="zh">上线时通知我</span></h3>
+          <p class="sub"><span lang="en">We'll send one email when AlpMate is on the App Store.</span><span lang="zh">雪伴上架 App Store 时，我们会发一封邮件告诉你。</span></p>
+          <label><span lang="en">Email</span><span lang="zh">邮箱</span><input type="email" name="email" required autocomplete="email" placeholder="you@example.com"></label>
+          <button class="btn dark" type="submit"><span lang="en">Notify me</span><span lang="zh">通知我</span></button>
+          <div class="form-msg" role="status" aria-live="polite"></div>
+        </form>
+        <form class="form-card" data-kind="resort" novalidate>
+          <h3><span lang="en">Resort pilot enquiry</span><span lang="zh">雪场试点咨询</span></h3>
+          <p class="sub"><span lang="en">For ski patrol, safety and operations teams. We'll reply within two working days.</span><span lang="zh">给雪场救援、安全和运营团队。我们会在两个工作日内回复。</span></p>
+          <div class="row2">
+            <label><span lang="en">Your name</span><span lang="zh">你的名字</span><input type="text" name="name" required autocomplete="name"></label>
+            <label><span lang="en">Role</span><span lang="zh">职位</span><input type="text" name="role" autocomplete="organization-title" placeholder="Patrol manager"></label>
+          </div>
+          <div class="row2">
+            <label><span lang="en">Resort</span><span lang="zh">雪场</span><input type="text" name="resort" required autocomplete="organization"></label>
+            <label><span lang="en">Work email</span><span lang="zh">工作邮箱</span><input type="email" name="email" required autocomplete="email"></label>
+          </div>
+          <label><span lang="en">Message (optional)</span><span lang="zh">留言（可选）</span><textarea name="message"></textarea></label>
+          <button class="btn dark" type="submit"><span lang="en">Send enquiry</span><span lang="zh">发送</span></button>
+          <div class="form-msg" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+      <p class="fine" style="margin-top: 16px"><span lang="en">Or email </span><span lang="zh">也可以直接发邮件到 </span><a href="mailto:partners@alpmate.nz">partners@alpmate.nz</a></p>
     </div>
   </section>
 </main>
@@ -598,6 +648,32 @@ footer .legal { display: grid; gap: 4px; }
     document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
     play();
   }
+  // 登记表单：提交到 Supabase（site_signup）
+  var SUPA = 'https://wvfnkuxlwsjqahwfymve.supabase.co', KEY = 'sb_publishable_BkPWPJKXkib2QOwEmE61yA_440zWF4l';
+  var T = {
+    en: { sending: 'Sending…', ok: { launch: "Thanks — we'll email you when AlpMate launches.", resort: "Thanks — we'll be in touch within two working days." }, badEmail: 'Please enter a valid email address.', missing: 'Please fill in the required fields.', tooMany: 'Too many attempts — please try again later.', fail: 'Something went wrong. Please email hello@alpmate.nz instead.' },
+    zh: { sending: '正在提交…', ok: { launch: '谢谢！雪伴上线时我们会发邮件告诉你。', resort: '谢谢！我们会在两个工作日内联系你。' }, badEmail: '请输入正确的邮箱地址。', missing: '请填写必填的内容。', tooMany: '提交太频繁了，请稍后再试。', fail: '提交没成功，请直接发邮件到 hello@alpmate.nz。' }
+  };
+  document.querySelectorAll('form[data-kind]').forEach(function (f) {
+    var msg = f.querySelector('.form-msg') || f.nextElementSibling;
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var t = T[root.getAttribute('data-lang') === 'zh' ? 'zh' : 'en'], kind = f.dataset.kind;
+      var v = function (n) { var el = f.elements[n]; return el ? el.value.trim() : ''; };
+      msg.className = 'form-msg';
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v('email'))) { msg.textContent = t.badEmail; msg.classList.add('err'); return; }
+      if (kind === 'resort' && (!v('name') || !v('resort'))) { msg.textContent = t.missing; msg.classList.add('err'); return; }
+      var btn = f.querySelector('button'); btn.disabled = true; msg.textContent = t.sending;
+      fetch(SUPA + '/rest/v1/rpc/site_signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', apikey: KEY },
+        body: JSON.stringify({ p_kind: kind, p_email: v('email'), p_name: v('name'), p_resort: v('resort'), p_role: v('role'), p_message: v('message'), p_lang: root.getAttribute('data-lang') })
+      }).then(function (r) { return r.ok ? r.json() : r.text().then(function (x) { throw new Error(x); }); })
+        .then(function () { msg.textContent = t.ok[kind]; msg.classList.add('ok'); f.reset(); })
+        .catch(function (err) { var m = String(err && err.message || ''); msg.textContent = /badEmail/.test(m) ? t.badEmail : /tooMany/.test(m) ? t.tooMany : t.fail; msg.classList.add('err'); })
+        .then(function () { btn.disabled = false; });
+    });
+  });
   show(0);
 })();
 </script>
