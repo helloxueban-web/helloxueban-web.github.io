@@ -246,9 +246,9 @@ nav.links a:hover { color: var(--ink); }
 .feed .plus svg { width: 42%; height: 42%; }
 
 /* 求助流程 */
-.flow { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 48px; align-items: stretch; margin-top: 32px; }
+.flow { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 48px; align-items: stretch; margin-top: 32px; }
 .steps { display: grid; gap: 12px; grid-auto-rows: 1fr; }
-.step { position: relative; text-align: left; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; align-items: center; padding: 18px 20px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface); color: inherit; font: inherit; cursor: pointer; overflow: hidden; transition: border-color .2s, box-shadow .2s, transform .2s; }
+.step { position: relative; text-align: left; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; align-items: center; padding: 14px 18px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface); color: inherit; font: inherit; cursor: pointer; overflow: hidden; transition: border-color .2s, box-shadow .2s, transform .2s; }
 .step:hover { transform: translateY(-1px); }
 .step .num { width: 44px; height: 44px; border-radius: 13px; display: grid; place-items: center; font-family: Archivo, Inter, sans-serif; font-weight: 700; font-size: 18px; background: var(--sky); color: var(--brand); transition: background .2s, color .2s; }
 .step h3 { font-size: 19px; margin-bottom: 4px; }
@@ -261,7 +261,7 @@ nav.links a:hover { color: var(--ink); }
 .step[aria-selected="true"] .bar-p { animation: progress var(--dur, 6s) linear forwards; }
 .flow.paused .step[aria-selected="true"] .bar-p { animation-play-state: paused; }
 .flow-visual { display: flex; flex-direction: column; align-items: center; gap: 14px; }
-.flow-visual .device { width: 300px; }
+.flow-visual .device { width: 260px; }
 
 .which { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink-2); padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); }
 .which .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brand); }
@@ -441,7 +441,7 @@ footer .credits { margin-top: 20px; font-size: 12.5px; color: var(--ink-3); }
     <a class="pillar reveal" href="#season"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 8-8"/><path d="M14 8h6v6"/></svg></span><span><h3><span lang="en">Your ski season</span><span lang="zh">你的雪季</span></h3><p><span lang="en">Every run, vertical metre and top speed, season stats and medals, and your crew on one map.</span><span lang="zh">每一趟、每米落差和最高时速，雪季数据和勋章，小队在同一张地图上。</span></p><span class="more"><span lang="en">Ski tracks →</span><span lang="zh">雪迹记录 →</span></span></span></a>
   </div>
 
-  <section class="block" id="safety">
+  <section class="block" id="safety" style="padding-bottom: 24px">
     <div class="wrap">
       <div class="split">
         <div class="reveal">
@@ -458,6 +458,46 @@ footer .credits { margin-top: 20px; font-size: 12.5px; color: var(--ink-3); }
         <div class="phones reveal">
           <div class="device"><div class="screen"><img lang="en" src="/assets/safety.jpg" alt="AlpMate Safety page: one-tap SOS, Cardrona patrol and 111, before-you-go checklist" width="899" height="1955" loading="lazy"><img lang="zh" src="/assets/safety-zh.jpg" alt="AlpMate Safety page: one-tap SOS, Cardrona patrol and 111, before-you-go checklist" width="899" height="1955" loading="lazy"></div></div>
           <div class="device"><div class="screen"><img lang="en" src="/assets/medical.jpg" alt="AlpMate medical card with blood type, allergies and medications" width="899" height="1955" loading="lazy"><img lang="zh" src="/assets/medical-zh.jpg" alt="AlpMate medical card with blood type, allergies and medications" width="899" height="1955" loading="lazy"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="how" style="padding-top: 24px">
+    <div class="wrap">
+      <div class="kicker"><span lang="en">How an alert works</span><span lang="zh">求助怎么运作</span></div>
+      <h2><span lang="en">From one tap to a patroller at your side</span><span lang="zh">从点一下，到救援队员赶到身边</span></h2>
+      <p class="intro"><span lang="en">Tap a step to see the screen. The skier and the ski patrol see the same alert, updated in real time. Screens show sample data.</span><span lang="zh">点击每一步看对应的画面。求助的人和救援队看到的是同一条实时更新的求助。画面为示例数据。</span></p>
+      <div class="flow" id="flow">
+        <div class="steps" role="tablist" aria-label="Alert steps">
+          <button class="step sos" role="tab" aria-selected="true" data-img="sos" data-side="skier">
+            <span class="num">1</span>
+            <span><h3><span lang="en">Tap SOS</span><span lang="zh">点「一键求助」</span></h3>
+            <p><span lang="en">Your coordinates in large type with their accuracy, the nearest medical point, how many patrollers are on duty, and one tap to call 111.</span><span lang="zh">大字显示坐标和误差范围、最近的医疗点、现在有几名队员在岗，一键拨打 111。</span></p></span>
+            <span class="bar-p"></span>
+          </button>
+          <button class="step" role="tab" aria-selected="false" data-img="patrol-home" data-side="patrol">
+            <span class="num">2</span>
+            <span><h3><span lang="en">Patrol phones ring</span><span lang="zh">救援队的手机响起</span></h3>
+            <p><span lang="en">On-duty patrollers get an alarm on the lock screen that repeats until someone accepts — and rings even on silent while the app is running on duty. Critical reports go to the top.</span><span lang="zh">在岗队员的锁屏上会响起警报，没人接收就一直重复；在岗、App 在运行时，静音也会响。情况危急的排在最前面。</span></p></span>
+            <span class="bar-p"></span>
+          </button>
+          <button class="step" role="tab" aria-selected="false" data-img="patrol-detail" data-side="patrol">
+            <span class="num">3</span>
+            <span><h3><span lang="en">The closest patroller responds</span><span lang="zh">最近的队员接单</span></h3>
+            <p><span lang="en">Live location every 15 seconds when there's signal, with accuracy, altitude and direction. The skier's language is shown so nothing gets lost.</span><span lang="zh">有信号时实时位置每 15 秒更新，附带误差、海拔和方位；还会标出求助人的语言，避免沟通出错。</span></p></span>
+            <span class="bar-p"></span>
+          </button>
+          <button class="step" role="tab" aria-selected="false" data-img="acked" data-side="skier">
+            <span class="num">4</span>
+            <span><h3><span lang="en">Help is on the way</span><span lang="zh">救援正在赶来</span></h3>
+            <p><span lang="en">You see who is coming and how far away they are, and can chat with them. Your medical card is attached if you chose to share it.</span><span lang="zh">你能看到谁在赶来、还有多远，可以和队员聊天；如果你选择了分享，医疗信息卡也会一起发出。</span></p></span>
+            <span class="bar-p"></span>
+          </button>
+        </div>
+        <div class="flow-visual">
+          <div class="device"><div class="screen"><img id="flow-img" src="/assets/sos.webp" alt="The AlpMate SOS screen" width="900" height="1955"></div></div>
+          <div class="which" id="flow-who" title="Demo · sample data"><span class="dot"></span><span lang="en" data-skier="Skier's phone · AlpMate" data-patrol="Ski patrol's phone · AlpMate Patrol">Skier's phone · AlpMate</span><span lang="zh" data-skier="滑雪者的手机 · 雪伴" data-patrol="救援队员的手机 · 雪伴救援">滑雪者的手机 · 雪伴</span></div>
         </div>
       </div>
     </div>
@@ -563,46 +603,6 @@ footer .credits { margin-top: 20px; font-size: 12.5px; color: var(--ink-3); }
             <li><span class="tick">✓</span><span><span lang="en"><b>Your crew on one map</b>: find each other on the mountain and chat with text, voice and photos. Team messages delete after 24 hours.</span><span lang="zh"><b>小队互相看到</b>：在山上找到彼此，发文字、语音和照片，小队消息 24 小时后自动删除。</span></span></li>
             <li><span class="tick">✓</span><span><span lang="en"><b>Piste maps and conditions</b> for New Zealand ski areas: runs and lifts on satellite imagery, weather and lift status from the resorts' own sites.</span><span lang="zh"><b>雪道地图和雪况</b>：卫星图上的新西兰各雪场雪道和缆车，天气和缆车开放情况读自雪场官网。</span></span></li>
           </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="how" style="padding-top: 24px">
-    <div class="wrap">
-      <div class="kicker"><span lang="en">How an alert works</span><span lang="zh">求助怎么运作</span></div>
-      <h2><span lang="en">From one tap to a patroller at your side</span><span lang="zh">从点一下，到救援队员赶到身边</span></h2>
-      <p class="intro"><span lang="en">Tap a step to see the screen. The skier and the ski patrol see the same alert, updated in real time. Screens show sample data.</span><span lang="zh">点击每一步看对应的画面。求助的人和救援队看到的是同一条实时更新的求助。画面为示例数据。</span></p>
-      <div class="flow" id="flow">
-        <div class="steps" role="tablist" aria-label="Alert steps">
-          <button class="step sos" role="tab" aria-selected="true" data-img="sos" data-side="skier">
-            <span class="num">1</span>
-            <span><h3><span lang="en">Tap SOS</span><span lang="zh">点「一键求助」</span></h3>
-            <p><span lang="en">Your coordinates in large type with their accuracy, the nearest medical point, how many patrollers are on duty, and one tap to call 111.</span><span lang="zh">大字显示坐标和误差范围、最近的医疗点、现在有几名队员在岗，一键拨打 111。</span></p></span>
-            <span class="bar-p"></span>
-          </button>
-          <button class="step" role="tab" aria-selected="false" data-img="patrol-home" data-side="patrol">
-            <span class="num">2</span>
-            <span><h3><span lang="en">Patrol phones ring</span><span lang="zh">救援队的手机响起</span></h3>
-            <p><span lang="en">On-duty patrollers get an alarm on the lock screen that repeats until someone accepts — and rings even on silent while the app is running on duty. Critical reports go to the top.</span><span lang="zh">在岗队员的锁屏上会响起警报，没人接收就一直重复；在岗、App 在运行时，静音也会响。情况危急的排在最前面。</span></p></span>
-            <span class="bar-p"></span>
-          </button>
-          <button class="step" role="tab" aria-selected="false" data-img="patrol-detail" data-side="patrol">
-            <span class="num">3</span>
-            <span><h3><span lang="en">The closest patroller responds</span><span lang="zh">最近的队员接单</span></h3>
-            <p><span lang="en">Live location every 15 seconds when there's signal, with accuracy, altitude and direction. The skier's language is shown so nothing gets lost.</span><span lang="zh">有信号时实时位置每 15 秒更新，附带误差、海拔和方位；还会标出求助人的语言，避免沟通出错。</span></p></span>
-            <span class="bar-p"></span>
-          </button>
-          <button class="step" role="tab" aria-selected="false" data-img="acked" data-side="skier">
-            <span class="num">4</span>
-            <span><h3><span lang="en">Help is on the way</span><span lang="zh">救援正在赶来</span></h3>
-            <p><span lang="en">You see who is coming and how far away they are, and can chat with them. Your medical card is attached if you chose to share it.</span><span lang="zh">你能看到谁在赶来、还有多远，可以和队员聊天；如果你选择了分享，医疗信息卡也会一起发出。</span></p></span>
-            <span class="bar-p"></span>
-          </button>
-        </div>
-        <div class="flow-visual">
-          <div class="device"><div class="screen"><img id="flow-img" src="/assets/sos.webp" alt="The AlpMate SOS screen" width="900" height="1955"></div></div>
-          <div class="which" id="flow-who" title="Demo · sample data"><span class="dot"></span><span lang="en" data-skier="Skier's phone · AlpMate" data-patrol="Ski patrol's phone · AlpMate Patrol">Skier's phone · AlpMate</span><span lang="zh" data-skier="滑雪者的手机 · 雪伴" data-patrol="救援队员的手机 · 雪伴救援">滑雪者的手机 · 雪伴</span></div>
         </div>
       </div>
     </div>
