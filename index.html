@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>AlpMate – Ski Tracking, Ski Community and Ski Safety App | Ski together. Ski safer.</title>
-<meta name="description" content="AlpMate is a ski app built in New Zealand: record every ski day, share it with skiers around the world, keep your crew on one map, and alert ski patrol with your location at resorts using AlpMate Patrol.">
-<meta property="og:title" content="AlpMate — Ski together. Ski safer.">
-<meta property="og:description" content="Record your ski days, share them with skiers around the world, keep your crew together, and get help fast when something goes wrong. Built in New Zealand.">
+<title>AlpMate – Ski Tracking and Ski Community App | Ski together.</title>
+<meta name="description" content="AlpMate is a ski app built in New Zealand: record every ski day, share it with skiers around the world, and keep your crew on one map.">
+<meta property="og:title" content="AlpMate — Ski together.">
+<meta property="og:description" content="Record your ski days, share them with skiers around the world, and keep your crew together. Built in New Zealand.">
 <meta property="og:image" content="https://alpmate.nz/assets/og.jpg">
 <meta property="og:url" content="https://alpmate.nz/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://alpmate.nz/">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"AlpMate","alternateName":"雪伴","applicationCategory":"SportsApplication","operatingSystem":"iOS, watchOS","description":"Ski tracking, ski community and ski safety app, built in New Zealand.","url":"https://alpmate.nz/","offers":{"@type":"Offer","price":"0","priceCurrency":"NZD"},"publisher":{"@type":"Organization","name":"AlpMate Technologies Limited"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"AlpMate","alternateName":"雪伴","applicationCategory":"SportsApplication","operatingSystem":"iOS, watchOS","description":"Ski tracking and ski community app, built in New Zealand.","url":"https://alpmate.nz/","offers":{"@type":"Offer","price":"0","priceCurrency":"NZD"},"publisher":{"@type":"Organization","name":"AlpMate Technologies Limited"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AlpMate Technologies Limited","alternateName":["AlpMate","雪伴"],"url":"https://alpmate.nz/","logo":"https://alpmate.nz/assets/icon.png","email":"hello@alpmate.nz","address":{"@type":"PostalAddress","addressLocality":"Auckland","addressCountry":"NZ"},"identifier":{"@type":"PropertyValue","propertyID":"NZ company number","value":"9465264"}}</script>
 <meta name="theme-color" content="#2F6FBF">
 <link rel="icon" href="/assets/favicon.png">
@@ -24,7 +24,7 @@
 :root {
   --bg: #F3F6FA; --surface: #FFFFFF; --ink: #0F1E36; --ink-2: #47566C; --ink-3: #7B889A;
   --brand: #2F6FBF; --brand-2: #4E92E4; --sky: #E7F0FB; --line: #DCE4EE;
-  --sos: #D92D20; --amber: #F59E0B; --green: #16A34A;
+  --red: #D92D20; --amber: #F59E0B; --green: #16A34A;
   --night: #0B1628; --night-2: #13243F; --on-night: #E6EDF7; --on-night-2: #9DAEC6; --night-line: #22385A;
   --shadow-lg: 0 30px 60px -28px rgba(15, 30, 54, .45), 0 10px 24px -14px rgba(15, 30, 54, .25);
   --shadow-sm: 0 8px 22px -14px rgba(15, 30, 54, .35);
@@ -97,6 +97,7 @@ nav.links a:hover { color: var(--ink); }
 .hero-visual .device { position: absolute; }
 .hero-visual .back { width: 250px; left: calc(50% - 250px); top: 46px; transform: rotate(-5deg); opacity: .96; }
 .hero-visual .front { width: 290px; left: calc(50% - 40px); top: 0; transform: rotate(3deg); z-index: 2; }
+.hero-visual .front .demo-tag { bottom: auto; top: -14px; }
 .toast { position: absolute; z-index: 4; display: flex; gap: 12px; align-items: center; padding: 11px 14px; border-radius: 18px; background: rgba(255,255,255,.97); color: #0F1E36; box-shadow: var(--shadow-lg); font-size: 14px; line-height: 1.35; max-width: 270px; animation: float 6s ease-in-out infinite; }
 .toast b { display: block; font-size: 14.5px; }
 .toast small { color: #5A687C; font-size: 12.5px; }
@@ -128,7 +129,7 @@ nav.links a:hover { color: var(--ink); }
 .form-msg { font-size: 14px; margin-top: 10px; min-height: 1.4em; }
 .hero .form-msg { color: #fff; }
 .form-msg.ok::before { content: "✓ "; }
-.forms { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 20px; align-items: start; margin-top: 34px; text-align: left; }
+.forms { display: grid; grid-template-columns: minmax(0, 1fr); max-width: 520px; margin-inline: auto; gap: 20px; align-items: start; margin-top: 34px; text-align: left; }
 .form-card { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 26px; display: grid; gap: 12px; align-content: start; }
 .form-card h3 { font-size: 20px; }
 .form-card p.sub { color: var(--ink-2); font-size: 15px; margin-top: -4px; }
@@ -139,17 +140,17 @@ nav.links a:hover { color: var(--ink); }
 .form-card .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .form-card button { justify-self: start; border: 0; cursor: pointer; font: 600 16px Inter, "PingFang SC", sans-serif; }
 .form-card .form-msg { color: var(--ink-2); }
-.form-msg.err { color: var(--sos) !important; }
+.form-msg.err { color: var(--red) !important; }
 .fine { font-size: 12.5px; color: var(--ink-3); }
 .hero .fine { color: rgba(255,255,255,.82); margin-top: 6px; }
 @media (max-width: 860px) { .forms { grid-template-columns: 1fr; } .form-card .row2 { grid-template-columns: 1fr; } }
 
 /* 三件事：压在首屏下沿 */
-.pillars { position: relative; z-index: 3; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: -84px; }
+.pillars { position: relative; z-index: 3; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: -84px; }
 .pillar { display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 14px; align-items: start; padding: 22px; border-radius: 22px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-lg); text-decoration: none; color: inherit; transition: transform .2s; }
 .pillar:hover { transform: translateY(-3px); }
 .pillar .ic { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: var(--sky); color: var(--brand); }
-.pillar .ic.red { background: color-mix(in srgb, var(--sos) 12%, transparent); color: var(--sos); }
+.pillar .ic.red { background: color-mix(in srgb, var(--red) 12%, transparent); color: var(--red); }
 .pillar .ic.green { background: color-mix(in srgb, var(--green) 13%, transparent); color: var(--green); }
 .pillar h3 { font-size: 18px; margin-bottom: 4px; }
 .pillar p { color: var(--ink-2); font-size: 14.5px; }
@@ -160,7 +161,7 @@ nav.links a:hover { color: var(--ink); }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 24px; transition: transform .2s, box-shadow .2s; }
 .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
 .card .ic { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: var(--sky); color: var(--brand); margin-bottom: 16px; }
-.card .ic.red { background: color-mix(in srgb, var(--sos) 12%, transparent); color: var(--sos); }
+.card .ic.red { background: color-mix(in srgb, var(--red) 12%, transparent); color: var(--red); }
 .card .ic.amber { background: color-mix(in srgb, var(--amber) 16%, transparent); color: #B76E00; }
 .card .ic.green { background: color-mix(in srgb, var(--green) 13%, transparent); color: var(--green); }
 .card h3 { font-size: 19px; margin-bottom: 8px; }
@@ -244,31 +245,44 @@ nav.links a:hover { color: var(--ink); }
 .feed .tabbar .go { width: calc(var(--u) * 62); height: calc(var(--u) * 62); margin-top: calc(var(--u) * -26); border-radius: 50%; background: radial-gradient(circle at 35% 30%, #5AAEFF, #2F6FBF 70%); border: calc(var(--u) * 4) solid #fff; box-shadow: 0 4px 12px rgba(47,111,191,.35); display: grid; place-items: center; color: #fff; justify-self: center; }
 .feed .plus { position: absolute; right: calc(var(--u) * 18); bottom: calc(var(--u) * 104); width: calc(var(--u) * 54); height: calc(var(--u) * 54); border-radius: 50%; background: #2F6FBF; color: #fff; display: grid; place-items: center; box-shadow: 0 6px 14px rgba(47,111,191,.35); }
 .feed .plus svg { width: 42%; height: 42%; }
+/* 雪迹日页面示意（src/track.html） */
+.day { background: #F4F6F9; }
+.day .nav { display: flex; justify-content: space-between; padding: calc(var(--u) * 6) calc(var(--u) * 16) 0; }
+.day .nav svg { width: calc(var(--u) * 22); height: calc(var(--u) * 22); }
+.day .hd { padding: calc(var(--u) * 6) calc(var(--u) * 18) 0; }
+.day .hd small { display: block; color: #566274; font-size: calc(var(--u) * 12.5); font-weight: 600; }
+.day .hd strong { display: block; font-size: calc(var(--u) * 30); font-weight: 800; line-height: 1.15; }
+.day .hero3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: calc(var(--u) * 6); padding: calc(var(--u) * 12) calc(var(--u) * 18) calc(var(--u) * 10); }
+.day .hero3 > span { display: grid; color: #566274; font-size: calc(var(--u) * 11.5); line-height: 1.25; }
+.day .hero3 b { color: #0F1B2D; font-size: calc(var(--u) * 26); font-weight: 800; line-height: 1.1; }
+.day .map { position: relative; margin: 0 calc(var(--u) * 12); height: calc(var(--u) * 250); border-radius: calc(var(--u) * 16); overflow: hidden; }
+.day .map svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.day .legend { position: absolute; left: calc(var(--u) * 10); top: calc(var(--u) * 10); display: flex; gap: calc(var(--u) * 6); }
+.day .legend > span, .day .replay { display: inline-flex; align-items: center; gap: calc(var(--u) * 5); padding: calc(var(--u) * 4) calc(var(--u) * 9); border-radius: 99px; background: rgba(255,255,255,.92); font-size: calc(var(--u) * 11); font-weight: 600; }
+.day .legend i { width: calc(var(--u) * 14); height: calc(var(--u) * 3.4); border-radius: 9px; }
+.day .legend i.dash { background: repeating-linear-gradient(90deg, #5B6B80 0 4px, transparent 4px 7px); }
+.day .replay { position: absolute; right: calc(var(--u) * 10); bottom: calc(var(--u) * 10); background: #2F6FBF; color: #fff; }
+.day .grid, .day .health { display: grid; grid-template-columns: repeat(3, 1fr); gap: calc(var(--u) * 6); margin: calc(var(--u) * 10) calc(var(--u) * 12) 0; }
+.day .grid > span, .day .health > span { display: grid; gap: calc(var(--u) * 2); padding: calc(var(--u) * 10) calc(var(--u) * 11); border-radius: calc(var(--u) * 12); background: #fff; }
+.day .grid small, .day .health small { color: #566274; font-size: calc(var(--u) * 11); }
+.day .grid b, .day .health b { font-size: calc(var(--u) * 19); font-weight: 800; }
+.day .grid i { font-style: normal; font-size: calc(var(--u) * 11); font-weight: 600; color: #566274; margin-left: calc(var(--u) * 2); }
+.day .health em { font-style: normal; font-size: calc(var(--u) * 13); line-height: 1; }
+.day .runs { margin: calc(var(--u) * 10) calc(var(--u) * 12) 0; padding: calc(var(--u) * 10) calc(var(--u) * 12); border-radius: calc(var(--u) * 12); background: #fff; display: grid; gap: calc(var(--u) * 8); }
+.day .rh { display: flex; justify-content: space-between; align-items: baseline; font-size: calc(var(--u) * 15); }
+.day .rh small { color: #8C96A4; font-size: calc(var(--u) * 11.5); }
+.day .run { display: grid; grid-template-columns: calc(var(--u) * 26) 1fr auto auto; gap: calc(var(--u) * 10); align-items: center; font-size: calc(var(--u) * 12.5); }
+.day .run .n { width: calc(var(--u) * 26); height: calc(var(--u) * 26); border-radius: 50%; display: grid; place-items: center; background: #E7F0FB; color: #2F6FBF; font-weight: 700; }
+.day .run small { display: block; color: #8C96A4; font-size: calc(var(--u) * 11); }
+.day .run .v { font-weight: 700; }
+.day .run .v i { font-style: normal; font-weight: 500; color: #566274; font-size: calc(var(--u) * 10.5); margin-left: calc(var(--u) * 2); }
+.day .acts { position: absolute; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--u) * 8); padding: calc(var(--u) * 12) calc(var(--u) * 14) calc(var(--u) * 30); background: linear-gradient(rgba(244,246,249,0), #F4F6F9 30%); }
+.day .acts > span { display: grid; place-items: center; height: calc(var(--u) * 44); border-radius: calc(var(--u) * 14); background: #fff; border: 1px solid #DCE4EE; font-size: calc(var(--u) * 14); font-weight: 700; }
+.day .acts > .pri { background: #2F6FBF; border-color: #2F6FBF; color: #fff; }
 
-/* 求助流程 */
-.flow { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 48px; align-items: stretch; margin-top: 32px; }
-.steps { display: grid; gap: 12px; grid-auto-rows: 1fr; }
-.step { position: relative; text-align: left; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; align-items: center; padding: 14px 18px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface); color: inherit; font: inherit; cursor: pointer; overflow: hidden; transition: border-color .2s, box-shadow .2s, transform .2s; }
-.step:hover { transform: translateY(-1px); }
-.step .num { width: 44px; height: 44px; border-radius: 13px; display: grid; place-items: center; font-family: Archivo, Inter, sans-serif; font-weight: 700; font-size: 18px; background: var(--sky); color: var(--brand); transition: background .2s, color .2s; }
-.step h3 { font-size: 19px; margin-bottom: 4px; }
-.step p { color: var(--ink-2); font-size: 15px; }
-.step .bar-p { position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: var(--brand); }
-.step[aria-selected="true"] { border-color: color-mix(in srgb, var(--brand) 55%, var(--line)); box-shadow: var(--shadow-sm); }
-.step[aria-selected="true"] .num { background: var(--brand); color: #fff; }
-.step.sos .num { background: color-mix(in srgb, var(--sos) 12%, transparent); color: var(--sos); }
-.step.sos[aria-selected="true"] .num { background: var(--sos); color: #fff; }
-.step[aria-selected="true"] .bar-p { animation: progress var(--dur, 6s) linear forwards; }
-.flow.paused .step[aria-selected="true"] .bar-p { animation-play-state: paused; }
-.flow-visual { display: flex; flex-direction: column; align-items: center; gap: 14px; }
-.flow-visual .device { width: 260px; }
+.replay { border: 1px solid rgba(255,255,255,.25); background: rgba(8,18,32,.8); color: #fff; border-radius: 999px; padding: 7px 14px; font: 600 13px Inter, "PingFang SC", sans-serif; cursor: pointer; }
 
-.which { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink-2); padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); }
-.which .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brand); }
-.which.patrol .dot { background: var(--sos); }
-@media (max-width: 900px) { .steps { grid-auto-rows: auto; } .flow { grid-template-columns: 1fr; gap: 32px; } .flow-visual { order: -1; } .flow-visual .device { width: 260px; } }
-
-/* 实时地图 */
+/* 小队地图 */
 .live { background: linear-gradient(180deg, var(--night) 0%, var(--night-2) 100%); color: var(--on-night); }
 .live .kicker { color: #8CC3FF; }
 .live .intro { color: var(--on-night-2); }
@@ -280,7 +294,6 @@ nav.links a:hover { color: var(--ink); }
 .chip .dot { width: 8px; height: 8px; border-radius: 50%; }
 .chip.dist { font-variant-numeric: tabular-nums; }
 .mapfoot { position: absolute; left: 14px; right: 14px; bottom: 12px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-.replay { border: 1px solid rgba(255,255,255,.25); background: rgba(8,18,32,.8); color: #fff; border-radius: 999px; padding: 7px 14px; font: 600 13px Inter, "PingFang SC", sans-serif; cursor: pointer; }
 .illus { font-size: 11.5px; color: rgba(255,255,255,.6); }
 .live ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 22px; }
 .live li { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 14px; }
@@ -288,17 +301,6 @@ nav.links a:hover { color: var(--ink); }
 .live li b { display: block; color: #fff; font-size: 16.5px; margin-bottom: 2px; }
 .live li span { color: var(--on-night-2); font-size: 15px; }
 @media (max-width: 900px) { .live-grid { grid-template-columns: 1fr; } }
-
-.resorts { background: var(--surface); border-block: 1px solid var(--line); }
-.resorts-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 64px; align-items: center; }
-.resorts .patrol-head { display: flex; align-items: center; gap: 14px; }
-.resorts .patrol-head img { width: 52px; height: 52px; border-radius: 14px; }
-.resorts .tick { background: var(--sos); }
-@media (max-width: 900px) { .resorts-grid { grid-template-columns: 1fr; } .resorts .device { margin: 0 auto; width: 260px; } }
-
-.safety-note { background: var(--surface); border: 1px solid var(--line); border-left: 5px solid var(--sos); border-radius: 18px; padding: 26px 28px; display: grid; gap: 10px; }
-.safety-note h3 { font-size: 21px; }
-.safety-note p { color: var(--ink-2); }
 
 /* 常见问题 */
 .faq { display: grid; gap: 10px; margin-top: 36px; max-width: 820px; }
@@ -309,10 +311,10 @@ nav.links a:hover { color: var(--ink); }
 .faq details[open] summary::after { transform: rotate(45deg); }
 .faq details p { color: var(--ink-2); padding-bottom: 18px; font-size: 15.5px; }
 
-.privacy { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 36px; }
+.privacy { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 36px; }
 .privacy .card { padding: 20px; }
 .privacy .card h3 { font-size: 17px; }
-@media (max-width: 900px) { .privacy { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 900px) { .privacy { grid-template-columns: 1fr; } }
 @media (max-width: 520px) { .privacy { grid-template-columns: 1fr; } }
 
 .contact { text-align: center; background: var(--sky); }
@@ -329,7 +331,6 @@ footer .credits { margin-top: 20px; font-size: 12.5px; color: var(--ink-3); }
 .no-js .reveal { opacity: 1; transform: none; }
 @keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(124,240,166,.7); } 80%, 100% { box-shadow: 0 0 0 10px rgba(124,240,166,0); } }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-@keyframes progress { from { width: 0; } to { width: 100%; } }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   .toast, .eyebrow .dot { animation: none; }
@@ -342,10 +343,8 @@ footer .credits { margin-top: 20px; font-size: 12.5px; color: var(--ink-3); }
   <div class="wrap bar">
     <a class="brand" href="#top" aria-label="AlpMate"><img src="/assets/icon.png" alt="" width="32" height="32"><svg viewBox="2.99 -0.18 913.27 100.18" role="img" aria-label="AlpMate" xmlns="http://www.w3.org/2000/svg"><g transform='translate(0.0 100) scale(0.14577)' fill='currentColor'><path d='M20.521484375 0.0 362.1300048828125 -687.2174072265625H555.8707275390625L897.479248046875 0.0H709.17333984375L649.39111328125 -123.868896484375H257.609619140625L198.0447998046875 0.0ZM320.8707275390625 -257.304443359375H586.1300048828125L513.0870361328125 -413.999267578125Q508.5218505859375 -424.3470458984375 500.00018310546875 -444.1077880859375Q491.478515625 -463.8685302734375 482.73944091796875 -485.17279052734375Q474.0003662109375 -506.47705078125 466.9351806640625 -523.0857543945312Q459.8699951171875 -539.6944580078125 458.0003662109375 -543.520751953125H450.2177734375Q441.8699951171875 -524.1729736328125 431.13092041015625 -499.0426025390625Q420.391845703125 -473.9122314453125 410.5440673828125 -450.564453125Q400.6962890625 -427.2166748046875 393.9136962890625 -413.2166748046875Z'/><path d='M1049.9996337890625 0.0V-687.2174072265625H1222.6533203125V-145.9573974609375H1660.827392578125V0.0Z'/><path d='M1819.9996337890625 0.0V-687.2174072265625H2334.652587890625Q2401.8699951171875 -687.2174072265625 2451.9135131835938 -657.8912963867188Q2501.95703125 -628.565185546875 2529.7831420898438 -577.195556640625Q2557.6092529296875 -525.825927734375 2557.6092529296875 -458.7537064163773Q2557.6092529296875 -391.9996337890625 2529.2831420898438 -339.73870849609375Q2500.95703125 -287.477783203125 2450.1309204101562 -258.2603759765625Q2399.3048095703125 -229.04296875 2331.522216796875 -229.04296875H1992.6533203125V0.0ZM1992.6533203125 -365.60888671875H2283.6522216796875Q2333.7244466145835 -365.60888671875 2360.6663004557295 -389.93469739940065Q2387.608154296875 -414.26050808005135 2387.608154296875 -457.8142340673159Q2387.608154296875 -487.217041015625 2375.557915387835 -507.8579480970228Q2363.5076764787946 -528.4988551784206 2340.3842093331473 -539.5751722181166Q2317.2607421875 -550.6514892578125 2283.6522216796875 -550.6514892578125H1992.6533203125Z'/><path d='M2717.9996337890625 0.0V-687.2174072265625H2987.0455322265625L3128.3922119140625 -356.175537109375Q3135.609619140625 -339.0885009765625 3146.3486938476562 -310.805908203125Q3157.0877685546875 -282.5233154296875 3168.500732421875 -251.8929443359375Q3179.9136962890625 -221.2625732421875 3188.82666015625 -196.5670166015625H3195.82666015625Q3203.95703125 -218.6973876953125 3214.9786987304688 -247.8277587890625Q3226.0003662109375 -276.9581298828125 3237.2394409179688 -305.84942626953125Q3248.478515625 -334.74072265625 3256.478515625 -354.6103515625L3397.8251953125 -687.2174072265625H3660.3492431640625V0.0H3487.695556640625V-393.9111328125Q3487.695556640625 -412.650390625 3488.195556640625 -435.6070556640625Q3488.695556640625 -458.563720703125 3489.695556640625 -480.91168212890625Q3490.695556640625 -503.2596435546875 3491.4781494140625 -519.5640869140625H3483.4781494140625Q3478.0433349609375 -502.8248291015625 3469.7172241210938 -479.75946044921875Q3461.39111328125 -456.694091796875 3453.0650024414062 -433.84613037109375Q3444.7388916015625 -410.9981689453125 3437.521484375 -393.9111328125L3267.6966552734375 0.0H3104.2607421875L2933.6533203125 -393.9111328125Q2924.218505859375 -416.52001953125 2915.28369140625 -440.194091796875Q2906.348876953125 -463.8681640625 2899.5227661132812 -484.8900146484375Q2892.6966552734375 -505.911865234375 2887.6966552734375 -519.5640869140625H2879.6966552734375Q2880.6966552734375 -506.6944580078125 2881.1966552734375 -485.672607421875Q2881.6966552734375 -464.6507568359375 2882.1966552734375 -440.9766845703125Q2882.6966552734375 -417.3026123046875 2882.6966552734375 -393.9111328125V0.0Z'/><path d='M3812.521484375 0.0 4154.1300048828125 -687.2174072265625H4347.8707275390625L4689.479248046875 0.0H4501.17333984375L4441.39111328125 -123.868896484375H4049.609619140625L3990.0447998046875 0.0ZM4112.8707275390625 -257.304443359375H4378.1300048828125L4305.0870361328125 -413.999267578125Q4300.5218505859375 -424.3470458984375 4292.000183105469 -444.1077880859375Q4283.478515625 -463.8685302734375 4274.739440917969 -485.17279052734375Q4266.0003662109375 -506.47705078125 4258.9351806640625 -523.0857543945312Q4251.8699951171875 -539.6944580078125 4250.0003662109375 -543.520751953125H4242.2177734375Q4233.8699951171875 -524.1729736328125 4223.130920410156 -499.0426025390625Q4212.391845703125 -473.9122314453125 4202.5440673828125 -450.564453125Q4192.6962890625 -427.2166748046875 4185.9136962890625 -413.2166748046875Z'/><path d='M4941.521484375 0.0V-541.260009765625H4639.3477783203125V-687.2174072265625H5416.348876953125V-541.260009765625H5114.1751708984375V0.0Z'/><path d='M5573.9996337890625 0.0V-687.2174072265625H6277.6959228515625V-550.6514892578125H5746.8707275390625V-416.2611083984375H6216.174072265625V-281.65185546875H5746.8707275390625V-136.56591796875H6285.6959228515625V0.0Z'/></g></svg></a>
     <nav class="links">
-      <a class="opt" href="#safety"><span lang="en">Safety</span><span lang="zh">安全</span></a>
       <a class="opt" href="#community"><span lang="en">Community</span><span lang="zh">雪友社区</span></a>
       <a class="opt" href="#season"><span lang="en">Ski tracks</span><span lang="zh">雪迹</span></a>
-      <a class="opt" href="#resorts"><span lang="en">For resorts</span><span lang="zh">给雪场</span></a>
       <a class="opt" href="#faq"><span lang="en">FAQ</span><span lang="zh">常见问题</span></a>
       <button class="lang" id="lang" type="button" aria-label="Switch language"><span lang="en">中文</span><span lang="zh">English</span></button>
     </nav>
@@ -359,27 +358,76 @@ footer .credits { margin-top: 20px; font-size: 12.5px; color: var(--ink-3); }
     <div class="wrap">
       <div>
         <span class="eyebrow"><span class="dot"></span><span lang="en">Ski app · Built in New Zealand</span><span lang="zh">滑雪 App · 新西兰出品</span></span>
-        <h1><span lang="en">Ski together.<br>Ski safer.</span><span lang="zh">滑雪，<br>有伴更安心</span></h1>
+        <h1><span lang="en">Ski together.<br>Share more.</span><span lang="zh">滑雪，<br>有伴更尽兴</span></h1>
         <p class="lead">
-          <span lang="en">Record every ski day, share it with skiers around the world, and keep your crew on one map. If something goes wrong at a resort connected to AlpMate Patrol, send ski patrol your location and its accuracy.</span>
-          <span lang="zh">记录每一个雪天，和世界各地的雪友分享，小队在同一张地图上不走散。在接入雪伴救援的雪场出了状况，可以把你的位置和误差范围发给救援队。</span>
+          <span lang="en">Record every ski day, share it with skiers around the world, and keep your crew on one map.</span>
+          <span lang="zh">记录每一个雪天，和世界各地的雪友分享，小队在同一张地图上不走散。</span>
         </p>
         <div class="three" aria-hidden="true">
-          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg><span lang="en">One-tap SOS</span><span lang="zh">一键求助</span></span>
           <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M15 14.5c2.8 0 5 2.2 5 5"/></svg><span lang="en">Ski community</span><span lang="zh">雪友社区</span></span>
           <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 8-8"/><path d="M14 8h6v6"/></svg><span lang="en">Ski tracks</span><span lang="zh">雪迹记录</span></span>
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span lang="en">Crew map</span><span lang="zh">小队地图</span></span>
         </div>
         <form class="notify" data-kind="launch" novalidate>
           <input type="email" name="email" required autocomplete="email" placeholder="you@example.com" aria-label="Email">
           <button class="btn light" type="submit"><span lang="en">Notify me at launch</span><span lang="zh">上线时通知我</span></button>
         </form>
         <div class="form-msg" role="status" aria-live="polite"></div>
-        <p class="fine"><span lang="en">One email when AlpMate launches. No spam. </span><span lang="zh">只在上线时发一封邮件，不发广告。</span><a href="/privacy/" style="color: inherit"><span lang="en">Privacy</span><span lang="zh">隐私政策</span></a> · <a href="#resorts" style="color: inherit"><span lang="en">For ski resorts →</span><span lang="zh">雪场合作 →</span></a></p>
-        <div class="status"><span class="pill"><span lang="en">Beta</span><span lang="zh">测试中</span></span><span><span lang="en">AlpMate is in testing and coming soon to the App Store. Ski-patrol alerts only work at resorts connected to AlpMate Patrol — no resort is connected yet, and we're recruiting pilot resorts.</span><span lang="zh">雪伴正在测试，即将上架 App Store。通知救援队只在接入雪伴救援的雪场有效；目前还没有雪场正式接入，我们正在招募试点雪场。</span></span></div>
+        <p class="fine"><span lang="en">One email when AlpMate launches. No spam. </span><span lang="zh">只在上线时发一封邮件，不发广告。</span><a href="/privacy/" style="color: inherit"><span lang="en">Privacy</span><span lang="zh">隐私政策</span></a></p>
+        <div class="status"><span class="pill"><span lang="en">Beta</span><span lang="zh">测试中</span></span><span><span lang="en">AlpMate is in testing and coming soon to the App Store.</span><span lang="zh">雪伴正在测试，即将上架 App Store。</span></span></div>
       </div>
       <div class="hero-visual reveal">
-        <div class="device back"><div class="screen"><img lang="en" src="/assets/safety.jpg" alt="The AlpMate Safety page at Cardrona" width="899" height="1955"><img lang="zh" src="/assets/safety-zh.jpg" alt="The AlpMate Safety page at Cardrona" width="899" height="1955"></div></div>
-        <div class="device front"><span class="demo-tag"><span lang="en">Demo · sample posts</span><span lang="zh">功能演示 · 示例内容</span></span><div class="screen">
+        <div class="device back"><div class="screen">
+          <div class="feed day" role="img" aria-label="AlpMate ski day summary with sample data: track map, runs, vertical, speed and heart rate">
+  <div class="sb"><span>9:41</span><svg viewBox="0 0 62 12" fill="#0F1B2D" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="6" width="3" height="6" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/><path d="M29 3.5a9 9 0 0 1 11 0l-1.6 1.7a6.6 6.6 0 0 0-7.8 0zM31.6 6.3a5.2 5.2 0 0 1 5.8 0L34.5 9.4z"/><rect x="45" y="1" width="15" height="10" rx="3" fill="none" stroke="#0F1B2D" stroke-width="1.2"/><rect x="47" y="3" width="11" height="6" rx="1.5"/></svg></div>
+  <div class="nav"><svg viewBox="0 0 24 24" fill="none" stroke="#0F1B2D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="#0F1B2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg></div>
+  <div class="hd">
+    <small><span lang="en">Sat 23 Aug · Wānaka</span><span lang="zh">8月23日 周六 · Wānaka</span></small>
+    <strong>Cardrona</strong>
+  </div>
+  <div class="hero3">
+    <span><b>5:42</b><span lang="en">on snow</span><span lang="zh">在雪上的时间</span></span>
+    <span><b>2,860</b><span lang="en">m vertical</span><span lang="zh">米 总落差</span></span>
+    <span><b>14</b><span lang="en">runs</span><span lang="zh">趟</span></span>
+  </div>
+  <div class="map">
+    <svg viewBox="0 0 400 230" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs><linearGradient id="dayg0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9EEF3"/><stop offset="1" stop-color="#C9D6E2"/></linearGradient></defs>
+      <rect width="400" height="230" fill="url(#dayg0)"/>
+      <g fill="none" stroke="rgba(15,30,54,.08)" stroke-width="1.2"><path d="M-10 190 C 80 150, 170 210, 260 170 S 380 120, 420 140"/><path d="M-10 140 C 70 100, 160 160, 250 120 S 370 70, 420 90"/><path d="M-10 90 C 60 50, 150 110, 240 70 S 360 20, 420 40"/></g>
+      <g fill="none" stroke="#5B6B80" stroke-width="2" stroke-dasharray="5 4" stroke-linecap="round"><path d="M92 200 L 150 46"/><path d="M250 206 L 300 40"/></g>
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.4">
+        <path d="M150 46 C 160 80, 130 110, 150 140 S 110 180, 96 198" stroke="#2F6FBF"/>
+        <path d="M150 46 C 180 70, 200 100, 196 130 S 230 180, 250 204" stroke="#16A34A"/>
+        <path d="M300 40 C 290 80, 320 110, 300 150 S 270 190, 252 206" stroke="#2F6FBF"/>
+        <path d="M300 40 C 330 70, 350 120, 330 160 S 290 196, 254 206" stroke="#E5484D"/>
+      </g>
+      <circle cx="96" cy="200" r="4.5" fill="#fff" stroke="#0F1B2D" stroke-width="2"/>
+    </svg>
+    <div class="legend"><span><i style="background:#2F6FBF"></i><span lang="en">Run</span><span lang="zh">滑行</span></span><span><i class="dash"></i><span lang="en">Lift</span><span lang="zh">缆车</span></span></div>
+    <span class="replay">▶ <span lang="en">Replay</span><span lang="zh">回放</span></span>
+  </div>
+  <div class="grid">
+    <span><small><span lang="en">Top speed</span><span lang="zh">最高速度</span></small><b>68<i>km/h</i></b></span>
+    <span><small><span lang="en">Avg speed</span><span lang="zh">平均速度</span></small><b>34<i>km/h</i></b></span>
+    <span><small><span lang="en">Run distance</span><span lang="zh">滑行距离</span></small><b>18.4<i>km</i></b></span>
+  </div>
+  <div class="health">
+    <span><em style="color:#F43F5E">♥</em><b>132</b><small><span lang="en">avg bpm</span><span lang="zh">平均 次/分</span></small></span>
+    <span><em style="color:#E11D48">♥</em><b>168</b><small><span lang="en">max bpm</span><span lang="zh">最高 次/分</span></small></span>
+    <span><em style="color:#FB923C">●</em><b>1,240</b><small><span lang="en">kcal</span><span lang="zh">千卡</span></small></span>
+  </div>
+  <div class="runs">
+    <div class="rh"><b><span lang="en">Runs</span><span lang="zh">每趟明细</span></b><small><span lang="en">14 runs</span><span lang="zh">共 14 趟</span></small></div>
+    <div class="run"><span class="n">1</span><span><b><span lang="en">Run 1</span><span lang="zh">第 1 趟</span></b><small><span lang="en">9:12 start</span><span lang="zh">9:12 开始</span></small></span><span class="v">212<i><span lang="en">m</span><span lang="zh">米</span></i></span><span class="v">54<i>km/h</i></span></div>
+    <div class="run"><span class="n">2</span><span><b><span lang="en">Run 2</span><span lang="zh">第 2 趟</span></b><small><span lang="en">9:31 start</span><span lang="zh">9:31 开始</span></small></span><span class="v">236<i><span lang="en">m</span><span lang="zh">米</span></i></span><span class="v">61<i>km/h</i></span></div>
+    <div class="run"><span class="n">3</span><span><b><span lang="en">Run 3</span><span lang="zh">第 3 趟</span></b><small><span lang="en">9:48 start</span><span lang="zh">9:48 开始</span></small></span><span class="v">198<i><span lang="en">m</span><span lang="zh">米</span></i></span><span class="v">68<i>km/h</i></span></div>
+  </div>
+  <div class="acts"><span><span lang="en">Make poster</span><span lang="zh">生成海报</span></span><span class="pri"><span lang="en">Post to community</span><span lang="zh">发到雪友</span></span></div>
+</div>
+
+        </div></div>
+        <div class="device front"><span class="demo-tag"><span lang="en">Demo · sample data</span><span lang="zh">功能演示 · 示例数据</span></span><div class="screen">
           <div class="feed" role="img" aria-label="AlpMate community feed with sample posts">
   <div class="sb"><span>9:41</span><svg viewBox="0 0 62 12" fill="#0F1B2D" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="6" width="3" height="6" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/><path d="M29 3.5a9 9 0 0 1 11 0l-1.6 1.7a6.6 6.6 0 0 0-7.8 0zM31.6 6.3a5.2 5.2 0 0 1 5.8 0L34.5 9.4z"/><rect x="45" y="1" width="15" height="10" rx="3" fill="none" stroke="#0F1B2D" stroke-width="1.2"/><rect x="47" y="3" width="11" height="6" rx="1.5"/></svg></div>
   <div class="top">
@@ -421,7 +469,7 @@ footer .credits { margin-top: 20px; font-size: 12.5px; color: var(--ink-3); }
     <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span lang="en">Home</span><span lang="zh">首页</span></span>
     <span class="on"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="8" r="3.4"/><circle cx="17" cy="9" r="2.8"/><path d="M2.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5zM15.5 14.2c3.3 0 6 2.6 6 5.8h-4.6c0-2.2-.5-4.1-1.4-5.8z"/></svg><span lang="en">Community</span><span lang="zh">雪友</span></span>
     <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:55%;height:55%"><circle cx="14" cy="4.5" r="2"/><path d="M8 9l4-2 3 3-2 3 3 2M5 19l14-4"/></svg></span>
-    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 2.5 20 6v6c0 5-3.5 8.5-8 9.5-4.5-1-8-4.5-8-9.5V6z"/><path d="M12 9v6M9 12h6" stroke-linecap="round"/></svg><span lang="en">Safety</span><span lang="zh">安全</span></span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M2 20 9 8l4 6 3-4 6 10z"/></svg><span lang="en">Resorts</span><span lang="zh">雪场</span></span>
     <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg><span lang="en">Me</span><span lang="zh">我的</span></span>
   </div>
 </div>
@@ -436,72 +484,9 @@ footer .credits { margin-top: 20px; font-size: 12.5px; color: var(--ink-3); }
   </section>
 
   <div class="wrap pillars">
-    <a class="pillar reveal" href="#safety"><span class="ic red"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M12 8v6M9 11h6"/></svg></span><span><h3><span lang="en">Help when it matters</span><span lang="zh">关键时刻找到人</span></h3><p><span lang="en">One-tap SOS, the right patrol number for where you are, your medical card and 111.</span><span lang="zh">一键求助、按你所在雪场显示救援电话、医疗信息卡和 111。</span></p><span class="more"><span lang="en">Safety →</span><span lang="zh">安全 →</span></span></span></a>
     <a class="pillar reveal" href="#community"><span class="ic green"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M15 14.5c2.8 0 5 2.2 5 5"/></svg></span><span><h3><span lang="en">A community of skiers</span><span lang="zh">雪友社区</span></h3><p><span lang="en">Share photos, ski tracks and gear reviews from any mountain, follow skiers and find people to ride with.</span><span lang="zh">在任何一座雪山分享照片、雪迹和装备测评，关注雪友，约人一起滑。</span></p><span class="more"><span lang="en">Community →</span><span lang="zh">雪友社区 →</span></span></span></a>
     <a class="pillar reveal" href="#season"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 8-8"/><path d="M14 8h6v6"/></svg></span><span><h3><span lang="en">Your ski season</span><span lang="zh">你的雪季</span></h3><p><span lang="en">Every run, vertical metre and top speed, season stats and medals, and your crew on one map.</span><span lang="zh">每一趟、每米落差和最高时速，雪季数据和勋章，小队在同一张地图上。</span></p><span class="more"><span lang="en">Ski tracks →</span><span lang="zh">雪迹记录 →</span></span></span></a>
   </div>
-
-  <section class="block" id="safety" style="padding-bottom: 24px">
-    <div class="wrap">
-      <div class="split">
-        <div class="reveal">
-          <div class="kicker" style="color: var(--sos)"><span lang="en">Safety, ready before you need it</span><span lang="zh">安全，提前准备好</span></div>
-          <h2><span lang="en">Everything for a bad moment, on one page</span><span lang="zh">出事时要用的，都在一页上</span></h2>
-          <ul class="list" style="margin-top: 28px">
-            <li><span class="tick" style="background: var(--sos)">✓</span><span><span lang="en"><b>Knows which ski area you're at</b>: when you're near a resort's runs and lifts, its patrol number and rescue info come up first.</span><span lang="zh"><b>知道你在哪个雪场</b>：人在雪场的雪道和缆车附近时，自动显示这个雪场的救援电话和救援信息。</span></span></li>
-            <li><span class="tick" style="background: var(--sos)">✓</span><span><span lang="en"><b>One-tap SOS, two numbers</b>: alert ski patrol, or call the resort's patrol line or 111 straight away.</span><span lang="zh"><b>一键求助，两个电话</b>：通知救援队，或者直接拨打雪场救援电话、111。</span></span></li>
-            <li><span class="tick" style="background: var(--sos)">✓</span><span><span lang="en"><b>Before-you-go checklist</b>: see at a glance if your emergency contacts and medical card are set up.</span><span lang="zh"><b>出发前准备</b>：紧急联系人、医疗信息卡填没填，一眼就知道。</span></span></li>
-            <li><span class="tick" style="background: var(--sos)">✓</span><span><span lang="en"><b>Medical card in a minute</b>: tap your blood type and common allergies and medications. Picked in Chinese, it's saved in English too, so patrollers can read it.</span><span lang="zh"><b>一分钟填好医疗卡</b>：点选血型和常见的过敏、用药；中文界面里选的会同时写上英文，救援队员也看得懂。</span></span></li>
-            <li><span class="tick" style="background: var(--sos)">✓</span><span><span lang="en"><b>When there's no signal</b>: call and text buttons come first, an alert that didn't send is retried when signal returns, and you're reminded about your iPhone's satellite SOS where it's available.</span><span lang="zh"><b>没有信号时</b>：打电话、发短信的按钮排在最前；没发出去的求助有信号时自动重发；在支持的地方提醒你用 iPhone 的卫星紧急求救。</span></span></li>
-          </ul>
-        </div>
-        <div class="phones reveal">
-          <div class="device"><div class="screen"><img lang="en" src="/assets/safety.jpg" alt="AlpMate Safety page: one-tap SOS, Cardrona patrol and 111, before-you-go checklist" width="899" height="1955" loading="lazy"><img lang="zh" src="/assets/safety-zh.jpg" alt="AlpMate Safety page: one-tap SOS, Cardrona patrol and 111, before-you-go checklist" width="899" height="1955" loading="lazy"></div></div>
-          <div class="device"><div class="screen"><img lang="en" src="/assets/medical.jpg" alt="AlpMate medical card with blood type, allergies and medications" width="899" height="1955" loading="lazy"><img lang="zh" src="/assets/medical-zh.jpg" alt="AlpMate medical card with blood type, allergies and medications" width="899" height="1955" loading="lazy"></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="how" style="padding-top: 24px">
-    <div class="wrap">
-      <div class="kicker"><span lang="en">How an alert works</span><span lang="zh">求助怎么运作</span></div>
-      <h2><span lang="en">From one tap to a patroller at your side</span><span lang="zh">从点一下，到救援队员赶到身边</span></h2>
-      <p class="intro"><span lang="en">Tap a step to see the screen. The skier and the ski patrol see the same alert, updated in real time. Screens show sample data.</span><span lang="zh">点击每一步看对应的画面。求助的人和救援队看到的是同一条实时更新的求助。画面为示例数据。</span></p>
-      <div class="flow" id="flow">
-        <div class="steps" role="tablist" aria-label="Alert steps">
-          <button class="step sos" role="tab" aria-selected="true" data-img="sos" data-side="skier">
-            <span class="num">1</span>
-            <span><h3><span lang="en">Tap SOS</span><span lang="zh">点「一键求助」</span></h3>
-            <p><span lang="en">Your coordinates in large type with their accuracy, the nearest medical point, how many patrollers are on duty, and one tap to call 111.</span><span lang="zh">大字显示坐标和误差范围、最近的医疗点、现在有几名队员在岗，一键拨打 111。</span></p></span>
-            <span class="bar-p"></span>
-          </button>
-          <button class="step" role="tab" aria-selected="false" data-img="patrol-home" data-side="patrol">
-            <span class="num">2</span>
-            <span><h3><span lang="en">Patrol phones ring</span><span lang="zh">救援队的手机响起</span></h3>
-            <p><span lang="en">On-duty patrollers get an alarm on the lock screen that repeats until someone accepts — and rings even on silent while the app is running on duty. Critical reports go to the top.</span><span lang="zh">在岗队员的锁屏上会响起警报，没人接收就一直重复；在岗、App 在运行时，静音也会响。情况危急的排在最前面。</span></p></span>
-            <span class="bar-p"></span>
-          </button>
-          <button class="step" role="tab" aria-selected="false" data-img="patrol-detail" data-side="patrol">
-            <span class="num">3</span>
-            <span><h3><span lang="en">The closest patroller responds</span><span lang="zh">最近的队员接单</span></h3>
-            <p><span lang="en">Live location every 15 seconds when there's signal, with accuracy, altitude and direction. The skier's language is shown so nothing gets lost.</span><span lang="zh">有信号时实时位置每 15 秒更新，附带误差、海拔和方位；还会标出求助人的语言，避免沟通出错。</span></p></span>
-            <span class="bar-p"></span>
-          </button>
-          <button class="step" role="tab" aria-selected="false" data-img="acked" data-side="skier">
-            <span class="num">4</span>
-            <span><h3><span lang="en">Help is on the way</span><span lang="zh">救援正在赶来</span></h3>
-            <p><span lang="en">You see who is coming and how far away they are, and can chat with them. Your medical card is attached if you chose to share it.</span><span lang="zh">你能看到谁在赶来、还有多远，可以和队员聊天；如果你选择了分享，医疗信息卡也会一起发出。</span></p></span>
-            <span class="bar-p"></span>
-          </button>
-        </div>
-        <div class="flow-visual">
-          <div class="device"><div class="screen"><img id="flow-img" src="/assets/sos.webp" alt="The AlpMate SOS screen" width="900" height="1955"></div></div>
-          <div class="which" id="flow-who" title="Demo · sample data"><span class="dot"></span><span lang="en" data-skier="Skier's phone · AlpMate" data-patrol="Ski patrol's phone · AlpMate Patrol">Skier's phone · AlpMate</span><span lang="zh" data-skier="滑雪者的手机 · 雪伴" data-patrol="救援队员的手机 · 雪伴救援">滑雪者的手机 · 雪伴</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section class="block community" id="community">
     <div class="wrap">
@@ -522,7 +507,7 @@ footer .credits { margin-top: 20px; font-size: 12.5px; color: var(--ink-3); }
             <li><span class="tick">✓</span><span><span lang="en"><b>Anywhere in the world</b>: tag a New Zealand ski area or search any place, then filter the feed by place and category.</span><span lang="zh"><b>全球任何地方</b>：标新西兰雪场，或者搜索任何地点；首页可以按地点和分类筛选。</span></span></li>
             <li><span class="tick">✓</span><span><span lang="en"><b>Follow, comment, message</b>: likes, saves and threaded replies, plus private messages with lock-screen notifications.</span><span lang="zh"><b>关注、评论、私信</b>：点赞、收藏、楼中楼回复，私信有锁屏通知。</span></span></li>
             <li><span class="tick">✓</span><span><span lang="en"><b>Meetups that become a team</b>: post a day and a resort, accept who joins, and a team with a shared map is set up for you.</span><span lang="zh"><b>约滑自动组队</b>：发起哪天去哪个雪场，同意谁加入，自动建好小队、共享地图。</span></span></li>
-            <li><span class="tick">✓</span><span><span lang="en"><b>Safe by design</b>: 16+ to post, report and block in one tap, and reported content is hidden until we review it.</span><span lang="zh"><b>安全放在前面</b>：16 岁以上才能发内容，一键举报和拉黑，被举报的内容先隐藏、人工审核。</span></span></li>
+            <li><span class="tick">✓</span><span><span lang="en"><b>A friendly place</b>: 16+ to post, report and block in one tap, and reported content is hidden until we review it.</span><span lang="zh"><b>友好的社区</b>：16 岁以上才能发内容，一键举报和拉黑，被举报的内容先隐藏、人工审核。</span></span></li>
           </ul>
         </div>
         <div class="comm-visual reveal">
@@ -568,7 +553,7 @@ footer .credits { margin-top: 20px; font-size: 12.5px; color: var(--ink-3); }
     <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span lang="en">Home</span><span lang="zh">首页</span></span>
     <span class="on"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="8" r="3.4"/><circle cx="17" cy="9" r="2.8"/><path d="M2.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5zM15.5 14.2c3.3 0 6 2.6 6 5.8h-4.6c0-2.2-.5-4.1-1.4-5.8z"/></svg><span lang="en">Community</span><span lang="zh">雪友</span></span>
     <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:55%;height:55%"><circle cx="14" cy="4.5" r="2"/><path d="M8 9l4-2 3 3-2 3 3 2M5 19l14-4"/></svg></span>
-    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 2.5 20 6v6c0 5-3.5 8.5-8 9.5-4.5-1-8-4.5-8-9.5V6z"/><path d="M12 9v6M9 12h6" stroke-linecap="round"/></svg><span lang="en">Safety</span><span lang="zh">安全</span></span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M2 20 9 8l4 6 3-4 6 10z"/></svg><span lang="en">Resorts</span><span lang="zh">雪场</span></span>
     <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg><span lang="en">Me</span><span lang="zh">我的</span></span>
   </div>
 </div>
@@ -591,8 +576,8 @@ footer .credits { margin-top: 20px; font-size: 12.5px; color: var(--ink-3); }
     <div class="wrap">
       <div class="split">
         <div class="phones reveal">
-          <div class="device"><div class="screen"><img lang="en" src="/assets/home.jpg" alt="AlpMate home screen with Cardrona weather" width="899" height="1955" loading="lazy"><img lang="zh" src="/assets/home-zh.jpg" alt="AlpMate home screen with Cardrona weather" width="899" height="1955" loading="lazy"></div></div>
-          <div class="device"><div class="screen"><picture><source srcset="/assets/map.webp" type="image/webp"><img src="/assets/map.jpg" alt="Recording a ski day on the Cardrona piste map" width="900" height="1955" loading="lazy"></picture></div></div>
+          <div class="device"><div class="screen"><picture><source srcset="/assets/app-home.webp" type="image/webp"><img src="/assets/app-home.jpg" alt="AlpMate home screen: Cardrona weather, my ski tracks, my team and resorts to explore" width="900" height="1955" loading="lazy"></picture></div></div>
+          <div class="device"><div class="screen"><picture><source srcset="/assets/app-track.webp" type="image/webp"><img src="/assets/app-track.jpg" alt="AlpMate ski day at Cardrona: track map with replay, vertical, runs and speed" width="900" height="1955" loading="lazy"></picture></div></div>
         </div>
         <div class="reveal">
           <div class="kicker"><span lang="en">Your season</span><span lang="zh">你的雪季</span></div>
@@ -600,7 +585,7 @@ footer .credits { margin-top: 20px; font-size: 12.5px; color: var(--ink-3); }
           <ul class="list" style="margin-top: 28px">
             <li><span class="tick">✓</span><span><span lang="en"><b>Ski tracks</b>: runs, vertical, distance and top speed for every day, with heart rate from Apple Watch.</span><span lang="zh"><b>雪迹记录</b>：每天的趟数、落差、里程和最高时速，戴 Apple Watch 还能记心率。</span></span></li>
             <li><span class="tick">✓</span><span><span lang="en"><b>Season stats and medals</b>: days on snow, kilometres, top speed and total vertical, plus a rank and medals to show on your profile if you like.</span><span lang="zh"><b>雪季数据和勋章</b>：滑了几天、多少公里、最高时速和总落差，还有段位和勋章，愿意的话可以展示在主页上。</span></span></li>
-            <li><span class="tick">✓</span><span><span lang="en"><b>Your crew on one map</b>: find each other on the mountain and chat with text, voice and photos. Team messages delete after 24 hours.</span><span lang="zh"><b>小队互相看到</b>：在山上找到彼此，发文字、语音和照片，小队消息 24 小时后自动删除。</span></span></li>
+            <li><span class="tick">✓</span><span><span lang="en"><b>Your crew on one map</b>: find each other on the mountain and chat with text, voice and photos.</span><span lang="zh"><b>小队互相看到</b>：在山上找到彼此，发文字、语音和照片。</span></span></li>
             <li><span class="tick">✓</span><span><span lang="en"><b>Piste maps and conditions</b> for New Zealand ski areas: runs and lifts on satellite imagery, weather and lift status from the resorts' own sites.</span><span lang="zh"><b>雪道地图和雪况</b>：卫星图上的新西兰各雪场雪道和缆车，天气和缆车开放情况读自雪场官网。</span></span></li>
           </ul>
         </div>
@@ -610,12 +595,12 @@ footer .credits { margin-top: 20px; font-size: 12.5px; color: var(--ink-3); }
 
   <section class="block live">
     <div class="wrap">
-      <div class="kicker"><span lang="en">Location you can trust</span><span lang="zh">靠得住的定位</span></div>
-      <h2><span lang="en">Your real position, not a guess</span><span lang="zh">用真实的位置，而不是猜测</span></h2>
-      <p class="intro"><span lang="en">Rescue starts from your phone's raw GPS and its accuracy circle. Runs on the map are only a reference, so patrol always knows how sure the location is.</span><span lang="zh">救援以手机的原始 GPS 和误差范围为准，地图上的雪道只作参考。救援队始终清楚这个位置有多准。</span></p>
+      <div class="kicker"><span lang="en">Crew map</span><span lang="zh">小队地图</span></div>
+      <h2><span lang="en">Find your crew on the mountain</span><span lang="zh">在山上，一眼找到队友</span></h2>
+      <p class="intro"><span lang="en">Turn on location sharing in your team and you see each other on the same piste map. Sharing stops as soon as you leave the team.</span><span lang="zh">在小队里打开位置共享，大家在同一张雪道地图上互相看到。离开小队，共享马上停止。</span></p>
       <div class="live-grid">
         <div class="mapcard reveal">
-          <svg id="livemap" viewBox="0 0 640 420" role="img" aria-label="Illustration: a patroller skiing down a run to an injured skier">
+          <svg id="livemap" viewBox="0 0 640 420" role="img" aria-label="Illustration: a teammate skiing down a run to meet you">
             <defs>
               <radialGradient id="g-acc" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#4E92E4" stop-opacity=".4"/><stop offset="1" stop-color="#4E92E4" stop-opacity=".08"/></radialGradient>
               <linearGradient id="g-ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1C3352"/><stop offset="1" stop-color="#0E1E33"/></linearGradient>
@@ -636,94 +621,48 @@ footer .credits { margin-top: 20px; font-size: 12.5px; color: var(--ink-3); }
             </g>
             <g stroke="#fff" stroke-width="2" opacity=".55"><path d="M120 400 L 318 78"/></g>
             <circle cx="120" cy="400" r="5" fill="#fff" opacity=".8"/>
-            <g transform="translate(318 66)"><rect x="-13" y="-13" width="26" height="26" rx="7" fill="#E5484D" stroke="#fff" stroke-width="2.5"/><path d="M-6 0h12M0 -6v12" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></g>
-            <text x="338" y="58" fill="rgba(255,255,255,.65)" font-size="11.5" font-family="Inter, sans-serif" font-weight="600">Patrol base</text>
+            <g transform="translate(318 66)"><rect x="-11" y="-11" width="22" height="22" rx="6" fill="#5B6B80" stroke="#fff" stroke-width="2"/></g>
+            <text x="336" y="58" fill="rgba(255,255,255,.65)" font-size="11.5" font-family="Inter, sans-serif" font-weight="600"><tspan lang="en">Lift top</tspan><tspan lang="zh">缆车顶站</tspan></text>
             <path id="trail" fill="none" stroke="#7CF0A6" stroke-width="3" stroke-linecap="round" opacity=".95"/>
             <g id="skier">
-              <circle r="44" fill="url(#g-acc)" stroke="#4E92E4" stroke-opacity=".7" stroke-dasharray="3 4"/>
               <circle r="9" fill="none" stroke="#4E92E4" stroke-width="2"><animate attributeName="r" values="9;26" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".8;0" dur="2s" repeatCount="indefinite"/></circle>
-              <circle r="9" fill="#2F6FBF" stroke="#fff" stroke-width="3"/>
-              <g font-family="Inter, sans-serif" font-size="12" font-weight="600"><path d="M46 0 h26" stroke="#CFE3FF" stroke-width="1.2"/><text x="78" y="4" fill="#CFE3FF">±5 m</text></g>
+              <circle r="13" fill="#2F6FBF" stroke="#fff" stroke-width="3"/>
+              <text y="4.5" text-anchor="middle" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="700">A</text>
             </g>
-            <g id="patroller" transform="translate(318 78)">
-              <circle r="14" fill="#16A34A" stroke="#fff" stroke-width="3"/>
-              <path d="M-6 0h12M0 -6v12" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+            <g id="mate" transform="translate(318 78)">
+              <circle r="13" fill="#16A34A" stroke="#fff" stroke-width="3"/>
+              <text y="4.5" text-anchor="middle" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="700">S</text>
             </g>
             <g transform="translate(596 368)" font-family="Inter, sans-serif" font-size="11" fill="rgba(255,255,255,.7)"><path d="M0 -28 L6 -12 L0 -16 L-6 -12 Z"/><text x="-4" y="0">N</text></g>
           </svg>
           <div class="maphud">
-            <span class="chip"><span class="dot" style="background:#4E92E4"></span><span lang="en">Alex · ±5 m</span><span lang="zh">Alex · ±5 米</span></span>
-            <span class="chip dist"><span class="dot" style="background:#16A34A"></span><span lang="en">Sam is <span class="d">480</span> m away</span><span lang="zh">Sam 距你 <span class="d">480</span> 米</span></span>
+            <span class="chip"><span class="dot" style="background:#4E92E4"></span><span lang="en">Alex · you</span><span lang="zh">Alex · 你</span></span>
+            <span class="chip dist"><span class="dot" style="background:#16A34A"></span><span lang="en">Sam · skiing · <span class="d">480</span> m away</span><span lang="zh">Sam · 正在滑雪 · 距你 <span class="d">480</span> 米</span></span>
           </div>
           <div class="mapfoot">
-            <span class="illus"><span lang="en">Illustration · the patroller skis to your location</span><span lang="zh">示意图 · 救援队员沿雪道滑到你的位置</span></span>
+            <span class="illus"><span lang="en">Illustration · a teammate skis down to meet you</span><span lang="zh">示意图 · 队友沿雪道滑下来和你会合</span></span>
             <button class="replay" id="replay" type="button"><span lang="en">↻ Replay</span><span lang="zh">↻ 重播</span></button>
           </div>
         </div>
         <ul class="reveal">
-          <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></span><span><b><span lang="en">Accuracy, always shown</span><span lang="zh">一直显示误差范围</span></b><span lang="en">Coordinates come with ± metres and how fresh the fix is, on both phones.</span><span lang="zh">两边的手机上，坐标都附带误差米数和定位时间。</span></span></li>
-          <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></span><span><b><span lang="en">Updates every 15 seconds</span><span lang="zh">每 15 秒更新一次</span></b><span lang="en">While your phone has signal and location access, patrol follows your latest position until the alert is closed.</span><span lang="zh">手机有信号、并允许定位时，救援队会一直看到你的最新位置，直到求助结束。</span></span></li>
-          <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M12 3v18"/><circle cx="12" cy="12" r="9"/></svg></span><span><b><span lang="en">Distance both ways</span><span lang="zh">双方都知道距离</span></b><span lang="en">You see how far away your patroller is; they see your direction and distance.</span><span lang="zh">你能看到队员离你多远，队员能看到你在哪个方向、多远。</span></span></li>
+          <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M12 3v18"/><circle cx="12" cy="12" r="9"/></svg></span><span><b><span lang="en">How far, and how recent</span><span lang="zh">离你多远、多久前更新</span></b><span lang="en">Each teammate shows how far they are from you and when their position last updated.</span><span lang="zh">每位队友旁边都显示离你多远，以及位置是多久前更新的。</span></span></li>
+          <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><b><span lang="en">What they're up to</span><span lang="zh">队友在做什么</span></b><span lang="en">Skiing, taking a break, having lunch or gone for the day, plus roughly how much battery their phone has.</span><span lang="zh">正在滑雪、在休息、在吃饭，还是已经离开雪场，还能看到手机大概还剩多少电。</span></span></li>
+          <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><span><b><span lang="en">You're in control</span><span lang="zh">随时可以关</span></b><span lang="en">Location sharing is off by default. You can stop sharing at any time.</span><span lang="zh">位置共享默认关闭，你可以随时停止共享。</span></span></li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="block">
-    <div class="wrap">
-      <div class="kicker"><span lang="en">Built for the bad moments</span><span lang="zh">为最糟的时刻而设计</span></div>
-      <h2><span lang="en">Safety nets at every step</span><span lang="zh">每一步都有兜底</span></h2>
-      <div class="grid3">
-        <article class="card reveal"><div class="ic amber"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg></div><h3><span lang="en">2-minute escalation</span><span lang="zh">2 分钟没人接就升级</span></h3><p><span lang="en">If no patroller accepts within two minutes, AlpMate tells you to call the patrol line or 111, with one-tap buttons — on the lock screen too, if notifications are on.</span><span lang="zh">两分钟内没有队员接收，雪伴会提醒你直接拨打雪场救援电话或 111，一键拨号；打开了通知的话，锁屏上也能看到。</span></p></article>
-        <article class="card reveal"><div class="ic red"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></div><h3><span lang="en">111 is always one tap away</span><span lang="zh">111 永远一键可拨</span></h3><p><span lang="en">AlpMate works alongside emergency services, never instead of them. The resort's patrol line is right there too.</span><span lang="zh">雪伴和紧急服务一起用，而不是取代它；雪场的救援电话也在旁边。</span></p></article>
-        <article class="card reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div><h3><span lang="en">Help someone else</span><span lang="zh">帮别人求助</span></h3><p><span lang="en">Found someone hurt? Report whether they are awake and breathing, how many people, and add a photo. Critical reports jump the queue.</span><span lang="zh">遇到有人受伤？报告对方是否清醒、有没有呼吸、几个人，还可以附照片；危急的报告会排在最前。</span></p></article>
-        <article class="card reveal"><div class="ic amber"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0"/><path d="M2 2l20 20"/></svg></div><h3><span lang="en">Weak or no signal</span><span lang="zh">信号差或没信号</span></h3><p><span lang="en">The SOS screen tells you when you're offline, puts calling and texting first, and resends your alert once you're back in range.</span><span lang="zh">求助页会告诉你现在没网，打电话、发短信排在最前；回到有信号的地方，求助会自动重发。</span></p></article>
-        <article class="card reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3><span lang="en">Talk without a call</span><span lang="zh">不打电话也能沟通</span></h3><p><span lang="en">Text, voice and one-tap replies like "I can't move", in English and Chinese, for when talking is hard or the wind is loud.</span><span lang="zh">文字、语音，和「我动不了」这类一键快捷回复（中英文都有），说话不便或风太大时也能沟通。</span></p></article>
-        <article class="card reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></div><h3><span lang="en">Be seen</span><span lang="zh">让救援看到你</span></h3><p><span lang="en">A rescue light turns your screen and flashlight into a beacon when it's getting dark or visibility is poor.</span><span lang="zh">天色暗或能见度低时，求救灯光会让屏幕和闪光灯一起闪烁，方便救援队找到你。</span></p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="block resorts" id="resorts">
-    <div class="wrap resorts-grid">
-      <div class="reveal">
-        <div class="patrol-head"><img src="/assets/patrol-icon.png" alt="" width="52" height="52"><div class="kicker" style="color: var(--sos)"><span lang="en">For ski resorts</span><span lang="zh">给雪场</span></div></div>
-        <h2 style="margin-top: 14px"><span lang="en">AlpMate Patrol</span><span lang="zh">雪伴救援</span></h2>
-        <p class="intro"><span lang="en">Now recruiting pilot resorts for next season. A companion app for your ski patrol. It works alongside your radios and patrol line, and turns a skier's tap into a located, actionable alert.</span><span lang="zh">正在招募下个雪季的试点雪场。给雪场救援队用的配套 App，和你们现有的对讲机、救援电话一起用，把滑雪者的求助变成带位置、能马上行动的警报。</span></p>
-        <ul class="list" style="margin-top: 24px">
-          <li><span class="tick">✓</span><span><span lang="en"><b>A lock-screen alarm</b> that repeats until a patroller accepts.</span><span lang="zh"><b>锁屏警报</b>，没人接收就一直重复，直到有队员点「我去处理」。</span></span></li>
-          <li><span class="tick">✓</span><span><span lang="en"><b>Nearest on-duty patroller first</b>, with the team's live positions.</span><span lang="zh"><b>最近的在岗队员优先</b>，队员位置实时可见。</span></span></li>
-          <li><span class="tick">✓</span><span><span lang="en"><b>Critical and bystander reports</b> highlighted, with duplicate reports merged.</span><span lang="zh"><b>危急报告和旁观者报告</b>突出显示，同一起事故的重复报告自动合并。</span></span></li>
-          <li><span class="tick">✓</span><span><span lang="en"><b>Incident reports</b> for your safety records and WorkSafe reporting.</span><span lang="zh"><b>事故记录单</b>，方便安全统计和向 WorkSafe 报告。</span></span></li>
-        </ul>
-        <div class="cta"><a class="btn dark" href="#contact"><span lang="en">Become a pilot resort</span><span lang="zh">成为试点雪场</span></a></div>
-      </div>
-      <div class="device reveal"><div class="screen"><picture><source srcset="/assets/patrol-home.webp" type="image/webp"><img src="/assets/patrol-home.jpg" alt="AlpMate Patrol duty map with active alerts at Cardrona" width="900" height="1955" loading="lazy"></picture></div></div>
-    </div>
-  </section>
-
-  <section class="block">
-    <div class="wrap">
-      <div class="safety-note reveal">
-        <h3><span lang="en">AlpMate is a safety support tool, not an emergency service.</span><span lang="zh">雪伴是安全辅助工具，不是紧急服务。</span></h3>
-        <p><span lang="en">In a life-threatening emergency, call 111 first. Alerting ski patrol only works at resorts using AlpMate Patrol, inside the resort area and while patrol is on duty, and delivery depends on signal, battery and your phone's settings. Rescue is carried out by the resort's own patrol.</span><span lang="zh">遇到危及生命的情况，请先拨打 111。通知救援队只在接入雪伴救援的雪场、雪场范围内、救援队值守时间有效，能否送到取决于信号、电量和手机设置。救援由雪场自己的救援队负责。</span></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="faq" style="padding-top: 0">
+  <section class="block" id="faq">
     <div class="wrap">
       <div class="kicker"><span lang="en">FAQ</span><span lang="zh">常见问题</span></div>
       <h2><span lang="en">Good questions</span><span lang="zh">你可能想知道</span></h2>
       <div class="faq">
         <details><summary><span lang="en">When can I download AlpMate?</span><span lang="zh">什么时候能下载？</span></summary><p><span lang="en">AlpMate is in beta testing and coming soon to the App Store for iPhone and Apple Watch. Tap "Notify me at launch" and we'll email you when it's available.</span><span lang="zh">雪伴正在测试，即将在 App Store 上架（iPhone 和 Apple Watch）。点「上线时通知我」，上线时我们会发邮件告诉你。</span></p></details>
-        <details><summary><span lang="en">Can I use AlpMate outside New Zealand?</span><span lang="zh">在新西兰以外能用吗？</span></summary><p><span lang="en">Ski tracking and the community work anywhere — post from any mountain in the world. Piste maps, resort conditions and ski-patrol alerts are for New Zealand ski areas.</span><span lang="zh">雪迹记录和雪友社区在哪里都能用，可以在全球任何一座雪山发笔记。雪道地图、雪况和通知救援队目前只支持新西兰的雪场。</span></p></details>
+        <details><summary><span lang="en">Can I use AlpMate outside New Zealand?</span><span lang="zh">在新西兰以外能用吗？</span></summary><p><span lang="en">Ski tracking and the community work anywhere — post from any mountain in the world. Piste maps and resort conditions are for New Zealand ski areas.</span><span lang="zh">雪迹记录和雪友社区在哪里都能用，可以在全球任何一座雪山发笔记。雪道地图和雪况目前只支持新西兰的雪场。</span></p></details>
         <details><summary><span lang="en">Who can see what I post in the community?</span><span lang="zh">我在社区发的内容谁能看到？</span></summary><p><span lang="en">Posts, comments and your community profile are visible to everyone using AlpMate. Private messages are only between you and the other person. You can delete your posts at any time and choose whether your medals and season stats appear on your profile.</span><span lang="zh">笔记、评论和社区主页所有用雪伴的人都能看到；私信只有你和对方能看到。你随时可以删除自己的笔记，也可以选择要不要在主页展示勋章和雪季数据。</span></p></details>
         <details><summary><span lang="en">Who can join the community?</span><span lang="zh">谁可以加入雪友社区？</span></summary><p><span lang="en">Anyone can browse. To post, comment, follow or message, you need to sign in, be 16 or older and agree to the community rules. You can report or block anyone in one tap.</span><span lang="zh">谁都能浏览。要发笔记、评论、关注或私信，需要登录、年满 16 岁并同意社区规则。看到不合适的人或内容，可以一键举报或拉黑。</span></p></details>
-        <details><summary><span lang="en">Which resorts can I alert ski patrol at?</span><span lang="zh">哪些雪场可以通知救援队？</span></summary><p><span lang="en">Only resorts connected to AlpMate Patrol. None is connected yet — we're working with resorts on pilots. Everywhere else, the SOS screen still shows your location and accuracy, the resort's patrol number and one-tap 111.</span><span lang="zh">只有接入雪伴救援的雪场。目前还没有雪场正式接入，我们正在和雪场洽谈试点。在其他雪场，求助页面仍然会显示你的位置和误差、雪场救援电话，并能一键拨打 111。</span></p></details>
-        <details><summary><span lang="en">Does AlpMate replace calling 111?</span><span lang="zh">雪伴能代替拨打 111 吗？</span></summary><p><span lang="en">No. AlpMate is a safety support tool, not an emergency service. In a life-threatening emergency, call 111 first — it's one tap away in the app.</span><span lang="zh">不能。雪伴是安全辅助工具，不是紧急服务。危及生命时请先拨打 111，App 里一键就能拨。</span></p></details>
-        <details><summary><span lang="en">What if there's no mobile signal?</span><span lang="zh">没有信号怎么办？</span></summary><p><span lang="en">An alert needs a data connection to reach patrol. Without signal, AlpMate puts calling and texting first, keeps your coordinates on screen to read out, and resends the alert when signal returns. You can also use the rescue light, or your iPhone's satellite SOS where it's available. Tell lift staff if you can — they can radio patrol.</span><span lang="zh">求助要有网络才能发到救援队。没有信号时，雪伴会把打电话、发短信排在最前，坐标一直显示在屏幕上可以念给别人听，有信号时自动重发求助；也可以打开求救灯光，或者在支持的地方用 iPhone 的卫星紧急求救。能的话告诉缆车工作人员，他们可以用对讲机呼叫巡逻队。</span></p></details>
-        <details><summary><span lang="en">Is my location shared all the time?</span><span lang="zh">我的位置会一直被共享吗？</span></summary><p><span lang="en">No. Your location goes to your team only when you join one, and to ski patrol only when you send an alert. Team locations delete after 24 hours. Your community profile shows only your country.</span><span lang="zh">不会。只有你加入小队时，位置才会给队友看；只有你发出求助时，才会发给救援队。小队位置 24 小时后自动删除。社区主页上只显示你所在的国家。</span></p></details>
+        <details><summary><span lang="en">Is my location shared all the time?</span><span lang="zh">我的位置会一直被共享吗？</span></summary><p><span lang="en">No. Your teammates see your location only when you join a team and turn on location sharing, and you can stop sharing at any time. Your community profile shows only your country.</span><span lang="zh">不会。只有你加入小队并打开位置共享时，队友才能看到你的位置，你可以随时停止共享。社区主页上只显示你所在的国家。</span></p></details>
         <details><summary><span lang="en">Is it free?</span><span lang="zh">要钱吗？</span></summary><p><span lang="en">Yes, AlpMate is free for skiers and snowboarders. There are no ads and we don't sell data.</span><span lang="zh">免费。没有广告，也不卖数据。</span></p></details>
       </div>
     </div>
@@ -734,7 +673,6 @@ footer .credits { margin-top: 20px; font-size: 12.5px; color: var(--ink-3); }
       <div class="kicker"><span lang="en">Privacy</span><span lang="zh">隐私</span></div>
       <h2><span lang="en">Your data, kept small</span><span lang="zh">只收必要的信息</span></h2>
       <div class="privacy">
-        <div class="card"><h3><span lang="en">On your phone</span><span lang="zh">留在手机上</span></h3><p><span lang="en">Emergency contacts and your medical card stay on your device until you send an alert.</span><span lang="zh">紧急联系人和医疗卡只存在你的手机上，发出求助时才会发出。</span></p></div>
         <div class="card"><h3><span lang="en">You choose what's public</span><span lang="zh">公开什么你说了算</span></h3><p><span lang="en">Only what you post in the community is public. Messages stay between you and the other person.</span><span lang="zh">只有你在社区发的内容是公开的，私信只有你和对方能看到。</span></p></div>
         <div class="card"><h3><span lang="en">No ads</span><span lang="zh">没有广告</span></h3><p><span lang="en">No advertising, no cross-app tracking, no third-party analytics, no data sales.</span><span lang="zh">不投广告、不跨 App 追踪、不接第三方统计、不卖数据。</span></p></div>
         <div class="card"><h3><span lang="en">Your rights</span><span lang="zh">你的权利</span></h3><p><span lang="en">Ask to see, correct or delete your data under the NZ Privacy Act 2020.</span><span lang="zh">按新西兰《隐私法》，你可以查看、更正或删除你的信息。</span></p></div>
@@ -756,23 +694,7 @@ footer .credits { margin-top: 20px; font-size: 12.5px; color: var(--ink-3); }
           <button class="btn dark" type="submit"><span lang="en">Notify me</span><span lang="zh">通知我</span></button>
           <div class="form-msg" role="status" aria-live="polite"></div>
         </form>
-        <form class="form-card" data-kind="resort" novalidate>
-          <h3><span lang="en">Resort pilot enquiry</span><span lang="zh">雪场试点咨询</span></h3>
-          <p class="sub"><span lang="en">For ski patrol, safety and operations teams. We'll reply within two working days.</span><span lang="zh">给雪场救援、安全和运营团队。我们会在两个工作日内回复。</span></p>
-          <div class="row2">
-            <label><span lang="en">Your name</span><span lang="zh">你的名字</span><input type="text" name="name" required autocomplete="name"></label>
-            <label><span lang="en">Role</span><span lang="zh">职位</span><input type="text" name="role" autocomplete="organization-title" placeholder="Patrol manager"></label>
-          </div>
-          <div class="row2">
-            <label><span lang="en">Resort</span><span lang="zh">雪场</span><input type="text" name="resort" required autocomplete="organization"></label>
-            <label><span lang="en">Work email</span><span lang="zh">工作邮箱</span><input type="email" name="email" required autocomplete="email"></label>
-          </div>
-          <label><span lang="en">Message (optional)</span><span lang="zh">留言（可选）</span><textarea name="message"></textarea></label>
-          <button class="btn dark" type="submit"><span lang="en">Send enquiry</span><span lang="zh">发送</span></button>
-          <div class="form-msg" role="status" aria-live="polite"></div>
-        </form>
       </div>
-      <p class="fine" style="margin-top: 16px"><span lang="en">Or email </span><span lang="zh">也可以直接发邮件到 </span><a href="mailto:partners@alpmate.nz">partners@alpmate.nz</a></p>
     </div>
   </section>
 </main>
@@ -791,7 +713,7 @@ footer .credits { margin-top: 20px; font-size: 12.5px; color: var(--ink-3); }
         <span><span lang="en">Piste data © OpenStreetMap contributors</span><span lang="zh">雪道数据 © OpenStreetMap contributors</span></span>
       </div>
     </div>
-    <p class="credits"><span lang="en">Photos (Wikimedia Commons): Round Hill and Lake Ohau by Pseudopanax, The Remarkables by Inas, Treble Cone by Maelgwn — public domain; Cardrona by RoLam007 — CC0. App screens show sample data.</span><span lang="zh">照片（Wikimedia Commons）：Round Hill、Lake Ohau 来自 Pseudopanax，The Remarkables 来自 Inas，Treble Cone 来自 Maelgwn（公有领域）；Cardrona 来自 RoLam007（CC0）。App 画面为示例数据。</span></p>
+    <p class="credits"><span lang="en">Photos (Wikimedia Commons): Round Hill and Lake Ohau by Pseudopanax, The Remarkables by Inas, Treble Cone by Maelgwn — public domain. App screens show sample data.</span><span lang="zh">照片（Wikimedia Commons）：Round Hill、Lake Ohau 来自 Pseudopanax，The Remarkables 来自 Inas，Treble Cone 来自 Maelgwn（公有领域）。App 画面为示例数据。</span></p>
   </div>
 </footer>
 
@@ -812,40 +734,8 @@ footer .credits { margin-top: 20px; font-size: 12.5px; color: var(--ink-3); }
     try { localStorage.setItem('alpmate.lang', next); } catch (e) {}
   });
 
-  // 求助流程：点步骤换截图；自动轮播，鼠标放上去暂停
-  var flow = document.getElementById('flow');
-  var steps = Array.prototype.slice.call(flow.querySelectorAll('.step'));
-  var img = document.getElementById('flow-img');
-  var who = document.getElementById('flow-who');
-  var cur = 0, DUR = 6000, timer = null, paused = false;
-  flow.style.setProperty('--dur', DUR / 1000 + 's');
-  steps.forEach(function (s) { new Image().src = '/assets/' + s.dataset.img + '.webp'; });
-  function show(i) {
-    cur = (i + steps.length) % steps.length;
-    var side = steps[cur].dataset.side;
-    steps.forEach(function (s, k) {
-      s.setAttribute('aria-selected', k === cur ? 'true' : 'false');
-      var bar = s.querySelector('.bar-p'); bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = '';
-    });
-    who.classList.toggle('patrol', side === 'patrol');
-    who.querySelectorAll('[data-skier]').forEach(function (el) { el.textContent = el.getAttribute('data-' + side); });
-    img.style.opacity = 0;
-    setTimeout(function () { img.src = '/assets/' + steps[cur].dataset.img + '.webp'; img.style.opacity = 1; }, reduce ? 0 : 160);
-    schedule();
-  }
-  function schedule() { clearTimeout(timer); if (!paused && !reduce) timer = setTimeout(function () { show(cur + 1); }, DUR); }
-  steps.forEach(function (s, k) {
-    s.addEventListener('click', function () { show(k); });
-    s.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); show(k + 1); steps[cur].focus(); }
-      if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); show(k - 1); steps[cur].focus(); }
-    });
-  });
-  flow.addEventListener('mouseenter', function () { paused = true; flow.classList.add('paused'); clearTimeout(timer); });
-  flow.addEventListener('mouseleave', function () { paused = false; flow.classList.remove('paused'); schedule(); });
-
-  // 实时地图：救援队员从顶站出发，沿绿道滑到伤者位置；距离按剩余路程递减
-  var run = document.getElementById('run'), pat = document.getElementById('patroller'), trail = document.getElementById('trail');
+  // 小队地图：队友从缆车顶站出发，沿绿道滑到你的位置；距离按剩余路程递减
+  var run = document.getElementById('run'), pat = document.getElementById('mate'), trail = document.getElementById('trail');
   var skier = document.getElementById('skier');
   var ds = document.querySelectorAll('.chip.dist .d');
   var len = run.getTotalLength(), AT = len * 0.58, STOP = AT - 26, raf = null, start = null, RUN = 9000, FROM = 480, TO = 20;
@@ -895,8 +785,8 @@ footer .credits { margin-top: 20px; font-size: 12.5px; color: var(--ink-3); }
   // 登记表单：提交到 Supabase（site_signup）
   var SUPA = 'https://wvfnkuxlwsjqahwfymve.supabase.co', KEY = 'sb_publishable_BkPWPJKXkib2QOwEmE61yA_440zWF4l';
   var T = {
-    en: { sending: 'Sending…', ok: { launch: "Thanks — we'll email you when AlpMate launches.", resort: "Thanks — we'll be in touch within two working days." }, badEmail: 'Please enter a valid email address.', missing: 'Please fill in the required fields.', tooMany: 'Too many attempts — please try again later.', fail: 'Something went wrong. Please email hello@alpmate.nz instead.' },
-    zh: { sending: '正在提交…', ok: { launch: '谢谢！雪伴上线时我们会发邮件告诉你。', resort: '谢谢！我们会在两个工作日内联系你。' }, badEmail: '请输入正确的邮箱地址。', missing: '请填写必填的内容。', tooMany: '提交太频繁了，请稍后再试。', fail: '提交没成功，请直接发邮件到 hello@alpmate.nz。' }
+    en: { sending: 'Sending…', ok: { launch: "Thanks — we'll email you when AlpMate launches." }, badEmail: 'Please enter a valid email address.', missing: 'Please fill in the required fields.', tooMany: 'Too many attempts — please try again later.', fail: 'Something went wrong. Please email hello@alpmate.nz instead.' },
+    zh: { sending: '正在提交…', ok: { launch: '谢谢！雪伴上线时我们会发邮件告诉你。' }, badEmail: '请输入正确的邮箱地址。', missing: '请填写必填的内容。', tooMany: '提交太频繁了，请稍后再试。', fail: '提交没成功，请直接发邮件到 hello@alpmate.nz。' }
   };
   document.querySelectorAll('form[data-kind]').forEach(function (f) {
     var msg = f.querySelector('.form-msg') || f.nextElementSibling;
@@ -906,7 +796,6 @@ footer .credits { margin-top: 20px; font-size: 12.5px; color: var(--ink-3); }
       var v = function (n) { var el = f.elements[n]; return el ? el.value.trim() : ''; };
       msg.className = 'form-msg';
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v('email'))) { msg.textContent = t.badEmail; msg.classList.add('err'); return; }
-      if (kind === 'resort' && (!v('name') || !v('resort'))) { msg.textContent = t.missing; msg.classList.add('err'); return; }
       var btn = f.querySelector('button'); btn.disabled = true; msg.textContent = t.sending;
       fetch(SUPA + '/rest/v1/rpc/site_signup', {
         method: 'POST',
@@ -918,7 +807,6 @@ footer .credits { margin-top: 20px; font-size: 12.5px; color: var(--ink-3); }
         .then(function () { btn.disabled = false; });
     });
   });
-  show(0);
 })();
 </script>
 </body>
